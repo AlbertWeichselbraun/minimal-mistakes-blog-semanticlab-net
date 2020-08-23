@@ -1,0 +1,63 @@
+---
+status: publish
+published: true
+title: Identifying Relations for Open Information Extraction
+wordpress_id: 216
+wordpress_url: https://blog.semanticlab.net/?p=216
+date: '2012-01-10 20:51:51 +0100'
+date_gmt: '2012-01-10 19:51:51 +0100'
+categories:
+- Information Extraction
+tags:
+- evaluation
+- constraints
+comments: []
+---
+<p>by Fader et al.</p>
+<p>This paper addresses two major shortcomings of state of the art open information extraction systems:</p>
+<ol>
+<li>uninformative extractions that omit critical information
+"Faust made a deal with the devil" -> "Faust" - "made" - "deal"</li></p>
+<li>incoherent extractions that yield phrase with no meaningful interpretation
+"The guide contains dead links and omits sites" -> "contains omits"
+"The Mark 14 was central to the torpedo scandal of the fleet" -> "was central torpedo"</li>
+</ol>
+The authors show that the use of <strong>syntactic </strong>and <strong>lexical constraints</strong> yield significant improvements in terms of precision.</p>
+<p><strong>Important Definitions</strong></p>
+<ul>
+<li>information extraction systems - learn an extractor per target relation and therefore do not scale to well</li>
+<li>open information extraction - identify relational phrases by
+<ul>
+<li><strong>labeling</strong> sentences using heuristics or supervision</li>
+<li><strong>learning</strong> phrases based on the training examples (TextRunner needs approximately 200,000 heuristically labeled sentences)</li>
+<li><strong>extracting</strong> data based on the learned model</li>
+</ul>
+</li></p>
+<li>light verb constructions (LVC) are multi-word expressions that are composed of a verb and a noun, with the noun carrying the semantic content of the predicate
+<em>examples:</em></p>
+<ul>
+<li>is -> is an album my, is the author of, is a city in</li>
+<li>has -> has a population of, has a Ph.D. in, ...</li>
+</ul>
+</li>
+</ul>
+<strong>Applications of Open IE</strong></p>
+<ul>
+<li>learning of selectional preferences (Ritter et al., 2010)</li>
+<li>acquiring common sense knowledge (Lin et al., 2010)</li>
+<li>recognizing entailment (Schoenmackers et al., 2010; Berant et al., 2011)</li>
+<li>mapping onto existing ontologies (Soderland et al., 2010)</li>
+</ul>
+<strong>Syntactic constraints</strong></p>
+<ul>
+<li>require phrases to match POS tag patterns</li>
+<li>multiple possible matches => the longest is chosen</li>
+</ul>
+<strong>Lexical constraints</strong></p>
+<ul>
+<li>prevent over-specified relation phrases such as "is offering only ...." by requiring phrases to appear multiple times in the corpus</li>
+</ul>
+<strong>Used evaluation metric</strong></p>
+<ul>
+<li>Precision-Recall curve</li>
+</ul></p>

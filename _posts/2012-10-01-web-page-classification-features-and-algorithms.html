@@ -1,0 +1,70 @@
+---
+status: publish
+published: true
+title: 'Web Page Classification: Features and Algorithms'
+wordpress_id: 311
+wordpress_url: https://blog.semanticlab.net/?p=311
+date: '2012-10-01 12:16:56 +0200'
+date_gmt: '2012-10-01 11:16:56 +0200'
+categories:
+- Articles
+tags:
+- text classification
+- feature selection
+- hierarchical classification
+comments: []
+---
+<div class="csl-bib-body" style="line-height: 1.35; padding-left: 2em; text-indent: -2em;">
+<div class="csl-entry">Qi, X. &amp; Davison, B.D., 2009. Web page classification: Features and algorithms. <em>ACM Comput. Surv.</em>, 41(2), pp.12:1&mdash;12:31.</div>
+</div></p>
+<div class="csl-entry"></div></p>
+<div class="csl-entry">Classification is a traditionally posed as a supervised learning problem. The most common classification tasks are:</div></p>
+<div class="csl-entry">
+<ul>
+<li>subject classification (topic)</li>
+<li>functional classification (role of a Web page; e.g. personal homepage, course page, admission page, ...)</li>
+<li>sentiment classification</li>
+<li>other types of classification (e.g. genre, spam, ...)</li>
+</ul></p>
+<h3>Applications</h3></p>
+<ul>
+<li>Constructing, maintaining and extending Web directories</li>
+<li>Improving the quality of search results</li>
+<li>Question answering systems</li>
+<li>Building efficient focused crawlers</li>
+<li>Domain-specific search engines</li>
+<li>Web content filtering</li>
+<li>Contextual advertising</li>
+<li>Ontology annotation</li>
+<li>Knowledge base construction</li>
+</ul></p>
+<h3>Features</h3>
+Qi and Davison (2009) distinguish between <strong>on-page features </strong>and<strong> neighbor features. </strong>The later group is especially useful in cases, where the features of a particular Web page are missing, misleading or unrecognizable (e.g. flash intros, image-map navigation, etc). In such cases features extracted from neighboring (especially sibling) pages have considerably improved the classification performance.</p>
+<p>The following on-page features are of special importance:</p>
+<ul>
+<li>n-gram representations because they are able to capture concepts expressed by phrases (Shen et al. 2006)</li>
+<li>HTML tags</li>
+<li>URLs</li>
+<li>Visual analysis</li>
+</ul></p>
+<h3>Feature Selection</h3></p>
+<ul>
+<li>Information gain</li>
+<li>mutual information</li>
+<li>document frequency</li>
+<li>Chi-squared test</li>
+</ul></p>
+<h3>Hierarchical Classification</h3>
+Dumais and Chen (2000) suggest the use of hierarchical structures for Web page classification based on classical "divide and conquer" approaches. They show that splitting the classification problem into a set of sub-problems at each level of the hierarchy is more efficient and accurate than classifying using a flat model. Wibowo and Willisams (2002) suggested methods to minimize errors by shifting the class assignment into higher level of the hierarchy if the lower-level assignment is uncertain.</p>
+<p>Liu et al. (2005) studied the scalability and effectiveness of SVMs for classifying documents into large-scale taxonomies. They found that although hierarchical SVMs are more efficient than flat SVMs neither approach yields satisfying results for large taxonomies. They also showed that under certain conditions hierarchical settings do more harm than good when used for k-Nearest Neighbor or Naive Bayes classifiers.</p>
+<p>&nbsp;</p>
+<h3>Literature</h3></p>
+<div class="csl-bib-body" style="line-height: 1.35; padding-left: 2em; text-indent: -2em;">
+<div class="csl-entry">Dumais, S. &amp; Chen, H., 2000. Hierarchical classification of Web content. In <em>Proceedings of the 23rd annual international ACM SIGIR conference on Research and development in information retrieval</em>. SIGIR  &trade;00. New York, NY, USA: ACM, pp. 256&mdash;263. Available at: http://doi.acm.org/10.1145/345508.345593 [Accessed October 1, 2012].</div></p>
+<div class="csl-entry">Liu, T.-Y. et al., 2005. Support vector machines classification with a very large-scale taxonomy. <em>SIGKDD Explor. Newsl.</em>, 7(1), pp.36&mdash;43.</div></p>
+<div class="csl-entry"></div></p>
+<div class="csl-entry">Shen, D. et al., 2006. Text classification improved through multigram models. In <em>Proceedings of the 15th ACM international conference on Information and knowledge management</em>. CIKM  &trade;06. New York, NY, USA: ACM, pp. 672&mdash;681. Available at: http://doi.acm.org/10.1145/1183614.1183710 [Accessed September 28, 2012].</div></p>
+<div class="csl-entry">Wibowo, W. &amp; Williams, H.E., 2002. Simple and accurate feature selection for hierarchical categorisation. In <em>Proceedings of the 2002 ACM symposium on Document engineering</em>. DocEng  &trade;02. New York, NY, USA: ACM, pp. 111&mdash;118. Available at: http://doi.acm.org/10.1145/585058.585079 [Accessed October 1, 2012].</div>
+</div></p>
+<div class="csl-bib-body" style="line-height: 1.35; padding-left: 2em; text-indent: -2em;"></div>
+</div></p>

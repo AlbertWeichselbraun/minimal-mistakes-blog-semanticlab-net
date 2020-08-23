@@ -1,0 +1,43 @@
+---
+status: publish
+published: true
+title: On How to Perform a Gold Standard Based Evaluation of Ontology Learning
+wordpress_id: 80
+wordpress_url: https://blog.semanticlab.net/?p=80
+date: '2010-03-03 14:40:57 +0100'
+date_gmt: '2010-03-03 13:40:57 +0100'
+categories:
+- Ontology Evaluation
+tags:
+- criteria for evaluation measures
+- Ontology Evaluation
+- evaluation measure
+- taxonomic overlap
+- precision
+- recall
+comments: []
+---
+<p>by K. Dellschaft and St. Staab</p>
+<p>This work provides an excellent overview of ontology evaluation measures, specifies criteria for good measures and introduces a new measure which considers (i) lexical precision and recall, (ii) taxonomic precision and recall, (iii) the taxonomic F- and F'-measure and (iv) taxonomic overlap. An evaluation demonstrates how the new evaluation measure allows to spot problems with ontology extension components more accurately.</p>
+<p><strong>Ontology Evaluation Measure:</strong></p>
+<ul>
+<li>lexical layer: <em>binary</em> versus <em>scalar</em> measures (e.g. based on the edit distance, etc.) used to compute precision and recall</li>
+<li>taxonomy:
+<ul>
+<li>Taxonomic Overlap (TO) compares to concepts based on the set of all their super- and sup-concepts.</li>
+<li>Learning Accuracy (LA) -> augmented precision and recall</li>
+<li>Balance Distance Metric (BDM) -> augmented precision and recall</li>
+<li>OntoRand Index: combines two alternative measure: (i) set of common ancestors, (ii) distance of the concepts within the tree (like LA and BDM)</li>
+</ul>
+</li></p>
+<li>non-taxonomic relations:</li>
+</ul></p>
+<div><strong>Criteria for Good Evaluation Measures:</strong></div></p>
+<div>
+<ul>
+<li>support for multiple dimensions (different weights to different kinds of errors)</li>
+<li>each measure should only be influence by <em>one</em> dimension</li>
+<li>the impact of an error should be proportional to the distance between the correct and the incorrect result</li>
+<li>monotony (a decrease of the measure corresponds to a worse ontology)</li>
+</ul>
+</div></p>

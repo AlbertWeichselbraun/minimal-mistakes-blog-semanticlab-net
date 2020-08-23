@@ -1,0 +1,77 @@
+---
+status: publish
+published: true
+title: Clash of the Contagions - Cooperation and Competition in Information Diffusion
+wordpress_id: 362
+wordpress_url: https://blog.semanticlab.net/?p=362
+date: '2012-12-23 05:40:22 +0100'
+date_gmt: '2012-12-23 04:40:22 +0100'
+categories:
+- Information Diffusion
+tags:
+- information diffusion
+- naive bayes
+- model fitting
+- high number of parameters
+- stochastic gradient descent
+comments: []
+---
+<p>by Seth A. Myers and Jure Leskovec, IEEE International Conference on Data Mining (ICDM 2012), Brussels, Belgium</p>
+<h1>Introduction</h1>
+The authors present a statistical information diffusion model that considers competition as well as cooperation between contagions.</p>
+<ol>
+<li>during processing information sources (Web pages, TV, Tweets) - or being exposed to contagions - we constantly make choices whether to process (= getting infected with the contagion) or ignore these events.</li>
+<li>the authors distinguish tree different factors that determine, whether an infection takes place:</li>
+<ul>
+<li>interestingness of the content (= content virality)</li>
+<li>likelihood of the user to share the content (=user bias)</li>
+<li>the content interaction term (= past exposures)</li>
+</ul>
+</ol></p>
+<h2>Potential benefits</h2></p>
+<ol>
+<li>optimizing click-through rates by optimizing content placing</li>
+<li>combat the spread of negative pieces of information</li>
+</ol></p>
+<h2>Related work:</h2></p>
+<ul>
+<li>models of <em>contagions in isolation:</em> standard information diffusion approaches such as: Linear Threshold Models, Independent Cascade Models, exposure curves</li>
+<li>models assuming that <em>contagions are mutually exclusive </em>(e.g. adoption of technology in a company such as Skype versus Google Hangout)</li>
+</ul></p>
+<h1>Method</h1>
+The test set consists of URLs in Twitter tweets. Users are infected when they re-tweet a certain URL. Users are modeled as nodes. If a user, re-tweets a URL all his followers become exposed to that particular URL.</p>
+<p>The probability of infection is altered by a contagion's (<em>X</em>) predecessors ($$Y_k$$) that are considered within a sliding window of size <em>K</em>. Therefore, the conditional probability of an infection is computed as</p>
+<p>\[P(X|Y_1, Y_2, ... Y_K)\]</p>
+<p>The authors make the following assumptions to decrease the number of different contagion combinations:</p>
+<ol>
+<li>$$Y_k$$ is independent of $$Y_l$$ => they only need to consider $$P(X|Y_k)$$ rather than every possible contagion sequence.</li>
+<li>they only consider the interaction between clusters (i.e., latent topics) rather than between all pairs of contagions.</li>
+</ol></p>
+<div>Based on these assumptions they model</div></p>
+<div>\[P(X|Y_k) = P(X) + \Delta^{(k)}_{cont}(u_i, u_j)\]</div></p>
+<div>where $$\Delta^{(k)}_{cont}(u_i, u_j)$$ represents the effect a contagion $$u_i$$ has on contagion $$u_j$$ from <em>k</em> exposures away.</div></p>
+<div></div></p>
+<h2>Solution</h2></p>
+<div>
+<ol>
+<li>in the rare cases where the $$\Delta$$ term leads to negative probabilities the authors set the probability to a minimum value of 1E-10</li>
+<li>the models obtained have a <strong>high number of parameters</strong>. The authors tried numerous methods to optimize these parameters and discovered that a variation of <strong>stochastic gradient descent</strong> worked best for the given use case.</li>
+</ol></p>
+<h2>Dataset</h2></p>
+<div>The raw dataset contained more than 3 billion tweets that where filtered based on the following criteria:</div></p>
+<div>
+<ol>
+<li>Tweets containing URLs that where tweeted by at least 50 users (191,650 URLs)</li>
+<li>URLs referring to sites which contain enough (>=50 tokens) texts to determine a latent topic (39,771 URLs)</li>
+<li>URLs referring to English sites (18,186 URLs and 2,664,207 infectiuous events, i.e. Tweets)</li>
+</ol>
+</div>
+</div></p>
+<h1>Results</h1>
+The paper provides evidence that more infectious URLs have</p>
+<ol>
+<li>a negative (suppressive) effect on less infectious URLs of <em>unrelated</em> content, and</li>
+<li>a positive effect on less infectious URLs of <em>related content.</em></li>
+</ol>
+&nbsp;</p>
+<p>&nbsp;</p>

@@ -1,0 +1,53 @@
+---
+status: publish
+published: true
+title: Text-based Information Retrieval (T-IR)
+wordpress_id: 43
+wordpress_url: https://blog.semanticlab.net/2008/09/07/text-based-information-retrieval-t-ir/
+date: '2008-09-07 19:33:40 +0200'
+date_gmt: '2008-09-07 18:33:40 +0200'
+categories:
+- Information Retrieval
+- Conferences
+tags: []
+comments: []
+---
+<p>a Workshop organized by Benno Stein.</p>
+<h2>Content Extraction (from Web pages)</h2>
+Filter lines based on the <i>content to tags</i> ratio.</p>
+<pre>
+ a <- ASCII characters per line
+ t <- tags per line</p>
+<p> -> compute a/t (or 1 if t=0)
+</pre></p>
+<p>points to consider:</p>
+<ul>
+<li>problem: the algorithm might remove titles: the tags in the titles are most times also available in the paper (=> not that bad, if you don't get the title)</li>
+<li>importance of precision vs. recall - depends on the use case
+<ul>
+<li>database of criminals (=> high recall)</li>
+<li>Google search (=> high precision; because i can only read a small fraction of all available documents)</li>
+   </ul></p>
+<li>Content Code blurring (by Gottron, Thomas et. al)
+<ul>
+<li>sliding window: document slope curve (DSC)</li>
+<li>link quota functions often block <i>too</i> much hyperlinks => remove too big blocks (that's a problem especially with Wikipedia, ...)</li>
+<li>idea: find regions with a lot of content and little code (similar formatting)</li>
+<li>blurring -> apply a Gaussian function => grey</li>
+<li>multiple blurring => more fuzzy algorithm => increases recall</li>
+<li><i>start point</i>
+          remove content; scripts and whitespaces (\n, " ", ...)</li></p>
+<li><i>baselines for the comparisons</i>
+<ul>
+<li><b>high recall corpus</b>: extract all the plain text => recall = 1; precision: worst</li>
+<li><b>gold standard</b>: manually copy and paste the text from the web pages</li>
+        </ul>
+     </ul></li></p>
+<li>Suggestions from Benno Stein: final approach: screenshots + OCR (because displayed page and sourcecode will divert even more strongly in the future; extension: render only parts of the page (e.g. without pictures)
+<li>Other Approaches
+<ul>
+<li>Crunch framework: www03 (gupta, kaiser, neistadt, grimm) -> dom based</li>
+     </ul></li>
+    </ul>
+  </li>
+</ul></p>

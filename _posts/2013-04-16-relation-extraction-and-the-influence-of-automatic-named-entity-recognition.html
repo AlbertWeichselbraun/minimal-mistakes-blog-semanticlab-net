@@ -1,0 +1,71 @@
+---
+status: publish
+published: true
+title: Relation Extraction and the Influence of Automatic Named-Entity Recognition
+wordpress_id: 603
+wordpress_url: http://blog.semanticlab.net/?p=603
+date: '2013-04-16 10:20:04 +0200'
+date_gmt: '2013-04-16 09:20:04 +0200'
+categories:
+- Information Extraction
+tags:
+- relation extraction
+- support vector machines
+- global context
+- local context
+comments: []
+---
+<div>
+<div>Giuliano, C., Lavelli, A. &amp; Romano, L., 2007. Relation extraction and the influence of automatic named-entity recognition. ACM Transactions on Speech and Language Processing, 5(1), pp.2:1&mdash;2:26.</div>
+</div></p>
+<h1>Introduction</h1>
+Relation extraction aims at identifying (directed) (binary) relations $$R_{ij} = (E_i, E_j) := R_{ji} = (E_j, E_i)$$ in text documents. This article introduces an approach that uses kernel functions to integrate information from (i) the sentence where the relation appears, and (ii) the local context around the interacting entities.</p>
+<h1>Method</h1>
+The authors treat relation extraction as a classification task that distinguishes the following classes:</p>
+<ol>
+<li>correct: <span style="text-decoration: underline;">locatedIn(Chur, Switzerland)</span> -> 2</li>
+<li>correct, but incorrect direction: <span style="text-decoration: underline;">locatedIn(Switzerland, Chur)</span>-> 1</li>
+<li>incorrect: <span style="text-decoration: underline;">locatedIn(Chur, St. Gallen)</span> -> 0</li>
+<li>wrong entity types: <span style="text-decoration: underline;">locatedIn(Christian Toth, Chur)</span> -> -1</li>
+</ol>
+The method uses data from two different kinds of kernel functions (see below) for assigning sentences to one of the four classes. These kernels are combined to a <em>shallow linguistic kernel</em> ($$K_{SL}$$) using the linear combination</p>
+<p>\[ K_{SL}(R_1,R_2) = K_{GC}(R_1,R_2) + K_{LC}(R_1,R_2). \]</p>
+<p>The method was implemented using the LibSVM package.</p>
+<h2>Global Context Kernel</h2>
+Bunesco and Mooney (2005) observe that relations between entities are usually expressed in one of the following contexts:</p>
+<ol>
+<li><em>Fore-Between (FB):</em> e.g. "the head of [org]<strong>,</strong> Dr [per]"</li>
+<li><em>Between (B):</em> e.g. "[org] spokesman [per]"</li>
+<li><em>Between-After (BA):</em> e.g. "[per]<strong>,</strong> a [org] law professor"</li>
+</ol>
+The context is represented as an unordered <em>bag-of-words</em> that contains the number of times a particular token (and the corresponding n-grams) $$t_i$$ is used in $$C$$ yielding the global context kernel ($$K_{GC}$$):</p>
+<p>\[ K_{GC}(R_1, R_2) = K_{FB}(R_1, R_2) + K_{B}(R_1, R_2) + K_{BA}(R_1, R_2)\]</p>
+<h2>Local Context Kernel</h2>
+The local context often provides clues for (i) the presence of a relation and (ii) its direction. The authors represent each local context by using the following basic features considering the ordering of tokens</p>
+<ol>
+<li>Token</li>
+<li>Lemma of the token</li>
+<li>POS-Tag of the token</li>
+<li>Stem of the token</li>
+<li>Orthographic, a function that maps tokens into equivalence classes such as capitalization, punctuation and numerals.</li>
+</ol>
+The local kernel therefore amounts to</p>
+<p>\[ K_{LC}(R_1, R_2) = K_{left}(R_1, R_2) + K_{right}(R_1, R_2)\]</p>
+<h1>Evaluation</h1>
+The authors performed a 5-fold cross-validation with the dataset used by Roth and Yin (2007) that is based on the <a href="http://l2r.cs.uiuc.edu/~cogcomp/Data/ER/conll04.corp">TREC 2004 corpus</a> considering the following relation types: locatedIn, workFor, orgBasedIn, liveIn, kill, and noRel yielding</p>
+<ol>
+<li>F1 values between 71 and 82% for gold-standard named entities (=> all named entities are known), and</li>
+<li>F1 values between 69 and 81% without the gold-standard named entities. The evaluation also discusses the impact of named entities introduced by an incorrect NER (spurious named entities) and of missing named entities.</li>
+</ol></p>
+<h1>Bibliography</h1></p>
+<div>
+<div>
+<ol>
+<li>
+<div>
+<div>Bunescu, R.C. &amp; Mooney, R.J., 2005. Subsequence Kernels for Relation Extraction. In <em>19th Conference on Neural Information Processing Systems (NIPS&trade;05)</em>. Vancouveer, British Columbia, Canada.</div>
+</div></li></p>
+<li>Roth, D. &amp; Yih, W., 2004. A Linear Programming Formulation for Global Inference in Natural Language Tasks. In H. T. Ng &amp; E. Riloff, eds. <em>8th Conference on Computational Natural Language Learning (CoNLL 2004)</em>. Association for Computational Linguistics, pp. 1&mdash;8.</li>
+</ol>
+</div>
+</div></p>

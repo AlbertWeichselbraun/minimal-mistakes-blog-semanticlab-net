@@ -1,0 +1,52 @@
+---
+status: publish
+published: true
+title: Meme ranking to maximize post virality in microblogging platforms
+wordpress_id: 573
+wordpress_url: http://blog.semanticlab.net/?p=573
+date: '2013-04-09 05:32:20 +0200'
+date_gmt: '2013-04-09 04:32:20 +0200'
+categories:
+- Information Diffusion
+tags:
+- content placement strategies
+- content life cycle
+- social media
+- properties
+comments: []
+---
+<p>Bonchi, F., Castillo, C., &amp; Ienco, D. (2013). Meme ranking to maximize posts virality in microblogging platforms. Journal of Intelligent Information Systems, 40(2), 211&mdash;239. doi:10.1007/s10844-011-0181-4</p>
+<p>This article discusses the meme ranking problem, i.e. the problem of selecting the <em>k top-memes</em> to show users after logging into the system which maximize the size of the meme propagtion tree and, therefore, the total number of reposts in the network.</p>
+<h1>Analysis</h1>
+The authors define a social network as a directed graph <em>G=(V,E) </em> based on the followed-follower relationship with users $$u, v \in V$$ that are connected either by (i) an explicit follower relation, or (ii) by a previous repost of a meme posted by <em>u</em>.</p>
+<p>The average clustering coefficient of the resulting undirected graph is 0.25, the average repost per meme 2.5 (the original post + 1.5 reposts), and the number of memes that are never reposted amounts to 77%.</p>
+<p>Reposts seem to depend on the following factors:</p>
+<ol>
+<li><em>currentness</em> of the meme: 80% of the reposts occur within the first day the meme is published <em>(T)</em></li>
+<li><em>content</em>: memes that are more similar to the a users preferences (modeled by the concatenation of all memes he has ever reposted) have a higher likelihood of being reposted<em> (M)
+</em></li></p>
+<li><em>followers</em> are more likely to repost a meme<em> (V)
+</em></li>
+</ol>
+The probability of a repost is computed as the function $$p: M \times V \times V \times T \rightarrow [0,1]$$. The author provide a detailed analysis outlining why solving the meme ranking problem is prohibitively complex.</p>
+<h1>Heuristics</h1></p>
+<ol>
+<li>Baseline methods are (i) random, that randomly selects the top meme and, (ii) recency, which choses the <em>k</em> most recent memes for a user and is the current de facto standard for microblogging sites.</li>
+<li>User-centered methods select memes based on (i) the user's interest, (ii) the influence of u over v (i.e. the historical probability of posts coming from u to be reposted by v) and (iii) a combination of the two.</li>
+<li>Follower-centered methods, optimize the content based on the preferences of a user's followers (rather than for the user). The authors also reconfirmed that considering the top-n followers with respect to their spread yielded a better performance than popularity (i.e. the out-degree). Therefore, the out-degree does not seem to be the best metric for future influence.</li>
+</ol></p>
+<h1>Method</h1>
+The authors used Monte-Carlo simulations with a granularity of one hour in their experiments and learned the repost similarities and parameters as follows:</p>
+<ol>
+<li><strong>Extended user interest</strong> is represented as a concatenation (bag-of-words) of all the memes a user has ever posted or reposted and of the first user that re-posted the memes. Considering these re-posts often yields text for posts that contain only URLs to images or videos.</li>
+<li><strong>Influence</strong> refers to the probability of memes posted by user <em>u</em> to be reposted by a user <em>v.</em></li>
+<li><strong>Repost probability</strong> is computed using logistic regression on a training dataset. Afterwards the time is incorporated as follows
+\[ p(repost(v, u, m, t)) = \begin{cases}max(p^m_{u,v}, \epsilon) &amp;\text{if } t-t_u \leq \tau_v; \\\epsilon &amp; \text{otherwise}\end{cases}\]
+The repost probability, therefore, either is $$p^m_{u,v}$$ if the meme is recent (not older than $$\tau_v$$) or a residue value $$\epsilon$$ otherwise.</li>
+</ol>
+The simulations showed that time-dependent heuristics performed best, i.e. that time seems to be the dominant factor determining the probability of a repost.</p>
+<h1>Notes</h1></p>
+<ol>
+<li>time-based ranking strategies are quite successful.</li>
+<li>is the short attention spawn of microblogging platforms caused  of the the dominance of time-based ranking strategies, or are these strategies so successful because people using microblogging platforms only repost new memes rather than discuss old ones.</li>
+</ol></p>

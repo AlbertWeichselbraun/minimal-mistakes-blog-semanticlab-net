@@ -1,0 +1,38 @@
+---
+status: publish
+published: true
+title: Comparing the Sensitivity of Information Retrieval Metrics
+wordpress_id: 103
+wordpress_url: https://blog.semanticlab.net/?p=103
+date: '2011-02-22 09:51:14 +0100'
+date_gmt: '2011-02-22 08:51:14 +0100'
+categories:
+- Information Retrieval
+- Geo
+- Conferences
+- User Evaluation
+- Evaluation Metrics
+tags:
+- Information Retrieval
+- metrics
+comments: []
+---
+<p>by Radlinsky and Craswell (SIGIR 2010)</p>
+<p>This paper compares user behaviour based IR metrics with the following standard IR metrics:</p>
+<ul>
+<li> Precision@k -- the precision at a certain cut-off point</li>
+<li>Mean Average Precision (MAP) -- average of the Precision@k</li>
+<li>Normalized Discounted Cumulative Gain (NDCG)</li>
+</ul>
+Regarding the role of evaluation metrics, the authors note that</p>
+<ul>
+<li>sensitive measures are required to detect large numbers of small improvements (an absolute improvement of the IR algorithm of 5-6% was required before the direction of the difference could be detected on fifty TREC topics),</li>
+<li>changing from informational to navigational assumptions when judging the metric can change the outcome, and</li>
+<li>on fidelity judges are usually (i) far removed from the search process and, therefore, create unrealistic queries based on observation, and (ii) have a hard time assessing documents according to the user's _actual_ information needs.</li>
+</ul>
+<strong>Evaluation:</strong></p>
+<p><em>Judgment Based metrics</em>:
+The authors let <strong>trained judges</strong> assess the relevance of the top ten results based on a <strong>five-point scale.</strong> As precision and MAP require binary results (relevant vs. non-relevant) these results where converted 1-2 (=relevant), 3-5 (=non-relevant) to a binary scale.</p>
+<p><em>Evaluation with Interleave:</em>
+The evaluation with interleave is performed by combining the results of two retrieval functions (omitting duplicates) and using the users' clicks to indicate a relative preference for one of these functions.</p>
+<p>The evaluations show that for a small number of results the "better" ranker might perform worse according to some metrics (e.g. MAP). In conclusion, standard IR metrics require about 5,000 queries compared to 50,000 queries when using interleaving to detect small differences in the IR algorithm.</p>

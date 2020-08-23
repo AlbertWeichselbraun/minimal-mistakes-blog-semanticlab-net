@@ -1,0 +1,44 @@
+---
+status: publish
+published: true
+title: 'Hazy: Making It Easier to Build and Maintain Big-Data Analytics'
+wordpress_id: 543
+wordpress_url: https://blog.semanticlab.net/?p=543
+date: '2013-04-01 13:43:55 +0200'
+date_gmt: '2013-04-01 12:43:55 +0200'
+categories:
+- Uncategorized
+- Big data
+tags:
+- Big data
+- algorithms
+comments: []
+---
+<p style="padding-left: 30px;">Kumar, Arun, Feng Niu, and Christopher R&Atilde;&copy;. Hazy: Making It Easier to Build and Maintain Big-data Analytics. <em>Communications of the ACM</em> 56, no. 3 (March 2013): 40&mdash;49. doi:10.1145/2428556.2428570.</p>
+This article introduced the Hazy project, an approach that identifies common patterns for implementing algorithms for big data analytics. Hazy distinguishes between two different kind of abstractions: (i) programming abstractions which provide means to decouple applications from the underlying algorithms, and (ii) infrastructure abstractions that provide an infrastructure for implementing algorithms.</p>
+<h1>Programming Abstractions</h1>
+Hazy provides programming abstractions through a combination of the <em>relational data model</em> and a <em>probabilistic rule-based language</em>. The project uses the <strong>Markov logic language</strong> <em>(</em>Markov logical program or Markov logical network (MLN)) that consists of rules and the probability of results obtained from these rules.</p>
+<h1>Infrastructure Abstractions</h1>
+<strong>Bismarck</strong> is a unified architecture for in-DBMS analytics aims at providing a DBMS-based infrastructure abstraction that decouples algorithms from implementation details.</p>
+<ol>
+<li>The key insight in Bismarck was, that Incremental Gradient Descent (IGD) - a method for solving convex programming problems such as logistic regression, support vector machines (SVM) and conditional random fields (CRF) - can be implemented using user-defined aggregates (UGAs).</li>
+<li>Bismarck exposes the following standard functions for implementing algorithms:</li>
+<ul>
+<li>Initialize(state)</li>
+<li>Transition(state, data), that is automatically computed on each tuple in the selected relation.</li>
+<li>Finalize(state)</li>
+</ul></p>
+<li>Bismarck draws upon the infrastructure available in DBMS and therefore benefits from the maturity and scalability of such platforms. Parallel and distributed databases such as Greenplum are supported by adding support for an additional <em>Merge(state,data)</em> step to the framework.</li>
+<li>The following Bismarck sub-projects further improve the scalability and performance:</li>
+<ul>
+<li>HogWild! parallelizes IGD and, therefore, benefits from multi-core machines</li>
+<li>Jellyfish uses Latin square patterns to chunk the data matrix enabling Jellyfish to run the factorization in parallel on multiple cores.</li>
+</ul>
+</ol></p>
+<h1>Outlook</h1>
+The authors mention the following research directions and challenges:</p>
+<ol>
+<li><strong>Feature extraction</strong> - support the extraction of relevant features (or signals) for subsequent machine learning algorithms; this is particularly important because <strong>more signals beat sophisticated models</strong>.</li>
+<li><strong>Assisted development</strong> - to lower the necessary deep understanding of data and algorithms for developing systems.</li>
+<li>Providing support for new data platforms, including the Hadoop ecosystem.</li>
+</ol></p>

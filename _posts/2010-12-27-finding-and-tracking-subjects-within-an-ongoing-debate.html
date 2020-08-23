@@ -1,0 +1,39 @@
+---
+status: publish
+published: true
+title: Finding and tracking subjects within an ongoing debate
+wordpress_id: 91
+wordpress_url: https://blog.semanticlab.net/?p=91
+date: '2010-12-27 16:57:31 +0100'
+date_gmt: '2010-12-27 15:57:31 +0100'
+categories:
+- Information Diffusion
+tags:
+- information diffusion
+- diffusion
+comments: []
+---
+<p>by Rudy Prabowo and Mike Thelwall (prabowo2008)</p>
+<p>This article tracks subjects in postings and bulletins by identifying co-occurring terms which represent these subjects. The presented research is different form topic detection and tracking because it does not focus on tracking individual topic but rather on all subjects discussed within a broad topic.</p>
+<p><strong>Method:</strong></p>
+<ul>
+<li> identify terms:
+<ul>
+<li>identify sentences and extract terms (nouns, noun phrases)</li>
+<li>split noun phrases containing conjunction (and, or, ...)</li>
+<li>depluralize words</li>
+<li>apply a stopword list</li>
+</ul>
+</li>
+</ul></p>
+<ul>
+<li>create term graph
+<ul>
+<li>create all possible combinations between terms and assess the strength of their associations using mutual information (MI)</li>
+<li>generate or extend a graph based on these terms;</li>
+<li>find blocks representing subjects in this graph using Tarjan's block finding algorithm</li>
+</ul>
+</li>
+</ul>
+<strong>Evaluation:</strong>
+The approach is suitable for short documents but <em>cannot track subjects with bulletin data</em> (long documents rather than short debates) because the interlink between the subjects was too dense.</p>

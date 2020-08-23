@@ -1,0 +1,55 @@
+---
+status: publish
+published: true
+title: Word Sense Disambiguation for Automatic Taxonomy Construction from Text-Based
+  Web Corpora
+wordpress_id: 295
+wordpress_url: https://blog.semanticlab.net/?p=295
+date: '2012-05-14 14:02:29 +0200'
+date_gmt: '2012-05-14 13:02:29 +0200'
+categories:
+- Uncategorized
+tags:
+- word sense disambiguation
+- WISE 2011
+comments: []
+math: true
+---
+<p>by de Knijff et al.</p>
+<p>This paper covers a framework that</p>
+<ol>
+<li>extracts terms from Web corpora,</li>
+<li>uses word sense disambiguation (WSD) to determine the word's senses, and</li>
+<li>applies subsumption to arrange the extracted concepts in a hierarchy.</li>
+</ol></p>
+<h2>Methods for Word Sense Disambiguation</h2></p>
+<ol>
+<li>Resnik's similarity: computes the similarity between terms based on the degree of information they share</li>
+<li>Jiang and Conrath's similarity measure: more accurate; takes into account the information content of</li>
+<ol>
+<li>the lowest common subsumer, and</li>
+<li>the terms themselves</li>
+</ol></p>
+<li>SSI (Graph Connectivity Measure)</li>
+<ol>
+<li>retrieve all possible senses from WordNet</li>
+<li>select sense as $$sense_t = max_{s_i \in S_t} \sum_{c_j \in C_t} sim(s_i, c_j) $$
+$$S_t$$ is the set of possible senses for term t and $$C_t$$ is the set of context senses.</li>
+</ol>
+</ol></p>
+<h2>Term Filtering</h2>
+The authors select the most relevant terms by considering the following measures:</p>
+<ol>
+<li>Domain pertinence - how relevant is a term for a domain
+\[ DP_{D_i}(t) = \frac{freq(t/D_i)}{max_j(freq(t/D_j))} \]</li></p>
+<li>Lexical cohesion - cohesion among words (compare: significant phrase detection)</li>
+<li>Domain consensus - judge how importance a term is based on the number of its occurrences</li>
+<li>Structural relevance - add extra points for emphasized and title terms.</li>
+</ol>
+&nbsp;</p>
+<h2>Data Sources &amp; Metadata Formats</h2></p>
+<ul>
+<li><a title="RePub" href="http://repub.eur.nl">RePub</a> (online paper repository)</li>
+<li><a title="RePEc" href="http://repec.org">RePEc</a></li>
+<li>Taxonomy: SKOS meta data format</li>
+</ul></p>

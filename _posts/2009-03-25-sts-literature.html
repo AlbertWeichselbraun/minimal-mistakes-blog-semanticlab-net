@@ -1,0 +1,47 @@
+---
+status: publish
+published: true
+title: STS Literature
+wordpress_id: 50
+wordpress_url: https://blog.semanticlab.net/?p=50
+date: '2009-03-25 19:24:21 +0100'
+date_gmt: '2009-03-25 18:24:21 +0100'
+categories:
+- Search Test Stop
+tags: []
+comments: []
+math: true
+---
+<p>We will divide the related literature on STS into two categories (i) literature on <em>optimal stopping, </em>and the foundations of the algorithm, and (ii) literature focusing on the use and definition of the <em>concept of utility</em>.</p>
+<h2>Optimal Stopping</h2></p>
+<p>The paper presented by Lim et al. [lim2006] elaborates on optimal stopping for options described by multiple attributes. The decision maker can choose to</p>
+<ol>
+<li>select an option,</li>
+<li>purchase information about an attribute value,</li>
+<li>reject (permanently => no recall) the current option,</li>
+<li>terminate the search without accepting any option.</li>
+</ol>
+This research is very similar to the thesis on the search test stop model published by MacQueen and also compares different approaches towards this problem including extensions to the classical problem like:</p>
+<ol>
+<li>allowing the recall of previously selected options,</li>
+<li>adding (non constant) search cost, and</li>
+<li>relaxations of the assumption that the decision maker knows the distribution of which the options are sampled.</li>
+</ol>
+Finally, the paper identifies the need for creating efficient rules for deciding on the sequence of attributes to investigate and cites work by Saad and Russo <strong>examining human decision making behavior.</strong></p>
+<p>[lim2006] Lim, Churlzu, Bearden, J. Neil and Smith, J. Cole (2006). ''Sequential Search with Multiattribute Options.'', Decision Analysis, pages 3--15, 3(1)</p>
+<h2>Utility</h2></p>
+<p>Das et al. and latter Kephart et al present two articles on the use of utility for the self-management ofautonomic computing systems.</p>
+<p>[das2006] focuses on the idea that "autonomic computing" paves the way for systems guided by <em>high level objectives </em>specified by the administrators. They present the advantages of a utility based approach in the context unity - a prototype data center, for which they adjusted two IBM software products (WebSphere and Tivoli) to accept utility functions expressed in terms of service-level attributes (like response time) for controlling the allocation of system resources.</p>
+<p>Utility serves as a clean and consistent way to express objectives and manage the systems. Das et al. use a simple linear utility function specifying a response time target (RT0) and a one to seven importance level for each service as demonstrated in the next equation:</p>
+\[ u(RT) = (RT0-RT)/RT0 \]
+\[u_{Pool} = n * u_{server,free} \]
+<p>Response times greater than RT0 yield a negative utility, free servers in the pool a positive utility (due the gained opportunity of deploying them).
+The paper also includes an evaluation presenting the behavior of Unity under different load.</p>
+<p>The second paper by Kephart et al. [kephart007] presents an <strong>excellent</strong> overview of the idea of using utility as a high level way to represent objectives to high level systems.
+They contrast <em>utility function policies</em> with <em>action policies</em> and <em>goal policies</em>, addressing issues like goal conflicts and the problem of considering trade-offs.
+Action or rule based policies especially suffer from complex and distributed system, because the number of rules required to address all possible system states grows significantly with the number of systems interacting with each other. </p>
+<p>Albert: "The complexity of specifying rules for distributed systems is comparable with the complexity software leveraging the Semantic Web is facing"</p>
+<p> The paper also mentions Unity, stating that it uses a simple sum function ($$\lambda=1$$) for aggregating utility values.</p>
+<p>According to Kephart et al. the main challenges of using utility are (i) building adequate models describing how different action will effect the system's utility (e.g. using reinforcement learning), and (ii) creating utility functions based on an administrators preferences. The authors mention a paper by Iyengard et al (Evaluating Multiple Attribute Items Using Queries) addressing this issue using questionairs (?) addressing this issue - but still state that a <strong>real</strong> need exist for better user interfaces and algorithms to record preferences.</p>
+<p>[das2006] Das, Rajarshi, Whalley, Ian and Kephart, Jeffrey O. (2006). ''Utility-based collaboration among autonomous agents for resource allocation in data centers'', AAMAS '06: Proceedings of the fifth international joint conference on Autonomous agents and multiagent systems, ISBN: 1-59593-303-4, ACM, pages 1572--1579
+[kephart2007] Kephart, Jeffrey O. and Das, Rajarshi (2007). ''Achieving Self-Management via Utility Functions'', IEEE Internet Computing, IEEE Educational Activities Department, pages 40--48, 11(1)</p>

@@ -1,0 +1,35 @@
+---
+status: publish
+published: true
+title: Thematic Exploration of Linked Data
+wordpress_id: 380
+wordpress_url: https://blog.semanticlab.net/?p=380
+date: '2012-12-23 06:59:36 +0100'
+date_gmt: '2012-12-23 05:59:36 +0100'
+categories:
+- Linking Open Data
+tags:
+- linked open data
+- clustering
+- social network
+- clique percolation method
+comments: []
+---
+<p>by Castano et al.; Very Large Data Search (VLDS) 2011</p>
+<p>This article addresses the problem of organizing linked data, which features an inherent flat organization, into a more easily browsable representation that the authors call inCloud.</p>
+<p>Creating an inCloud requires:</p>
+<ol>
+<li>a computation of the <strong>similarity between nodes</strong> based on a <em>string metric</em> (the dice coefficient) that considers terms <em>Term</em>$$_i$$ appearing in a node $$n_i$$ and all adjacent nodes.</li>
+<li>clustering (thematic aggregation) based on the <strong>interconnectivity</strong> between nodes by using the clique percolation method (CPM), which yields multiple, potentially overlapping cliques.</li>
+<li>the computation of descriptive terms for each clique by identifying frequent node types (rdf:type)</li>
+</ol>
+The <strong>prominence</strong> of clusters is determined by considering</p>
+<ol>
+<li>the <em>clusters variability</em>, i.e. the degree of overlap among the cliques in that cluster (lower overlap = better defined and more consistent topic)</li>
+<li>the <em>cluster density</em>, i.e. a higher density indicates a more focused and homogeneous discussion of the topic.</li>
+</ol></p>
+<h2>Graph Theory</h2>
+The cluster density is computed based on the ratio between the number of links in the cluster $$R_i$$ and the maximum number of possible links:</p>
+<p>\[ d_i = \frac{2\cdot R_i}{N_i(N_i-1)} \]</p>
+<p>A <strong>clique</strong> is a subset of vertices so that for every two vertices in the clique there exists an edge connecting them. A pre-print of the Nature article describing the clique percolation method (CPM) can be found <a title="Palla et al.: Uncovering the Overlapping Community Structure of Complex Networks in Nature and Society" href="http://angel.elte.hu/~derenyi/publ/community_suppl.pdf">here</a>.</p>
+<p>&nbsp;</p>

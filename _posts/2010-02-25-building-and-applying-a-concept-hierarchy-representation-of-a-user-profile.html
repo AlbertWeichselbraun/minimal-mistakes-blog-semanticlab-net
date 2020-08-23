@@ -1,0 +1,27 @@
+---
+status: publish
+published: true
+title: Building and applying a concept hierarchy representation of a user profile
+wordpress_id: 77
+wordpress_url: https://blog.semanticlab.net/?p=77
+date: '2010-02-25 09:14:03 +0100'
+date_gmt: '2010-02-25 08:14:03 +0100'
+categories:
+- Information Extraction
+- Ontology Evaluation
+tags:
+- average uninterpolated precision
+- phrase detection
+comments: []
+math: true
+---
+<p>by Nanas et al.</p>
+<p>The focus on this paper is rather on the building of concept hierarchies and networks describing document repositories than on ontology evaluation. The authors describe based on Doyle three phenomenon that cause statistical dependencies between terms:</p>
+<ul>
+<li>lexical correlations - multiple terms represent one unit of meaning -> phrase detection</li>
+<li>topical correlations - represented through term networks and hierarchies</li>
+<li>document correlations - addressed via term weighting</li>
+</ul>
+They evaluate the created concept hierarchies by applying the AUP (=average uninterpolated precision) measure, which is defined as the sum of the precision value at each point in the list, where a relevant document appears, divided by the total number of relevant documents.
+
+\[AUP = \sum P/n_{rel}\]

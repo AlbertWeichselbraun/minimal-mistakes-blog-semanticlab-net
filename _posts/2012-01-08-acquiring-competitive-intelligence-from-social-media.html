@@ -1,0 +1,72 @@
+---
+status: publish
+published: true
+title: Acquiring Competitive Intelligence from Social Media
+wordpress_id: 131
+wordpress_url: https://blog.semanticlab.net/?p=131
+date: '2012-01-08 15:03:36 +0100'
+date_gmt: '2012-01-08 14:03:36 +0100'
+categories:
+- Information Extraction
+- Web Intelligence
+comments: []
+---
+<p>by Dey et al.</p>
+<p>This article discusses (i) methodologies to obtain Web intelligence and (ii) presents case-studies which demonstrate how this information can be integrated with structured data to explain business facts and thereby be adopted for future decision making.</p>
+<p>Traditionally, analysts relied on facts and figures provided by third-party reports and survey results to gather competitive intelligence. Nowadays, large amounts of information required for Web intelligence are available in unstructured form and are therefore not directly machine-interpretable and would require sufficient human effort to read, extract, organize and assimilate relevant knowledge.</p>
+<h1>Methods</h1>
+1. Content Acquisition:</p>
+<ul>
+<li>the authors deploy (i) site-specific focused crawler and (ii) Google Alerts (www.google.com/alerts) to ensure that no relevant information is missed</li>
+<li>afterwards they use Nutch (nutch.apache.org) to extract content from these Web pages</li>
+</ul>
+2. Pre-processing</p>
+<ul>
+<li>Dey and Haque, 2008 employ content cleanup techniques such as content-dependent spelling correction, sentence demarcation, removing unnecessary capitalizations and special characters to content retrieved from social sources.</li>
+<li>Identification and tagging of relevant concepts (=words, phrases, entities and their combinations) facilitating organizational information stored in the domain ontology</li>
+<li>Frequently used ontology-concepts are used to label sets of documents</li>
+<li>Integration with ReVerb; extraction of the following data
+<ul>
+<li>people and events (CEO's, CFO's, ...), market players,  ...</li>
+<li>ternary relational patterns (person, organization, + set of verbs ("holds", "serves", ...)</li>
+<li>competitor's strategies (market news, patents, product launches, mergers and acquisitions, ...) -> action verb classes (see above)</li>
+<li>consumer sentiments and opinions (opinion mining)</li>
+<li>promotion events (Groupon, Foresquare); pattern-based detection of such events</li>
+<li>real world events (twitter as early warning system - compare</li>
+</ul>
+</li></p>
+<li>Label assignment
+<ul>
+<li>based on the content (entities, relations, concepts, and opinions)</li>
+<li>topics are extracted using Latent Dirichlet Allocation (LDA)</li>
+<li>social-network content are very noisy, therefore, labeling of these articles is rule-based and uses prior knowledge about enterprises, products and concepts.</li>
+<li><strong>example output:</strong>
+Cluster #11; Dominant Pattern: <Retailer, verb-phrase with key verb open,  Object of type Organization>; Label: Opening of new store
+Apr, 25, 2011 - Macy's to open ...
+Apr, 27, 2011 - The Dillard's property opened ...
+...</li>
+</ul>
+</li>
+</ul>
+3. Presentation</p>
+<ul>
+<li>all classified content is harmonized and consolidated to generate reports in pre-defined templates. These reports contain quantifications of the extracted information and can be treated as intelligence-digests which are starting points for drill-down analyses.</li>
+</ul>
+4. Observations of the Case Study</p>
+<ul>
+<li>social media data can be an indicator of brand popularity - the popularity of a brand was directly correlated to promotional activities for the brand</li>
+<li>correlation between social-media events and sales data - promotion let to a reduction or at least arrested the growth of rival brands (although the impact varies from region to region)</li>
+<li>cumulative impact of promotion events and negative news about competing brands - market share of a brand went up, once one of its rivals has announced prise rises</li>
+<li>effects of different categories of news items on an organization's performance - large data will be required to identify trends and deduce conclusions</li>
+</ul></p>
+<h1>Resources:</h1></p>
+<ul>
+<li>www.google.com/alerts</li>
+<li>nutch.apache.org - data extraction</li>
+<li>reverb.cs.washington.edu - Open Information Extraction Software</li>
+<li>nlp.stanford.edu/ner/index.shtml - Stanford Named Entity Recognition</li>
+<li></li>
+<li>&iuml;&raquo;&iquest;&iuml;&raquo;&iquest;Dey, Lipika and Haque, S K Mirajul (2008). ''Opinion mining from noisy text data'', Proceedings of the second workshop on Analytics for noisy unstructured text data, ISBN: 978-1-60558-196-5, ACM, pages 83--90</li>
+<li>&iuml;&raquo;&iquest;Shroff, Gautam, Agarwal, Puneet and Dey, Lipika (2011). ''Enterprise information fusion for real-time business intelligence'', Proceedings of the 14th International Conference on Information Fusion (FUSION 2011), pages 1-8</li>
+</ul></p>
+<h1></h1></p>

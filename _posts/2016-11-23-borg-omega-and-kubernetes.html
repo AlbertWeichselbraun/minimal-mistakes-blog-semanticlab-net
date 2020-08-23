@@ -1,0 +1,47 @@
+---
+status: publish
+published: true
+title: Borg, Omega and Kubernetes
+wordpress_id: 958
+wordpress_url: https://blog.semanticlab.net/?p=958
+date: '2016-11-23 14:03:56 +0100'
+date_gmt: '2016-11-23 13:03:56 +0100'
+categories:
+- Scalability
+tags:
+- scalabiity
+- docker
+- container infrastructure
+- deployment
+- devops
+comments: []
+---
+<div class="csl-bib-body">
+<div class="csl-entry">Burns, B., Grant, B., Oppenheimer, D., Brewer, E., &amp; Wilkes, J. (2016). Borg, Omega, and Kubernetes. <i>Commun. ACM</i>, <i>59</i>(5), 50&mdash;57. https://doi.org/10.1145/2890784</div>
+</div></p>
+<div class="csl-entry"></div></p>
+<h2 class="csl-entry">Summary</h2></p>
+<div class="csl-entry">In this article five Google engineers discuss lessons learned from over a decade of container management at Google such as</div></p>
+<ol>
+<li class="csl-entry">the transformation from machine-oriented to application oriented (machine and operation system agnostic) deployment
+<ul>
+<li class="csl-entry">containers are the only entity supported by Google's infrastructure</li>
+<li class="csl-entry">log collection, telemetry (<a href="https://github.com/google/cadvisor">cAdvisor</a>) and configuration is done on a per application level</li>
+</ul>
+</li>
+<li class="csl-entry">bundling of application containers into pods. A pod may, for instance, contain containers for (i) the main application, (ii) log rotation, etc. This design increases modularity and allows multiple teams to develop different pieces of the service.</li>
+<li class="csl-entry">Reduction of complexity by standardizing APIs and metadata. Kubernetes for instance provide the following three fields for every object:
+<ul>
+<li class="csl-entry">ObjectMetadata: information on objects (name, UID, etc.)</li>
+<li class="csl-entry">Specification: the object's <em>desired </em> state</li>
+<li class="csl-entry">Status: the object's <em>current</em> state</li>
+</ul>
+</li>
+<li class="csl-entry">recommendations for best practices
+<ul>
+<li class="csl-entry">don't let the container system manage port numbers</li>
+<li class="csl-entry">provide labels and metadata with the containers</li>
+<li class="csl-entry">don't expose raw state (e.g. force service access through a centralized API that hides implementation details and provides services for object validation, defaulting and versioning).</li>
+</ul>
+</li>
+</ol>

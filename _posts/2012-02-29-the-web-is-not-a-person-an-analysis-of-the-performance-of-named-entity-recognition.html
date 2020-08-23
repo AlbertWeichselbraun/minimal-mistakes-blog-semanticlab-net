@@ -1,0 +1,52 @@
+---
+status: publish
+published: true
+title: The Web is not a Person - An Analysis of the Performance of Named-Entity Recognition
+wordpress_id: 253
+wordpress_url: https://blog.semanticlab.net/?p=253
+date: '2012-02-29 11:22:11 +0100'
+date_gmt: '2012-02-29 10:22:11 +0100'
+categories:
+- Information Extraction
+tags:
+- evaluation
+- named entity recognition
+- language resources
+- corpus
+comments: []
+---
+<p>Krovetz, R. et al. 2011. The web is not a person, Berners-Lee is not an organization, and African-Americans are not locations: an analysis of the performance of named-entity recognition. Proceedings of the Workshop on Multiword Expressions: from Parsing and Generation to the Real World.</p>
+<p>This paper presents an evaluation of named-entity recognition that is based on</p>
+<ol>
+<li>the agreement rate between three different NER-systems, and</li>
+<li>the number of identified ambiguous entries (i.e. entities that were assigned to different NRE-classes (e.g. PERSON and ORGANIZATION) in the same document.</li>
+</ol>
+The authors show that although literature reports an accuracy of 85-95% for named entity  recognition the agreement rates between the classifiers and identified ambiguities suggest a much lower accuracy.</p>
+<h2>Resources</h2></p>
+<ul>
+<li>NER taggers
+<ul>
+<li>Stanford tagger</li>
+<li>LBJ tagger</li>
+<li>IdentiFinder (proprietary)</li>
+</ul>
+</li></p>
+<li>Language resources used for training
+<ul>
+<li>English Gigawords corpus</li>
+<li>Reuters 1996 new corpus</li>
+<li>North American News corpus</li>
+</ul>
+</li></p>
+<li>Other language resources
+<ul>
+<li>ETS SourceFinder corpus</li>
+<li>American national Corpus (ANC) - http://www.anc.org/annotations.html (tagged with NE)</li>
+</ul>
+</li>
+</ul></p>
+<h2>Suggestions and Remarks</h2></p>
+<ol>
+<li>the authors hypothesize that it is unlikely for two ambiguous words (same word but different NE class) to appear in the same document.</li>
+<li>they suggest to use grammar patterns such as "Bank of [LOCATION]" versus "[LOCATION]" to distinguish different NE classes.</li>
+</ol></p>

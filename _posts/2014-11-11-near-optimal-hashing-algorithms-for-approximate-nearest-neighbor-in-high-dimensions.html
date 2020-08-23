@@ -1,0 +1,44 @@
+---
+status: publish
+published: true
+title: Near-optimal Hashing Algorithms for Approximate Nearest Neighbor in High Dimensions
+wordpress_id: 814
+wordpress_url: http://blog.semanticlab.net/?p=814
+date: '2014-11-11 15:06:15 +0100'
+date_gmt: '2014-11-11 14:06:15 +0100'
+categories:
+- Uncategorized
+tags:
+- lsh
+- locality sensitve hashing
+comments: []
+math: true
+---
+<div>
+<div>Andoni, A. &amp; Indyk, P., 2008. Near-optimal Hashing Algorithms for Approximate Nearest Neighbor in High Dimensions. <i>Communications of the ACM</i>, 51(1), pp.117&mdash;122.</div></p>
+<h2>Summary</h2>
+This article gives an overview of locality sensitive hashing algorithms, i.e. methods for approximating the nearest neighbor problem.</p>
+<h2>Concepts</h2></p>
+<ol>
+<li><strong>distance</strong>:The distance between <em>d-</em>dimensional data points <em>P</em> is frequently computed with the following $$\mathcal{l}_s$$<em> norm</em> metric:
+\[||p-q||_s = \bigl(\sum_{i=1}^d |p_i-q_i|^s\bigr)^{1/s}\]</li></p>
+<li><strong>R-nearest neighbor</strong>: a point <em>p</em> is an <em>R-near </em>neighbor<em> </em>of <em>q</em> if the distance between these points is at most R.</li>
+<li><strong>locality sensitive hashing</strong>: $$\mathcal{H}$$ is a family of hash functions <em>h</em> which map data points to some universe <em>U</em>, so that <em>h</em> has a high probability $$Pr_{\mathcal{H}}[h(q) = h(p)]$$ if <em>p</em> and <em>q</em> are R-nearest neighbors, and a considerably lower probability if they are not.<em></em></li>
+</ol></p>
+<h2>Design</h2>
+Typically the probability gap between R-nearest neighbors and other points is rather small, requiring us to amplify this gap by combining several hash functions $$\mathcal{H}$$ yielding</p>
+<p>\[g_j(q) = h_{1,j}(q), ..., h_{k,j}(q)\]</p>
+<p>and by computing <em>L</em> buckets $$g_j(q)$$ with <em>j=1, ...L</em>. If the buckets store binary values <em>L</em> corresponds to the hash length in bits. The hash functions $$h_{t,j} (1\leq t \leq k, 1 \leq j \leq L)$$ are randomly chosen.</p>
+<ol>
+<li> Number of hashes <em>k</em>: the number of hashes <em>k</em> determines the probability $$P_1^k$$ that $$g_i(p) = g_i(q)$$. Large values of <em>k</em> increase the method's specificity (i.e. reduces $$P_1$$ and, therefore, the number of false positives).</li>
+<li>Number of hash tables <em>L</em>: larger values of <em>L</em> increase the method's sensitivity (i.e. the number of true positives). Consequently, <em>L</em> must be sufficiently large (especially for high values of <em>k</em>) to ensure that all R-near neighbors collide with the query point at least ones.</li>
+</ol></p>
+<h2>Hash functions</h2>
+The following families of hash functions (i.e. distance metrics) $$\mathcal{H}$$ are frequently used for LSH:</p>
+<ol>
+<li>The<em> h</em><em>amming distance</em> which corresponds to the number of points in which <em>p</em> and <em>q</em> differ.</li>
+<li>$$\mathcal{l}_s$$ distance</li>
+<li><em>Jaccard</em> <em>measure:</em> $$s(A,B) = \frac{|A \cap B|}{|A \cup B|}$$. Since <em>s(A,B)</em> is a similarity measure, the distance needs to be computed by <em>d(A, B) =1-s(A, B)</em></li>
+<li><em>Arccos:</em> $$\Theta(p,q) = arccos\bigl(\frac{p\cdot q}{||p||\cdot||q||}\bigr)$$ - this distance measure the angle between two vectors.</li>
+</ol>
+</div></p>

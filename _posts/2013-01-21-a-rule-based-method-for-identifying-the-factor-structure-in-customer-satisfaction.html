@@ -1,0 +1,45 @@
+---
+status: publish
+published: true
+title: A rule-based method for identifying the factor structure in customer satisfaction
+wordpress_id: 445
+wordpress_url: https://blog.semanticlab.net/?p=445
+date: '2013-01-21 08:52:19 +0100'
+date_gmt: '2013-01-21 07:52:19 +0100'
+categories:
+- Web Intelligence
+tags:
+- web intelligence
+- market research
+- applications
+- product features
+- customer satisfaction
+comments: []
+---
+<div class="csl-bib-body" style="line-height: 1.35; padding-left: 2em; text-indent: -2em;">
+<div class="csl-entry">Ahmad, A., Dey, L. &amp; Halawani, S.M., 2012. A rule-based method for identifying the factor structure in customer satisfaction. <em>Inf. Sci.</em>, 198, pp.118&mdash;129.</div>
+</div></p>
+<h2>Introduction and Background</h2>
+Market research is concerned with tasks such as identifying target groups for marketing purposes, relationship marketing, detecting customer behavior patterns, and estimating the relationship between product features and customer satisfaction.</p>
+<p>This article presents an approach for assigning <em>product features</em> to one of the following classes</p>
+<ol>
+<li><em>Basic factors</em>, which customers take for granted. They contribute only little to customer satisfaction, but lead to dissatisfaction if they are missing (e.g., call quality for a smartphone)</li>
+<li><em>Performance factors</em> have positive and negative effects on customer satisfaction (e.g., number and quality of the available apps)</li>
+<li><em>Excitement factors</em> are factors that do not contribute to customer dissatisfaction, but yield satisfaction, if they are provided (e.g., "awesome" functions)</li>
+</ol>
+Relevant features lead to "upward/downward reinforcement" of customer satisfaction - i.e. the satisfaction values increase with the value of the particular feature.</p>
+<p>&nbsp;</p>
+<h2>Method</h2>
+The proposed method uses rough set theory and works with ordinal features and categorical features such as colors, gender, etc and uses the following approach for assigning product features to satisfaction classes:</p>
+<ol>
+<li>identify the supported classes <em>w</em> for a feature value $$A_i^r$$ - i.e. the classes <em>w</em> that maximize $$[p(w/A_i^r) + p(\neg w/\neg A^r_i) -1 ]$$.
+=> the feature value $$A_i^r$$ is a good discriminator for these classes</li></p>
+<li>observe the influence of different feature value $$A_i^r$$ of feature $$A_i$$ on the assigned classes</li>
+<ul>
+<li>basic features show high contributions to customer dissatisfaction for certain feature values, and small contributions to satisfaction for other feature values</li>
+<li>performance features change gradually from strong dissatisfaction to strong satisfaction</li>
+<li>excitement features have low discriminating power for dissatisfaction and a high influence on satisfaction</li>
+<li>random features do not belong to any of the classes described above</li>
+</ul>
+</ol>
+&nbsp;</p>

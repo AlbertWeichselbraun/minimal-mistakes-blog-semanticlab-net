@@ -1,0 +1,56 @@
+---
+status: publish
+published: true
+title: Automatic knowledge extraction from documents
+wordpress_id: 651
+wordpress_url: http://blog.semanticlab.net/?p=651
+date: '2013-09-20 07:04:12 +0200'
+date_gmt: '2013-09-20 06:04:12 +0200'
+categories:
+- Information Extraction
+tags:
+- open information extraction
+- knowledge extraction
+- co-reference resolution
+- watson
+comments: []
+math: true
+---
+<div>Fan, J., Kalyanpur, A., Gondek, D. C., &amp; Ferrucci, D. A. (2012). Automatic knowledge extraction from documents. <em>IBM Journal of Research and Development</em>, <em>56</em>(3.4), 5:1&mdash;5:10. doi:10.1147/JRD.2012.2186519</div></p>
+<h2>Introduction</h2>
+This is another article from the IBM Watson team that describes how they use open relation extraction to obtain knowledge on instances and classes from large text corpora.</p>
+<div>
+<h2>Terminology:</h2></p>
+<ol>
+<li>Frame ($$f_i$$): the basic semantic unit that consists of slots (binary relations) and the corresponding value pairs. A frame represents a set of entities and their relations in a piece of text.
+$$f_i = \{(s_1, v_1), (s_2, v_2), ... (s_n, v_m)\}$$
+Example: <(<em>verb</em>, receive), (<em>subj</em>, Einstein), (<em>obj</em>, Nobel prize, ...)</li></p>
+<li>Slot ($$s_i$$): a binary relation such as (<em>awarded, $$v_i$$)</em>.</li>
+<li>Slot value ($$v_i$$): the lemma form of an extracted term (e.g. žNovel Prize for the slot žawarded)</li>
+<li>Frame projection: a portion of a frame, that occurs in many frames that is then used to derive class information from these frames (e.g. scientists publish, ...)</li>
+</ol></p>
+<h2>Method</h2>
+PRISMATIC uses a three step knowledge extraction method:</p>
+<ol>
+<li><strong>Corpus processing</strong> - all sentences are annotated using the English Slot Grammar (ESG) dependency parser, a simple rule based co-reference resolution (McCord et al, 2012), and a rule-based named entity recognition to assign entity types using the <em>isA</em> slot.</li>
+<li><strong>Frame extraction</strong> - Frames are extracted based on the dependency parses and associated annotations. Only relationships which represent participant information of a predicate are extracted and each frame is restricted to two levels deep at the most</li>
+<li><strong>Frame projection</strong> - provide an aggregated view of selected parts of the frames (e.g. subject-verb-object or verb-objectType) to extract general (class) knowledge. The following aggregated statistics are provided by frame projections:</li>
+<ul>
+<li><em>Frequency</em> (the number of frames whose slot values match) - popularity measure</li>
+<li>Conditional probability - shows how probable a particular instance is (e.g. for subject-verb-object - how often žEinstein wins the nobel prize if he wins something)</li>
+<li><em>Normalized pointwise mutal information - </em>>shows the degree of co-occurrence between frames.
+$$npmi(f, f') = \frac{pmi(f, f')}{-ln\frac{(max[\#(f),\#(f')])}{N}}$$ with [-1, 1]</li>
+</ul>
+</ol></p>
+<h2>Interesting resources:</h2></p>
+<ol>
+<li>Baker, C. F., Fillmore, C. J., &amp; Lowe, J. B. (1998). The Berkeley FrameNet Project. In <em>Proceedings of the 36th Annual Meeting of the Association for Computational Linguistics and 17th International Conference on Computational Linguistics - Volume 1</em> (pp. 86&mdash;90). Stroudsburg, PA, USA: Association for Computational Linguistics.
+(a lexical database for the frame structure of selected words)</li></p>
+<li>McCord, M. C., Murdock, J. W., &amp; Boguraev, B. K. (2012). Deep parsing in Watson. <em>IBM J. Res. Dev.</em>, <em>56</em>(3), 264&mdash;278. doi:10.1147/JRD.2012.2185409
+(Co-reference resolution, rules-based named entity recognition and dependency parsing)</li></p>
+<li>Levin, B. (1993). <em>English Verb Classes and Alternations: A Preliminary Investigation</em>. University of Chicago Press.</li>
+<li>Schuler, K. K. (2006). <em>VerbNet: A Broad-Coverage, Comprehensive Verb Lexicon</em>. University of Pennsylvania.
+(VerbNet - maps verbs to their corresponding Levin verb classes)</li>
+</ol>
+&nbsp;</p>
+<p></div></p>

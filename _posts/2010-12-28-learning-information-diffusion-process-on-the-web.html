@@ -1,0 +1,24 @@
+---
+status: publish
+published: true
+title: Learning information diffusion process on the web
+wordpress_id: 92
+wordpress_url: https://blog.semanticlab.net/?p=92
+date: '2010-12-28 15:33:14 +0100'
+date_gmt: '2010-12-28 14:33:14 +0100'
+categories:
+- Information Diffusion
+tags: []
+comments: []
+math: true
+---
+<p>by Wan, X. and Yang, J (wan2007)</p>
+<p>The authors present an approach which identifies the diffusion process for a particular topic.
+Sets of documents with a given topic ($$D={d_1, ... d_n}$$) are associated with a tuple containing a time stamp denoting the time at which the document was published at the $$LocationSite_i$$ $$(t_i, LocationSite_i)$$.
+Due to the diffusion process we get $$[LocationSite_j: d_j \rightarrow LocationSite_i: d_i] (t_j<t_i)$$</p>
+<p>They use a support vector machine (SVM) with the following features to determine whether d_j is the source of d_i:</p>
+<ul>
+<li>metadata-based features</li>
+<li>cueword-based features: do appear cuewords (forward, from, source) mentioning the source's name in the document</li>
+<li>similarity-based features: cosine similarity</li>
+</ul></p>

@@ -1,0 +1,117 @@
+---
+status: publish
+published: true
+title: Web 2.0 Environmental Scanning and Adaptive Decision Support for Business Mergers
+  and Acquisitions
+wordpress_id: 413
+wordpress_url: https://blog.semanticlab.net/?p=413
+date: '2013-01-18 17:59:14 +0100'
+date_gmt: '2013-01-18 16:59:14 +0100'
+categories:
+- Web Intelligence
+tags:
+- Web Intelligence
+- metrics
+- sentiment analysis
+- business intelligence
+- lexicon expansion
+- relation detection
+- methods
+- BI metrics
+comments: []
+---
+<div class="csl-bib-body" style="line-height: 1.35; padding-left: 2em; text-indent: -2em;">
+<div class="csl-entry">Lau, R. et al., 2012. Web 2.0 Environmental Scanning and Adaptive Decision Support for Business Mergers and Acquisitions. <em>Management Information Systems Quarterly</em>, 36(4), pp.1239&mdash;1268.</div>
+</div>
+&nbsp;</p>
+<p>This paper presents an adaptive business intelligence (BI) system and a due diligence scorecard to enhance decision making processes for cross-border mergers and acquisitions.</p>
+<h1>Method</h1>
+The BI analytic process consists of the following five subtasks:</p>
+<ol>
+<li>identification of scanning needs</li>
+<li>information gathering (focused crawl)</li>
+<li>information analysis</li>
+<li>results communication</li>
+<li>decision making</li>
+</ol>
+Information is retrieved for the time spawn that is relevant for commercial diligence (between 3 and 5 years).</p>
+<h2>Data Sources</h2></p>
+<ul>
+<li>financial information Web sites (Yahoo Finance, Google Finance, Forbes, Reuters, Hoovers, Fortune, etc.)</li>
+<li>proprietary financial information from databases provided by Reuters and Bloomberg</li>
+<li>standard metrics on the companies' performance (return on equity; return on asset; cash flow to debt ratio; net asset ratio; earnings before interest, taxes, depreciation, amortization, and rent; debt to equity ratio, ...)</li>
+<li>affect of discussions concerning the company regarding to the classes <em>anger, fear, happiness, </em>and <em>sadness</em> (using the WordNet affect lexicon).</li>
+<li>network-based metrics underpinned by Porter's five forces model to assess the competitive advantage of a firm or industrial sector.</li>
+</ul></p>
+<h2>Business Relation Mining</h2>
+The potential synergy between two companies can be estimated based on their supply chain networks. The authors use the following approach for identifying business relations:</p>
+<p>1. Extract business relationship triggers</p>
+<ul>
+<li>the seed relationship lexicon contains the following categories:</li>
+<ul>
+<li><em>collaborative relationships:</em> cooperate, ally, collaborate, joint, together, partner (and their various verb forms)</li>
+<li><em>competition:</em> compete, challenge, versus, enemy, against, vie,</li>
+<li><em>supplier: </em>supply, purchase, procure, lend</li>
+</ul></p>
+<li>a statistical learning method is applied to extract additional relationship indicators</li>
+</ul>
+2. Expand the lexicon of organization names with abbreviations etc.</p>
+<ul>
+<li>use balanced mutual information (BMI) and a sliding window to obtain relevant abbreviations that co-occur in the proximity of known company names
+\[ BMI(t_i, t_j) = \omega_{BMI} \cdot \bigl[P(t_i, t_j) log_2\frac{P(t_i,t_j)+1}{P(t_i)\cdot P(t_j)} + P(\neg t_i, \neg t_j)\cdot log_2(\frac{P(\neg t_i,\neg t_j)+1}{P(\neg t_i)\cdot P(\neg t_j)}\bigr]\\- (1-\omega_{BMI})\cdot \bigl[ (P(t_i, \neg t_j) log_2\frac{P(t_i,\neg t_j)+1}{P(t_i)\cdot P(\neg t_j)} + P(\neg t_i, t_j)\cdot log_2(\frac{P(\neg t_i,t_j)+1}{P(\neg t_i)\cdot P(t_j)} \bigr] \]</li></p>
+<li>use abbreviation entropy (AE) to prune invalid abbreviations (a), i.e. abbreviations that have been used for multiple organizations
+\[ AE(a) = \frac{\sum_{org \in T^{org}} Ass(a,org) }{|T^{org}|} \]</li>
+</ul>
+3. Co-reference resolution</p>
+<ul>
+<li>use POS tagging for identifying pronouns</li>
+<li>find the nearest company name by moving a pointer backward; assign this company to the preposition, if the distance between the two does not exceed a threshold value.</li>
+</ul></p>
+<h2>Sentiment Lexicon Expansion</h2></p>
+<ol>
+<li>inputs: a generic lexicon (OpinionFinder, SentiWordnet) and a domain-specific document corpus</li>
+<li>use BMI to extact domain-specific sentiment terms from positive / negative lexicons</li>
+<li>use a variant of the keyword classifier (Kindo et al. 1997); Lau et al. 2009; Lau, Lai, and Li 2009) to extract additional domain-specific sentiment indicators
+\[ Polarity(t) = tanh\left( \begin{array}{l} \frac{n(d_t)}{\omega_{pos}} P(pos|t) log_2\frac{P(pos|t)}{P(pos)} \\ -\frac{n(d_t)}{\omega_{neg}} P(neg|t) log_2\frac{P(neg|t)}{P(neg)} \end{array} \right) \]
+<em>tanh</em> is used to ensure sentiment values [-1, +1]; $$\omega_{pos}$$ and $$\omega_{neg}$$ control the learning rates for positive and negative evidences</li>
+</ol></p>
+<h2>Sentiment and Aspect Analysis</h2></p>
+<ol>
+<li>sentiment values are computed  using the sentiment lexicon and negation triggers</li>
+<li>the authors extract the associated aspects (also called features) by identifying noun phrases in the proximity of the sentiment terms - these noun phrases are then considered relevant aspects</li>
+</ol></p>
+<h2>Merger and Acquisition Target Scoring</h2></p>
+<ol>
+<li>the approach yields complementary information that is not intended to replace (but to support) traditional due diligence methods</li>
+<li>financial indicators are combined using different aggregation methods (weighted mean, ...)</li>
+<li>older observations are discounted using an exponential discount function</li>
+<li>business fitness is determined based on a sentiment analysis of typical aspects (products and services, production process, distribution channels, ...)</li>
+<li>the authors consider the following competitive advantage dimensions based on Porter's five forces model</li>
+<ul>
+<li>bargaining power of customers</li>
+<li>bargaining power of suppliers -<em> bs(tar)</em></li>
+<li>thread of substitutes</li>
+<li>intensity of rivalry - <em>ir(tar)</em></li>
+<li>thread of new entrants</li>
+<li>effect of complementors (sixth forth) - <em>cp(tar)</em></li>
+</ul></p>
+<li>some of these dimensions are approximated based on the links in the extracted business relations
+\[ bs(tar) = \frac{1}{\sum_{l \in Supp(tar)} w(l)} \]
+\[ ir(tar) = \frac{\sum_{l \in Comp(tar)} w(l)}{\sum_{tar' \in Sector}\sum_{l \in comp(tar')} w(l)} \]
+\[cp(tar) = \frac{\sum_{l \in Coll(tar)} w(l)}{\sum_{tar' \in Sector}\sum_{l \in Coll(tar')} w(l)} \]
+where <em>w(l)</em> is the weight of link <em>l</em> which is computed based on the occurrence frequency of that specific type of business relation.</li></p>
+<li>product descriptions are combined into one document (per company) and the similarity between these documents is computed for assessing the probability of substitute produces.</li>
+</ol></p>
+<h2>Feedback and Learning</h2>
+The described research uses a hierarchical coevolution genetic algorithm to optimize the architecture's parameters.</p>
+<h1>Evaluation</h1>
+The authors evaluate the sentiment detection and relation mining based on gold standard data, and perform task based evaluations with master students and domain experts to assess the usefulness of the described BI framework.</p>
+<h2>Interesting references:</h2></p>
+<ol>
+<li>Ma, Z., Sheng, O.R.L. &amp; Pant, G., 2009. Discovering company revenue relations from news: A network approach. <em>Decis. Support Syst.</em>, 47(4), pp.408&mdash;414
+- use a link-based approach to predict company revenue relations.</li></p>
+<li>Porter, M.E., 1990. <em>Competitive Stra<em>tegy: Techniques for Analyzing Industries and Competitors</em></em>, New York: Free Press
+- Porter's five forces model</li></p>
+<li>Kanayama, H. &amp; Nasukawa, T., 2006. Fully automatic lexicon expansion for domain-oriented sentiment analysis. In <em>Proceedings of the 2006 Conference on Empirical Methods in Natural Language Processing</em>. EMNLP  &trade;06. Stroudsburg, PA, USA: Association for Computational Linguistics, pp. 355&mdash;363
+- general linguistic rule of contextual coherence - sentiments colocated within the same textual unit should have the same polarity unless a negation word is found.</li>
+</ol></p>

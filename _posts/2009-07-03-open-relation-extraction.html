@@ -1,0 +1,28 @@
+---
+status: publish
+published: true
+title: Open Relation Extraction
+wordpress_id: 56
+wordpress_url: https://blog.semanticlab.net/?p=56
+date: '2009-07-03 12:49:09 +0200'
+date_gmt: '2009-07-03 11:49:09 +0200'
+categories:
+- Information Extraction
+tags:
+- open information extraction
+- relation extraction
+comments: []
+---
+<p>[Banko:2008] Banko, Michele and Etzioni, Oren (2008). ''The Tradeoffs Between Open and Traditional Relation Extraction'', Proceedings of ACL-08: HLT, Association for Computational Linguistics, pages 28--36</p>
+<p>This article discusses the shortcomings of traditional relation extraction methods and introduces  <i>Open Relation Extraction</i> techniques.
+These techniques match the precision of traditional extraction systems but do not yield the same recall, although the paper presents a hybrid method yielding comparable recall.</p>
+<p>The authors apply Conditional Random Fields (CRF), which are undirected graphical models trained to maximize the conditional probability of a finite set of labels Y given a set of input observations X.
+The algorithm considers features such as part-of-speech (POS) tags, regular expressions (capitalization, punctation, etc.), context words and conjunctions of features occurring in a sliding windows of 13 words .
+The authors train their method with sets of labeled examples.</p>
+<p>Entities are extracted by performing</p>
+<ul>
+<li>entity identification using a phrase chunker, and</li>
+<li>labeling relations for possible entitiy pairs</li>
+</ul>
+Finally, they apply the RESOLVER algorithm to identify synonyms.</p>
+<p>The issue of low recall is addressed by creating a relation-specific algorithm (R1-CRF), which the authors combine with the generic approach.</p>

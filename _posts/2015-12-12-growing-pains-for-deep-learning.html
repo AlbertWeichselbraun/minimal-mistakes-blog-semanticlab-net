@@ -1,0 +1,25 @@
+---
+status: publish
+published: true
+title: Growing Pains for Deep Learning
+wordpress_id: 861
+wordpress_url: http://blog.semanticlab.net/?p=861
+date: '2015-12-12 05:33:52 +0100'
+date_gmt: '2015-12-12 04:33:52 +0100'
+categories:
+- Machine Learning
+tags:
+- neural network
+- deep learning
+comments: []
+---
+<div>
+<div>Edwards, C. (2015). Growing Pains for Deep Learning. <i>Commun. ACM</i>, <i>58</i>(7), 14&mdash;16. http://doi.org/10.1145/2771283</div></p>
+<h2>Summary</h2>
+This article provides an overview of the evolution of neural networks from the 1990, where only one hidden layer has been used for performance reasons, to 2006 where work on deep architectures (i.e. neural networks with more than one hidden layer) received a breakthrough due to the development of effective training techniques (such as pre-training) for networks with multiple hidden layers. This architecture enabled the first layers to extract high-level features which could then be used for more efficient classifications in lower layers yielding considerably lower error rates. Nevertheless, there are still a number of obstacles that make deploying neural networks challenging:</p>
+<ol>
+<li><strong>massive network sizes</strong>: first layers for image processing might require millions of neurons (one neuron per pixel), which will be amplified by the number of layers in the neural network. Therefore, recent systems draw upon GPUs or field-programmable gate arrays (FPGAs) to massive networks. Another successful approach has been replacing deep neural networks with a) <strong>data-pre processing</strong> and b) <strong>multiple smaller networks</strong> (i.e. committees).</li>
+<li><strong>training setting</strong>: the systems have considerable problems with training tasks where the reward depends on a number of successfully completed stages (e.g. traversing a maze), although they still do well in situations where success is delayed, but can be learned from random responses.</li>
+<li><strong>massively missing data</strong> (e.g. medical data where patients usually have only done a fraction of all available tests and exams), is another challenge area. Lawrence and others have suggested using layers of Gaussian processes in such settings.</li>
+</ol>
+</div></p>

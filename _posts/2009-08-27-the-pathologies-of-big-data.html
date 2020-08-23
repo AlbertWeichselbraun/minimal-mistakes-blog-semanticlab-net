@@ -1,0 +1,28 @@
+---
+status: publish
+published: true
+title: The Pathologies of Big data
+wordpress_id: 63
+wordpress_url: https://blog.semanticlab.net/?p=63
+date: '2009-08-27 07:56:40 +0200'
+date_gmt: '2009-08-27 06:56:40 +0200'
+categories:
+- Information Retrieval
+- Information Extraction
+- Database
+tags:
+- big data
+- future internet
+comments: []
+---
+<p>by Jacobs, Adam (2009). <em>The pathologies of big data</em>, Communications of the ACM, ACM, pages 36-44, 52(8)</p>
+<p>The article demonstrates the importance of a profound understanding of data structures and storage techniques for dealing with huge data sets.
+Jacobs draws the following conclusions:</p>
+<ul>
+<li>its easier to get data in a DBMS than out</li>
+<li>DBMS are optimized for retrieving <em>small</em> amounts of information</li>
+<li>the largest cardinalities of most databases (=the number of distinct entities about which observations are made) are small compared to the total number of observations.</li>
+<li>the relational data model ignores the ordering of row; one must be willing to consider this order to gain an acceptable performance (compare: CLUSTER command)</li>
+<li>the previous argument has been justified by an experiment contrasting random disk/ssd/memory access speed to the sequential one. Random disk access turned out to be 150,000 times slower than sequential one, random SSD access about 15,000 times slower than sequential SSD speed and even random memory access is about 10 times slower than sequential one.</li>
+<li>nowadays network accesses are comparable to disk accesses in regard to latency and speed  (which encourages the use of distributed computing)</li>
+</ul></p>

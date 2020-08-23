@@ -1,0 +1,78 @@
+---
+status: publish
+published: true
+title: 'Sentimantics: Lexical Sentiment Polarity Representations with Contextuality'
+wordpress_id: 395
+wordpress_url: https://blog.semanticlab.net/?p=395
+date: '2012-12-29 15:12:00 +0100'
+date_gmt: '2012-12-29 14:12:00 +0100'
+categories:
+- Sentiment Detection
+tags:
+- sentiment analysis
+- contextualization
+- context
+- co-occurrence
+- network
+- sentiwordnet
+- linked open data
+comments: []
+---
+<p>Das, A. &amp; Gamb&Atilde;&curren;ck, B., 2012. Sentimantics: conceptual spaces for lexical sentiment polarity representation with contextuality. In <em>Proceedings of the 3rd Workshop in Computational Approaches to Subjectivity and Sentiment Analysis</em>. WASSA  &trade;12. Stroudsburg, PA, USA: Association for Computational Linguistics, pp. 38&mdash;46.</p>
+<div class="csl-entry">The following paper first presents approaches for disambiguating ambiguous sentiment words by</div></p>
+<div class="csl-entry">
+<ol>
+<li>grounding them to different SentiWordNet senses, and</li>
+<li>creating a vector space model that stores the context based on a co-occurrence network (that addresses the problem of sparsity in SentiWordNet).</li>
+</ol></p>
+<h2>Method</h2></p>
+<h3>Sentiment Analysis</h3></p>
+<ul>
+<li>the authors used a Support Vector Machine for classifying sentiment based on the following features:</li>
+<ul>
+<li>sentiment lexicon</li>
+<li>negation triggers (80 entries semi-automatically collected from the MPAQ corpus)</li>
+<li>stems</li>
+<li>function words (prepositions, pronouns, determiners (the, a/an, ...), conjunctions, modal verbs (can, would, ...), adverbs (here, there, ...)</li>
+<li>POS, Chunking and Dependency Relations</li>
+</ul></p>
+<li>based on a first evaluation they identified the following problems with their approach:</li>
+<ul>
+<li>sentiment of unknown / new words (do they need to have a sentiment value at all?)</li>
+<li>word sense disambiguation (<em>SentiWordNet</em> shows that there are <em>6,619 ambiguous sentiment terms</em> that have a probability >0 of occurring in a positive <strong>or</strong> negative context).</li>
+</ul>
+</ul></p>
+<h3>Creation of Contextualized Sentiment Lexicon</h3>
+hypothesis: improve the sentiment analysis by adding contextual information to the lexicon (=Sentimantics)</p>
+<h4>A. Semantic Network Overlap:</h4></p>
+<ol>
+<li>start with an arbitrary SentiWordNet node (e.g. long) and locate its closest neighbours (e.g. road, waiting, car, queue, building, ...) from the commonsense network (ConcepNet or SemanticNet) considering the strength between the ambiguous concept and its neighbours</li>
+<li>use the training corpus to assign contextual polarities such as P+(long|waiting), P+(long|building) to each association</li>
+<li>the approach yielded improved results, despite that fact that only 34% of the ambiguous sentiment terms have been resolved due to the low coverage in the used data sources.</li>
+</ol></p>
+<h4>B. Creation of the co-occurrence network</h4>
+<em>goal:</em> increase coverage;
+<em>hypothesis:</em> words that are highly associated through co-occurrence tend to have similar semantic orientation (is that true? - compare RAVEN/tagged linguistic units)</p>
+<ol>
+<li>extract features from a +/- 4 word sliding window around the target terms</li>
+<li>normalize the words using the <strong>CF-IOF</strong> (concept frequency-inverse opinion frequency) by Cambria et al. (2011)</li>
+<li>use a Spectral Clustering technique for identifying co-occurrence patterns</li>
+<li>use the cosine similarity to compute weights between the co-occurrence network's nodes</li>
+</ol></p>
+<h4>C. Polarity computation</h4>
+The sentiment $$S(w_i|w_j)$$ for term $$w_i$$ given term $$w_j$$ using the co-occurrence network</p>
+<p>\[ S(w_i|w_j) = \frac{\sum_{k=0}^n v_k}{k} \cdot w_j^p \]</p>
+<p>which refers to the sum of the weighted product of vertex weight ($$v_k$$)  and the sentiment value of the related word ($$w_j$$) divided by the number of vertices <em>k</em> between the two words.</p>
+<p>The co-occurrence network was able to resolve 45% (compared to 34%) of all ambiguous terms.</p>
+<h2> Misc:</h2></p>
+<ul>
+<li>Cambria et al. (2011) introduced the paradigm of Sentic Computing, which refers to the technique of inferring different affective states (rather than only positive/negative) from text snippets.</li>
+</ul></p>
+<h2>Related Resources</h2></p>
+<ol>
+<li><a href="http://sentic.net/sentics/">Sentic Computing</a></li>
+<li><a href="http://www.flesl.net/Vocabulary/Single-word_Lists/function_word_list.php">List of function words</a></li>
+<li>commonsense networks: ConceptNet, SemanticNet</li>
+<li><a href="http://www.codeplex.com/NodeXL">Network analysis tool: NodeXL</a></li>
+</ol>
+</div></p>

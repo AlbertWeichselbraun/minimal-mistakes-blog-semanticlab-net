@@ -1,0 +1,55 @@
+---
+status: publish
+published: true
+title: Optimal Stopping Reloaded
+wordpress_id: 51
+wordpress_url: https://blog.semanticlab.net/?p=51
+date: '2009-03-28 18:01:09 +0100'
+date_gmt: '2009-03-28 17:01:09 +0100'
+categories:
+- Search Test Stop
+tags: []
+comments: []
+math: true
+---
+<p><strong>On the use of hybrid reinforcement learning for autonomic resource allocation</strong> ***
+by Teasuro et. al</p>
+<p>This paper elaborates on the use of reinforcement learning (RL) for automatic resource allocation. Again the paper addresses the problem of translating high-level objectives into system actions, using a utility model, allowing systems to dynamically reconfigure themselves, optimize their performance, detect and repair faults, etc. [teasuro2007].</p>
+<p>The paper provides the following contributions:</p>
+<ul>
+<li>it discusses the difficulty of acquiring sufficient domain knowledge, required to create optimized strategies - the so called <b>knowledge bottleneck</b>.</li>
+<li>lack of knowledge yields to poor performance during live online training conducted by reinforced training approaches - the paper addresses this problem by introducing a hybrid approach (the system is controlled using a fixed policy $$p_i$$, until the reinforced training approach learned a better conducting policy $$p_i'$$. This step of online learning and replacing strategies might even be iterated over time.</li>
+<li>The show that their hybrid RL approach is promising for systems with:
+<ul>
+<li>tractable state-space representation</li>
+<li>frequent online decision making depending upon time-varying system states</li>
+<li>frequent observations of numerical rewards</li>
+<li>pre-existing policies that obtain acceptable (but imperfect) performance levels</li>
+   </ul>
+ </li>
+</ul></p>
+<p>Addons: </p>
+<ul>
+<li>reinforced learning uses trial-and-error methods to learn the value function $$Q_{p_i}(s,a)$$ adjusting a value to action <b>a</b> performed in state <b>s</b>.
+It has the following main advantages: (i) it does not need an explicit model of the domain, and (ii) it is grounded in Markov decision processes (mdp) theory which is fundamentally a sequential decision theory.
+</li></p>
+<li>Temporal Difference learning and related methods, combined with Bellman's policy improvement theorem shows that the policy will converge under stated conditions.</li>
+<p></ul></p>
+<p>[tesauro2007] Tesauro, Gerald, Jong, Nicholas K., Das, Rajarshi and Bennani, Mohamed N. (2007). ''<strong>On the use of hybrid reinforcement learning for autonomic resource allocation</strong>'', Cluster Computing, Kluwer Academic Publishers, pages 287--299, 10(3)</p>
+<hr />
+<p><strong>Using economic models to allocate resources in database management systems</strong> ***
+by Zhang et al.</p>
+<p>This paper elaborates on a economic model to allocate <em>multiple resources</em> such as memory buffer space and CPU shares to workloads running on a DBMS. The authors apply a utility model to model the workload's utility based on business importance, reducing the potential complexity of the resource allocation problem.</p>
+<p>The authors provide a good overview of related literature using concepts from microeconomics (Davison et al.) and economic models (Boughton et al.), and demonstrate how a broker based trade mechanism can be applied to this problem class.</p>
+<ul>
+<li>broker and consumers try to achieve their goals (maximize utility)</li>
+<li>consumer (=workload) wealth is assigned in accordance to the workload's importance.
+(more important workloads are wealthier and are therefore more likely to win auctions)</li></p>
+<li>the use an easy model to capture the additional utility gained by another unit of a resource.
+(resource res_j will be retrieved as long as $$du/dres_i \gt du/dres_j$$ for any $$j \ne i$$)
+-> the model therefore manages to break down the very complex concept of utility to an easy representation</li></p>
+<li>performance models show how CPU and memory buffer's are distributed</li>
+<li>utility is given as a fraction of the maximum throughput</li>
+</ul>
+In conclusion the paper show that high-level business importance policies can be translated into resource tuning actions for a DBMS.</p>
+<p>[zhang2008] Zhang, Mingyi, Martin, Patrick, Powley, Wendy and Bird, Paul (2008). '<strong>'Using economic models to allocate resources in database management system</strong>s'', CASCON '08: Proceedings of the 2008 conference of the center for advanced studies on collaborative research, ACM, pages 248--259</p>

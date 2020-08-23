@@ -1,0 +1,29 @@
+---
+status: publish
+published: true
+title: Combining Resources to Improve Unsupervised Sentiment Analysis at Aspect-Level
+wordpress_id: 915
+wordpress_url: https://blog.semanticlab.net/?p=915
+date: '2016-08-05 16:30:34 +0200'
+date_gmt: '2016-08-05 15:30:34 +0200'
+categories:
+- Sentiment Detection
+tags:
+- background knowledge
+- linked open data
+- aspect-based sentiment analysis
+- Freebase
+comments: []
+---
+<p>Jiménez-Zafra, S. M., Martín-Valdivia, M. T., Martínez-Cámara, E., &amp; Ureña-López, L. A. (2016). Combining resources to improve unsupervised sentiment analysis at aspect-level. Journal of Information Science, 42(2), 213–229. https://doi.org/10.1177/0165551515593686
+</p>
+<p>This paper presents an approach for unsupervised aspect-based sentiment analysis that uses Freebase for extracting relevant aspects from restaurant and laptop reviews.</p>
+<h2>Method</h2></p>
+<ol>
+<li>Freebase contains different domains such as music, computers, food, etc. Querying such a domain yields properties and instances which are considered relevant aspects of that particular domain.</li>
+<li>The sentiment analysis uses dependency parsing to obtain relations between aspects and sentiment terms. Negation is implemented based on identifying negation triggers such as "not", "n't" "no" and "never" within a fixed window.</li>
+<li>The sentiment analysis draws upon a voting system based on (i) the Bing Liu Lexicon, (ii) MPQA and (iii) SentiWordNet. An aspect is considered positive/negative, if at least two classifiers agree on that particular sentiment.</li>
+<li>Domain experts manually assign aspects to categories (e.g. dishes to the category food) to determine the category sentiment.</li>
+</ol></p>
+<h2> Evaluation</h2>
+The evaluation has been performed based on the SemEval 2014 datasets that contain (i) 1216 sentences of restaurant reviews and (ii) 1827 laptop reviews, and shows that the approach outperforms the selected baseline.</p>

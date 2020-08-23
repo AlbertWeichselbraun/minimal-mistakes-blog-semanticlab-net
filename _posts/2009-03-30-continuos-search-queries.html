@@ -1,0 +1,24 @@
+---
+status: publish
+published: true
+title: Continuos Search Queries
+wordpress_id: 53
+wordpress_url: https://blog.semanticlab.net/?p=53
+date: '2009-03-30 15:58:29 +0200'
+date_gmt: '2009-03-30 14:58:29 +0200'
+categories:
+- Search Test Stop
+tags: []
+comments: []
+math: true
+---
+<p><b>Answering bounded continuous search queries in the world wide web</b> 
+by Kukulenz and Ntoulas.</p>
+<p>This article present the application of optimal stopping theory to the monitoring of web sites using user-defined keywords - also known as <i>continuous querying</i>.</p>
+<p><b>Problem</b>
+The goal is to return the estimated <i>k best elements</i>, considering the trade-off between <b>freshness</b> and <b>relevance</b>. The main challenges are: (i) the potentially relevant results within a time period are not known in advantage, and (ii) it is not known <i>when</i> the relevant results will appear.
+This problem can be treated as finding the top-k-results in financial mathematics, or the 'Secretary Selection Problem'. </p>
+<p><b>Solution</b>
+A well known strategy is to observe a number of candidates without choosing them, and selecting - after this observation period - the first result, leading a higher ranking/utility as the maximal ranking observed so far.</p>
+<p>Selecting <i>k</i> candidates in the stream of documents ,therefore ,means considering <i>k</i> observation periods. The main problem is to find the optimal observation times $$t_1, ... t_k$$.</p>
+<p>[kukulenz2007] Kukulenz, Dirk and Ntoulas, Alexandros (2007). ''<b>Answering bounded continuous search queries in the world wide web</b>'', WWW '07: Proceedings of the 16th international conference on World Wide Web, ISBN: 978-1-59593-654-7, ACM, pages 551--560</p>

@@ -1,0 +1,57 @@
+---
+status: publish
+published: true
+title: Distributional Footprints of Deceptive Product Reviews
+wordpress_id: 328
+wordpress_url: https://blog.semanticlab.net/?p=328
+date: '2012-10-21 17:37:38 +0200'
+date_gmt: '2012-10-21 16:37:38 +0200'
+categories:
+- Information Extraction
+tags:
+- text mining
+- reviews
+- deceptive reviews
+- opinion mining
+comments: []
+---
+<p>by Song Feng, Longfei Xing, Anupam Gogar and Yejin Choi 2012</p>
+<p>The authors of this paper argue that there are natural distributions of opinions in reviews for any given domain that can be used for identifying deceptive product reviews.</p>
+<h2>Motivation</h2></p>
+<ul>
+<li>There is anecdotal evidence about fake reviews and a small number of cases where it was possible to identify deceptive reviewers.</li>
+<li>Ott el al. (2011) showed that humans only perform slightly better than chance, when asked to identify deceptive reviews.</li>
+<li>Fake reviews might contain lexical clues such as the overuse of self-references (I, me, my) and the lack of spatial information</li>
+<li>Computers achieve an accuracy of up to 90% in identifying such reviews, provided that they have been trained with lexico-syntactic patterns or appropriate training data.</li>
+</ul></p>
+<h2>Distributions</h2></p>
+<ul>
+<li>Analyses of TripAdvisor and Amazon reviews shows that reviews from one-time reviewers are much more likely to have extreme options (5 or 1 star ratings) than multi-time reviewers.</li>
+<li>Comparing the distributions of hotels reviews with average ratings between [3.2, 3.9] indicates that reviews with a rating of 3.9 are supported by an unnatural high number of  single time 5-star reviews (compare: Gold Adler ;).</li>
+</ul></p>
+<h2>Method</h2></p>
+<ul>
+<li>The authors compare the "distribution of distributions", i.e. the ordered sequence of frequencies of reviews with an i-star rating for the appropriate entity. For instance, The Sequence (5 > 1 > 2 > 4) means that most reviews were 5-star reviews, followed by 1-, 2- and 4-star reviews. The authors neglect neutral (3-star) reviews in their analysis.</li>
+<li>Afterwards, they identify <em>suspicious</em> patterns as for instance (5>1>2>4) and notice that such patterns occur more frequently for hotels that benefit highly from reviews authored by single-time reviewers.</li>
+</ul></p>
+<h2>Identifying trustworthy and fake reviews</h2></p>
+<ul>
+<li>The authors argue that fake reviewers can be identified by comparing the reviews over time, since there must have been a point in time, before the entity got engaged in solicitation</li>
+<li>They collect truthful reviewers based on the following criteria:</li>
+<ol>
+<li>such reviewers have a long reviewing history and have written more than 10 reviews,</li>
+<li>they do not post reviews in short time intervals, and</li>
+<li>do not divert too much from the product's average ratings.</li>
+</ol></p>
+<li>The following metrics have been used for identifying deceptive reviews:</li>
+<ol>
+<li>the discrepancy between the average rating by truthful reviewers and the average rating by single-time reviewers</li>
+<li>the ratios of <em>the number of strongly positive reviews</em> to <em>the number of strongly negative reviews</em> among different groups of reviewers (e.g. single-time versus multi-time or truthful)</li>
+<li>sudden bursts of very positive or negative reviews</li>
+</ol>
+</ul></p>
+<h2>Thoughts</h2></p>
+<ul>
+<li>Considering neutral (3-star) reviews might be beneficial for assessing controversial topics.</li>
+<li>It would be interesting to show how/whether writer re-identification can be useful for identifying reviews produced by public relation companies.</li>
+</ul></p>

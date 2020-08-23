@@ -1,0 +1,42 @@
+---
+status: publish
+published: true
+title: Metrics for Evaluation of Ontology-based Information Extraction
+wordpress_id: 76
+wordpress_url: https://blog.semanticlab.net/?p=76
+date: '2010-02-25 04:06:53 +0100'
+date_gmt: '2010-02-25 03:06:53 +0100'
+categories:
+- Ontology Evaluation
+tags:
+- BDM
+comments: []
+---
+<p>by Maynard et al.</p>
+<p>This article describes metrics for evaluating ontologies. The article covers the following metrics:</p>
+<ul>
+<li><strong>precision, recall</strong></li>
+<li><strong>False positives</strong></li>
+<li><strong>cost-based evaluation metrics</strong> (CBE) such as <em>time x salary-saved</em></li>
+<li><strong>learning accuracy (LA)</strong> by Hahn, which has been used by Cimiano et. al and yields a similarity between 0 and 1. The metric is computed based on the following data:
+<ul>
+<li>SP: root - key concept (=gold standard concept)</li>
+<li>FP: root - predicted concept</li>
+<li>CP: root - MSCA (=most specific common abstraction; the lowest (most specific) concept common to SP and FP)</li>
+<li>DP: MSCA - predicted concept</li>
+</ul>
+</li></p>
+<li>correct results => CP = SP => LA=CP/SP = 1</li>
+<li>incorrect results => LA = CP/(FP+DP)</li>
+<li>one of the problems of LA is, that it does not consider the depth of the key concept in the hierarchy and therefore yields the same outcome regardless of how far away the key concept is. Maynard et al. show that this behavior sometimes leads to counter-intuitive results.</li>
+<li><strong>Augmented precision and recall</strong> (based on BDM): &uml;For computing BDM we require:
+<ul>
+<li>MSCA</li>
+<li>CP</li>
+<li>DPR: MSCA - response (=predicted) concept</li>
+<li>DPK: MSCA - key concept (=LA's DP)</li>
+</ul>
+</li></p>
+<li>All paths are normalized using (i) the average length of the chains and (ii) a branching factor.</li>
+<li>BDM is then used to compute the augmented precision and recall</li>
+</ul></p>

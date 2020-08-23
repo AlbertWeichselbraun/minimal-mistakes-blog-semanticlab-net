@@ -1,0 +1,43 @@
+---
+status: publish
+published: true
+title: Uncovering the overlapping community structure of complex networks in nature
+  and society
+wordpress_id: 386
+wordpress_url: https://blog.semanticlab.net/?p=386
+date: '2012-12-23 12:47:58 +0100'
+date_gmt: '2012-12-23 11:47:58 +0100'
+categories:
+- Social Networks
+tags:
+- social network
+- clique
+- nlp resources
+comments: []
+---
+<div class="csl-entry">Palla, G. et al., 2005. Uncovering the overlapping community structure of complex networks in nature and society. <em>Nature</em>, 435(7043), p.814.</div></p>
+<h1 class="csl-entry">Introduction</h1>
+The article introduces an approach for identifying <em>overlapping</em> (rather than <em>separate</em>) cohesive groups of nodes, since most real networks typically contain parts in which some nodes are more highly connected to each other than to the rest of the network.</p>
+<p>They define a<em> k-clique community </em>as</p>
+<ol>
+<li>a union of k-cliques (complete subgraphs of size k)</li>
+<li>accessible from each other through a series of neighbouring k-cliques.</li>
+</ol></p>
+<h1>Algorithm</h1>
+The following algorithm is used for finding k-clique communities:</p>
+<ol>
+<li>identify all cliques in the network</li>
+<li>identify communities by finding aggregating overlapping cliques</li>
+</ol>
+The algorithm is applied to <em>binary networks </em>(undirected and unweighted links). A network can be transformed into a binary network by</p>
+<ol>
+<li>ignoring any directionality, and</li>
+<li>only consider weights which exceed a threshold value <em>w*</em></li>
+</ol></p>
+<h1>Applications</h1></p>
+<ol>
+<li>Identification of publication topics (by identifying cliques in co-authorship networks) - each clique represents such a topic; author weight: <em>w=1/(n-1)</em> with for every publication with <em>n</em> authors.</li>
+<li>protein / function clustering</li>
+<li>Word associations: identify <em>communities</em> of word (= words with related senses), e.g. based on the <a title="University of South Florida word association, rhyme, and word fragment norms." href="http://web.usf.edu/FreeAssociation/">South Florida Free Association norm list</a>.</li>
+</ol></p>
+<h1></h1></p>

@@ -1,0 +1,47 @@
+---
+status: publish
+published: true
+title: Dynamic Taxonomies (FIND Workshop)
+wordpress_id: 44
+wordpress_url: https://blog.semanticlab.net/2008/09/07/dynamic-taxonomies-find-workshop/
+date: '2008-09-07 19:37:38 +0200'
+date_gmt: '2008-09-07 18:37:38 +0200'
+categories:
+- Information Retrieval
+- Conferences
+tags: []
+comments: []
+math: true
+---
+<p>The term <i>dynamic taxonomies</i> refers to a multidimensional (multifaceted *check*) classification .</p>
+<h2>Interesting ideas:</h2></p>
+<ul>
+<li>Searching/Browsing: express selections as queries; provide a <i>A-box</i> of the current selection, which acts as the base for further manipulations</li>
+<li>DT-miner: computes co-occurrences using taxonomies yielding a higher (ontology dependent) abstraction level.
+<pre>
+    beer  -> beverages
+    wine  -> beverages
+    the   -> article
+    chips -> snacks
+  </pre>
+  Possible ontologies: WordNet et. al</li>
+<li>concepts are not terms; but the author uses a pragmatic approach and defines them as label for multidimensional classes.
+<li>
+<li>Term expansion: shallow vs. deep (see graphic); advantage: only consider the current part of the search space (shallow/deep)</li>
+<li>related documents: establish a relationship between two documents if both of them share at least one common <i>classification</i>. => empirical evidence
+  Application: e.g. the wine taxonomy</li></p>
+<li>Searches: show a box with the domains of the first 20 search results; allow usage of these domains as filter criteria by (de)selection of single domains</li>
+<li>Query extension: apply a reasoner to the T-Box to extend queries; serialize the reasoner's results to improve the process's performance.</li>
+</ul></p>
+<h2>Word Sense Disambiguation as the Primary Step of Ontology Integration</h2>
+by Banek, Marko</p>
+<ul>
+<li>Idea: every class is expressed as WordNet synset tree
+      => compare both trees 
+      wordnet sense $$w_i$$ "most similar" to $$w_j$$ => meaning</li></p>
+<li>Literature:
+<ul>
+<li>semantic similarity calculation for WordNet (Yank & Powers, 2005)</li>
+<li>classic disambiguation techniques (Liu, Yu & Meng 2005)</li>
+    </ul></li>
+</ul></p>

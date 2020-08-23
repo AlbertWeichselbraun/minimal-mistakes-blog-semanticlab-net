@@ -1,0 +1,37 @@
+---
+status: publish
+published: true
+title: Topic-based content and sentiment analysis of Ebola virus on Twitter and in
+  the news
+wordpress_id: 907
+wordpress_url: https://blog.semanticlab.net/?p=907
+date: '2016-08-04 07:10:15 +0200'
+date_gmt: '2016-08-04 06:10:15 +0200'
+categories:
+- Web Intelligence
+- Sentiment Detection
+tags:
+- sentiment analysis
+- topic model
+- topic sentiment
+comments: []
+math: true
+---
+<p>Kim, E. H.-J., Jeong, Y. K., Kim, Y., Kang, K. Y., &amp; Song, M. (2015). Topic-based content and sentiment analysis of Ebola virus on Twitter and in the news. Journal of Information Science</p>
+<p>This paper investigates the temporal differences between topic coverage and sentiment on Twitter and news media.</p>
+<h2>Method</h2>
+The analysis is based on a corpus of 16,189 news articles and 7,106,297 tweets which have been assembled based on queries for "Ebola" and "Ebola virus". Preprocessing removed stopwords, applied lemmatization, tokenization and part-of-speech tagging to the corpus.</p>
+<p>The following four techniques have been applied to the created corpus:vocabulary control, i.e. replace consumer's expressions with expert's jargon using the Consumer Health Vocabulary (CHV)</p>
+<ol>
+<li>topic modeling using n-gram Latent Dirichlet Allocation (LDA). Afterwards the differences in coverage have been investigated using (a) <em>within-topic similarity</em> (WTS) and (b) <em>between-topic similarity</em> (BTS).</li>
+<li>entity extraction using PKDE4J and creation of an entity network which has been visualized using Gephi (www.gephi.org).</li>
+<li>computation of the topic-based sentiment scores - the sentiment value of words is weighted with their topic probability
+$$s_{topic_i} = \sum_{j} P(w_j|topic_i) \cdot s(w_j)$$</li>
+</ol></p>
+<h2>Performed Analysis</h2></p>
+<ol>
+<li>Topic distribution and relations between the topics based on the within-topic similarity (WTS) score.</li>
+<li>Entity distribution (entity type per outlet) and visualization of the entity network. Computation of the top entities based on the betweenness centrality.</li>
+<li>Temporal analysis: identify continuous topics and compute the topic sentiment over time;</li>
+</ol>
+&nbsp;</p>

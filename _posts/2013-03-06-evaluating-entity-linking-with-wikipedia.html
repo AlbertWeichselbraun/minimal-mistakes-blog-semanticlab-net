@@ -1,0 +1,61 @@
+---
+status: publish
+published: true
+title: Evaluating Entity Linking with Wikipedia
+wordpress_id: 482
+wordpress_url: https://blog.semanticlab.net/?p=482
+date: '2013-03-06 17:09:25 +0100'
+date_gmt: '2013-03-06 16:09:25 +0100'
+categories:
+- Information Extraction
+tags:
+- metrics
+- evaluation
+- wikipedia
+- named entity linking
+comments: []
+---
+<p>Hachey, B. et al., 2013. Evaluating Entity Linking with Wikipedia. <em>Artificial Intelligence</em>, 194, pp.130&mdash;150.</p>
+<p>This article compares the performance of three methods for named entity recognition against a Wikipedia gold standard. The authors also introduce a framework for named entity linking which allows an easier comparison of different approaches.</p>
+<h1>Named Entity Linking Framework</h1></p>
+<ol>
+<li><strong>Extractors</strong> detect and prepare named entity mentions and, therefore, often include pre-processing  and tokenization steps.</li>
+<li><strong>Searchers</strong>, determine candidate entities for mentions.</li>
+<li><strong>Disambiguators</strong>, select the best fitting entity for every mention.</li>
+</ol>
+The following sections describe the NER approaches that have been compared by Hachey et al.</p>
+<h2>Bunescu and Pasca</h2>
+The authors use Support Vector Machines (SVM) for disambiguation and rank candidate entities based on the following features:</p>
+<ol>
+<li>the cosine similarity between the query context and the text of the candidate entity page on Wikipedia</li>
+<li>a combinations of candidate categories according to Wikipedia classifications and context words.</li>
+</ol></p>
+<h2>Cucerzan</h2></p>
+<ol>
+<li>Cuerzan uses a naive in-document co-reference resolution that condenses multiple mentions to the longest possible canonical mention in the document.
+(e.g. IBM Development Center, IBM, IBM Development Center Switzerland -> "IBM Development Center Switzerland")</li></p>
+<li>Uppercase mentions are considered to be acronyms and mapped to canonical mentions if the acronym letters correspond to the mention.</li>
+<li>Disambiguation takes place based on document-level vectors derived from all entity mentions which are compared to candidate vectors considering an article's categories and contexts.</li>
+</ol></p>
+<h2>Varma et al.</h2></p>
+<ol>
+<li>The authors first identify acronyms and look for their verbose forms based on the starting letters.</li>
+<li>The searcher distinguishes between acronym and non-acronym queries and adapts its strategy accordingly.</li>
+<li>The disambiguation is based on the textual similarity between the query context and the text of the query page, using the cosine measure.</li>
+</ol></p>
+<h1>Evaluation Measures</h1>
+The following metrics have been used to assess the performance of the NEL methods:</p>
+<ol>
+<li>accuracy</li>
+<li>candidate count</li>
+<li>candidate precision</li>
+<li>candidate recall</li>
+<li>nil precision</li>
+<li>nil recall</li>
+</ol></p>
+<h1>Literature</h1></p>
+<ol>
+<li>Bunescu, R. &amp; Pasca, M., 2006. Using encyclopedic knowledge for named entity disambiguation. In <em>Proceedings of the 11th Conference of the EACL</em>. Trento, Italy, pp. 9&mdash;16.</li>
+<li>Cucerzan, S., 2007. Large-Scale Named Entity Disambiguation Based on Wikipedia Data. In <em>Proceedings of the Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning (EMNLP)</em>. pp. 708&mdash;716.</li>
+<li>Varma, V. et al., 2009. IIIT Hyderabad at TAC 2009. In <em>Proceedings of the Text Analysis Conference (TAC)</em>.</li>
+</ol></p>

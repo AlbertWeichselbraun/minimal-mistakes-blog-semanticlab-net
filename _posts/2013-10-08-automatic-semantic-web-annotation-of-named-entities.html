@@ -1,0 +1,40 @@
+---
+status: publish
+published: true
+title: Automatic Semantic Web Annotation of Named Entities
+wordpress_id: 679
+wordpress_url: https://blog.semanticlab.net/?p=679
+date: '2013-10-08 07:21:46 +0200'
+date_gmt: '2013-10-08 06:21:46 +0200'
+categories:
+- Information Extraction
+tags:
+- linked open data
+- named entity linking
+comments: []
+---
+<div>
+<div>Charton, E., Gagnon, M., &amp; Ozell, B. (2011). Automatic semantic web annotation of named entities. In <em>Proceedings of the 24th Canadian conference on Advances in artificial intelligence</em> (pp. 74&mdash;85). Berlin, Heidelberg: Springer-Verlag.</div>
+</div></p>
+<h2>Summary</h2>
+This article presents a method for identifying named entities in text and linking them to a semantic knowledge base. In contrast to named entity recognition, which focuses on identifying the entity type (i.e. organization, person, location, etc), named entity linking determines which entity (i.e. individual) are mentioned in the text.</p>
+<h2>Method</h2>
+The authors link entities to Wikipedia using the following description for each Wikipedia entity:</p>
+<ol>
+<li>surface forms (i.e. names that refer to this entity)</li>
+<li>entity description (i.e. the entity's context) - the tf/idf values are computed for each word occuring in these descriptions</li>
+<li>URI</li>
+</ol>
+The algorithm identifies candidate entities based on their surface forms. It then obtains context information by applying a sliding window to the text surrounding the entitiy. The final ranking of an entity is then performed by computing the cosine similarity between the candidate entities' tf/idf values and the context terms from the sliding window.</p>
+<h2>Experiments</h2>
+The authors applied their approach to</p>
+<ol>
+<li>the French ESTER 2 corpus</li>
+<li>the Wall Street Journal (WSJ) corpus from the CoNLL Shared Task 2008.</li>
+</ol>
+and used the following two steps to annotate the corpora</p>
+<ol>
+<li>apply the annotator to provide tentative annotations</li>
+<li>manually remove or correct wrong semantic links</li>
+</ol>
+The evaluation only considered recall which amounted to 0.93 for French and 0.84 for English. The lower recall values for English entities are probably caused by the considerably greater size of the English Wikipedia which makes disambiguation tasks more difficult.</p>

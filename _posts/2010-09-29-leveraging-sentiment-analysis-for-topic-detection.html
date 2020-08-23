@@ -1,0 +1,28 @@
+---
+status: publish
+published: true
+title: Leveraging Sentiment Analysis for Topic Detection
+wordpress_id: 86
+wordpress_url: https://blog.semanticlab.net/?p=86
+date: '2010-09-29 11:31:45 +0200'
+date_gmt: '2010-09-29 10:31:45 +0200'
+categories:
+- Sentiment Detection
+tags:
+- Sentiment Detection
+- word support
+- PMI
+- sentiment topics
+comments: []
+math: true
+---
+<p>by Cai et al (IBM China Research Lab) ***</p>
+<p>The authors combine sentiment detection with identifying the terms that are highly correlated to a specific sentiment. Therefore, they also <strong>uncover</strong> the <strong>potential root cause</strong> (= sentiment topics) of that particular sentiment.</p>
+<p>They apply the following work flow for topic detection:</p>
+<ol>
+<li>identification of relevant snippets</li>
+<li>sentiment classification (they assess the polarity of each snippet and create a sentiment taxonomy based on this polarity)</li>
+<li>topic detection
+they evaluate the importance of topic words by using (i) PMI (uniqueness of each word to each sentiment category) and (ii) the word support category (importance of the word in the category)</li>
+</ol>
+word support category: $$Freq(w,s) = \frac{ N(w,s) } {\sum N(w,s) }$$ with $$s \in \{+,-, neutral\}$$</p>

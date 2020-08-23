@@ -1,0 +1,72 @@
+---
+status: publish
+published: true
+title: Predicting the Future with Social Media
+wordpress_id: 223
+wordpress_url: https://blog.semanticlab.net/?p=223
+date: '2012-01-21 15:47:21 +0100'
+date_gmt: '2012-01-21 14:47:21 +0100'
+categories:
+- Social Networks
+- Web Intelligence
+tags:
+- twitter
+- predict sales
+- regression model
+- market predictors
+comments: []
+---
+<div class="csl-bib-body" style="line-height: 2; padding-left: 2em; text-indent: -2em;">
+<p class="csl-entry" style="text-align: left;">by Asur, S., &amp; Huberman, B. A. (2010). IEEE/WIC/ACM International Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT)</p></p>
+<p></div>
+This article elaborates on the use of Twitter for predicting the box-office revenues of movies based on (i) the number of tweets and re-tweets, and (ii) the sentiment of the Twitter messages.</p>
+<p>The authors show that their Twitter-based prediction model outperforms</p>
+<ul>
+<li>the Hollywood Stock Exchange (HSX), an artificial markets that has been considered the <strong>gold standard</strong> for predicting movie sales since it was usually more accurate than other techniques such as surveys and opinion polls (Pennock et al, 2001;  Chen &amp; Hubermann, 2003); and</li>
+<li>web-based indicators, such as the ones developed by Zhang &amp; Skiena, 2006</li>
+</ul>
+Asur &amp; Hubermann use the following sentiment metrics to refine their prediction model:</p>
+<ol>
+<li>a <strong>Subjectivity measure:</strong>
+\[ Subjectivity = \frac{|\text{positive} + \text{negative tweets}|}{|\text{neutral tweets}|}\]
+-  subjectivity rises after the release of a movie.</li></p>
+<li>the <strong>Polariy</strong>:
+\[ P=\frac{|\text{positive tweets}|}{ |\text{negative tweets}|} \]</li>
+</ol></p>
+<h2>Lessons Learned</h2></p>
+<ol>
+<li>Social media feeds can be an effective indicator of real-world performance</li>
+<li>Considering the <strong>tweet-rate timeseries</strong> (i.e., the number of tweets per day, observed over a certain period of time) <strong>alone yields an adjusted R&Acirc;&sup2; of 0.92</strong>; including the Tweets polarity boosts this measure to 0.94.</li>
+<li>Retweets are posts originally made by one user that are forwarded to other users and boost Twitter's ability for viral marketing</li>
+<li>The distribution of Tweets per authors is close to a Zipfian distribution
+<ul>
+<li>a few authors generate a large number of tweets</li>
+<li>this is consistent with observations from other networks (Wu et al, 2009)</li>
+</ul>
+</li></p>
+<li>At a deeper level social media expresses collective intelligence and can yield powerful and accurate indicators of future outcomes</li>
+<li>Asur and Hubermann also suggest the following predictive regression model for the sales (y) of a product:
+\[ y = \beta_0 + \beta_a * A + \beta_p * P + \beta_d * D + \epsilon \]</p>
+<ul>
+<li>A .. rate of attention seeking</li>
+<li>P ... polarity of sentiment and reviews</li>
+<li>D ... distribution parameter</li>
+</ul>
+</li>
+</ol></p>
+<h3>Related Work</h3></p>
+<ol>
+<li>Gruhl, 2005 and others mine blogs in order to predict spikes in book sales</li>
+<li>Zhang  &amp; Skiena, 2006 analyze movie sales based on News analysis</li>
+</ol></p>
+<h3>Literature</h3></p>
+<ol>
+<li>Gruhl, D., Guha, R., Kumar, R., Novak, J., &amp; Tomkins, A. (2005). The predictive power of online chatter. Proceedings of the eleventh ACM SIGKDD international conference on Knowledge discovery in data mining, KDD  &trade;05 (pp. 78&mdash;87). New York, NY, USA: ACM. doi:10.1145/1081870.1081883</li>
+<li>Wu, F., Wilkinson, D. M., &amp; Huberman, B. A. (2009). Feedback Loops of Attention in Peer Production. Proceedings of the 2009 International Conference on Computational Science and Engineering - Volume 04 (pp. 409&mdash;415). Washington, DC, USA: IEEE Computer Society. doi:10.1109/CSE.2009.430</li>
+<li>Zhang, W., &amp; Skiena, S. (2009). Improving Movie Gross Prediction through News Analysis. Proceedings of the 2009 IEEE/WIC/ACM International Joint Conference on Web Intelligence and Intelligent Agent Technology - Volume 01, WI-IAT  &trade;09 (pp. 301&mdash;304). Washington, DC, USA: IEEE Computer Society. doi:10.1109/WI-IAT.2009.53</li>
+<li>Pennock, D. M., Lawrence, S., Giles, C. L., &amp; Nielsen, F. A. (2001). The real power of artificial markets. Science (New York, N.Y.), 291(5506), 987-988.</li>
+<li>Chen, K.-Y., Fine, L. R., &amp; Huberman, B. A. (2003). Predicting the Future. Information Systems Frontiers, 5(1), 47&mdash;61. doi:10.1023/A:1022041805438</li>
+</ol></p>
+<div class="csl-bib-body" style="line-height: 2; padding-left: 2em; text-indent: -2em;"></div></p>
+<div class="csl-bib-body" style="line-height: 2; padding-left: 2em; text-indent: -2em;"></div></p>
+<div class="csl-bib-body" style="line-height: 2; padding-left: 2em; text-indent: -2em;"></div></p>

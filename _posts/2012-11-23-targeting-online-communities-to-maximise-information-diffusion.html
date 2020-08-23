@@ -1,0 +1,70 @@
+---
+status: publish
+published: true
+title: Targeting Online Communities to Maximise Information Diffusion
+wordpress_id: 354
+wordpress_url: https://blog.semanticlab.net/?p=354
+date: '2012-11-23 07:14:04 +0100'
+date_gmt: '2012-11-23 06:14:04 +0100'
+categories:
+- Information Diffusion
+tags:
+- information diffusion
+- optimized content placement
+- impact
+comments: []
+---
+<div class="csl-bib-body" style="line-height: 1.35; padding-left: 2em; text-indent: -2em;">
+<div class="csl-entry">Bel&Atilde;&iexcl;k, V., Lam, S. &amp; Hayes, C., 2012. Targeting online communities to maximise information diffusion. In <em>Proceedings of the 21st international conference companion on World Wide Web</em>. WWW  &trade;12 Companion. New York, NY, USA: ACM, pp. 1153&mdash;1160.</div></p>
+<div class="csl-entry"></div></p>
+<h2 class="csl-entry">Introduction</h2>
+</div></p>
+<div class="csl-entry">The authors investigate how to maximize information flows across communities and introduce a novel measure for cross-community influence.</div></p>
+<div class="csl-entry">
+<ol>
+<li>users are continuously flooded with news, and may , therefore, become increasingly inert to further stimuli</li>
+<li>there are specific <strong>hight influence communities </strong>that engage a substantial part of the system. The paper shows how to identify these communities.</li>
+<li><strong>impact</strong> defines how likely a user will respond to a certain stimuli. These responses are measured in terms of <strong>replies</strong>.</li>
+</ol></p>
+<h2>Related Work</h2></p>
+<ol>
+<li>spread of diseases in a population</li>
+<li>spread of influence across a social network</li>
+<li>cross-posts in USENET</li>
+<li>Wu et al. use a reply-to network as a proxy for information flow. Such reply-to relations have similar properties than friendship relations within social networks.</li>
+</ol></p>
+<h2>The Independent Cascade Model (ICM) for Diffusion</h2></p>
+<ol>
+<li>introduced by Kempe et al. (2003)</li>
+<li><strong>similar to spreading activation</strong>:</li>
+<ul>
+<li>Graph: G=(V,E)</li>
+<li>Vertices (V) refer to actors and have a certain (probabilistic) activation function</li>
+<li>Edges (E) refer to the probability of an information flow between an actor <em>i</em> and an actor <em>j</em>.</li>
+<li>the diffusion process starts with seed nodes that try to activate their neighbors at every iteration</li>
+</ul>
+</ol></p>
+<h2>Method</h2></p>
+<h3>Experimental setup</h3></p>
+<ol>
+<li>the method has been applied to the boards.ie forum based on 51 temporal snapshots that have been taken within a year</li>
+<li>an experiment has let to a wait time $$\tau$$ <em>= 1 week</em> between original post and reply (84% of all responding users responded to a post within one week)</li>
+<li>the edge's weights reflect the likelihood of a flow between user i and j (reply from j to i divided by the total number of replies from j).</li>
+<li>all measures have been computed based on sets of sample users per community</li>
+</ol></p>
+<h3>Influence Measures</h3></p>
+<ol>
+<li>impact measure considers</li>
+<ul>
+<li>a user's degree of membership, and</li>
+<li>its centrality within a community</li>
+</ul></p>
+<li>the authors introduce</li>
+<ul>
+<li><em>impact</em> (centrality * membership)</li>
+<li><em>normalized impact</em> that normalizes this measure with the community size</li>
+<li><em>total impact</em> (subtracts a communities self-impact values)</li>
+<li><em>entropy</em> (how many distinct communities are influenced by the seed community)</li>
+</ul>
+</ol>
+</div></p>

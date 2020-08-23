@@ -1,0 +1,44 @@
+---
+status: publish
+published: true
+title: The viability of web-derived polarity lexicons
+wordpress_id: 122
+wordpress_url: https://blog.semanticlab.net/?p=122
+date: '2011-05-27 14:55:36 +0200'
+date_gmt: '2011-05-27 13:55:36 +0200'
+categories:
+- Sentiment Detection
+tags:
+- sentiment lexicon
+- creation
+comments: []
+math: true
+---
+<p>by Velikovich et al. (Google research)
+</p>
+<p>This paper describes an approach for semi-automatically generating sentiment lexicon from seed terms and a Web corpus. The authors create a graph of phrases and use a graph propagation algorithm to determine how positive and negative polarity propagates through this graph.
+The graph has the following components:</p>
+<ul>
+<li>node set V: contains the candidate phrases (=n-grams up to a length of ten) </li>
+<li>set of edges E: connect two candidate phrases based on the cosine similarity of their context vector; the context vector is composed by aggregating the terms appearing within a six word window over all mentions of the phrase in the Web corpus</li>
+</ul></p>
+<p>The authors discuss why their propagation method is expected to outperform <i>labeled propagation</i>, which works well with high quality data but not with noisy and untrustworthy graphs constructed from the Web.
+
+
+<b>Evaluation Measure</b>
+Finally, the authors present an evaluation which makes use of the following purity measure:</p>
+\[ purity(X) = \sum_{ x \in X } pol_x / ( \delta + \sum_{ x \in X } |pol_x| ) \]
+</p>
+<p>Due to the parameter \delta this measure assigns higher scores to sentences which contain multiple sentiment phrases.
+This purity measure normalizes the polarity score to the range [-1,1] and yields higher values for sentences containing <b>only</b> positive or negative terms.
+
+
+<b>Conclusion</b>
+The evaluations show that the proposed method outperforms traditional lexicons because to generated dictionaries contain a wider range of phrases such as</p>
+<ul>
+<li>spelling variations</li>
+<li>slang</li>
+<li>vulgarity, and</li>
+<li>multi-word expressions</li>
+</ul>
+which have not been available to previous systems.</p>

@@ -1,0 +1,25 @@
+---
+status: publish
+published: true
+title: 'HadoopDB: An Architectural Hybrid of MapReduce and DBMS Technologies for Analytical
+  Workloads'
+wordpress_id: 60
+wordpress_url: https://blog.semanticlab.net/?p=60
+date: '2009-07-22 19:24:03 +0200'
+date_gmt: '2009-07-22 18:24:03 +0200'
+categories:
+- Database
+- Distributed Computing
+tags: []
+comments: []
+---
+<p>Abouzeid, Azza, Bajda-Pawlikowski, Kamil, Abadi, Daniel, Rasin, Alexander and Silberschatz, Avi (2009). ''HadoopDB: An Architectural Hybrid of MapReduce and DBMS Technologies for Analytical Workloads'', VLDB'09: Proceedings of the 2009 VLDB Endowment</p>
+<p>Many proponents of relational databases see traditional distributed databases such as key-value stores (e.g.,  the google database) as a step backward.</p>
+<p>Abouzeid at el., therefore, introduce HadoopDB a hybrid approach combining the strengths of parallel databases (performance, SQL compliant) with the advantages of the hadoop MapReduce framework (ability to run in heterogeneous environments, fault tolerance).</p>
+<p>HadoopDB combines the following technologies.</p>
+<ul>
+<li>the hadoop MapReduce framework</li>
+<li>Hive (a data warehouse infrastructure built on top of hadoop) as a translational layer</li>
+<li>a PostgreSQL or MySQL database</li>
+</ul>
+Extending hadoop's InputFormat implementation allows integrating conventional databases seamlessly with the framework. A specifically designed query planner (based on Hive and HiveQL) translates database queries to MapReduce jobs that connect to tables stored as files in HDFS.</p>

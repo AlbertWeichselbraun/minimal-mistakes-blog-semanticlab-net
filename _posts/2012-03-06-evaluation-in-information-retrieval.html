@@ -1,0 +1,101 @@
+---
+status: publish
+published: true
+title: Evaluation in Information Retrieval
+wordpress_id: 264
+wordpress_url: https://blog.semanticlab.net/?p=264
+date: '2012-03-06 16:22:37 +0100'
+date_gmt: '2012-03-06 15:22:37 +0100'
+categories:
+- Uncategorized
+tags:
+- metrics
+- evaluation
+- corpora
+comments: []
+---
+<p>Manning, C.D., Raghavan, P. &amp; Schütze, H., 2008. Introduction to Information Retrieval 1st ed., Cambridge University Press.</p>
+<h2>Chapter 8 - Evaluation in information retrieval</h2>
+Retrieval effectiveness is measured using a test collection consisting of</p>
+<ol>
+<li>a document collection</li>
+<li>a test suite of information needs (50 have been found to be sufficient at minimum) that are usually expressed as queries</li>
+<li>a set of relevance judgments (binary)</li>
+</ol>
+Tuning parameters (if present) need to be optimized using an independent test collection rather than the evaluation collection.</p>
+<h3>Standard Test Collections</h3></p>
+<ol>
+<li>Cranfield collection (historical)</li>
+<li>Text retrieval conference (TREC) - relevance judgments for 450 information needs that are called topics; TREC 6-8 provide 150 information needs over 528,000 newswire and broadcast articles and is considered one of the largest and most consistent subcollections</li>
+<li>GOV2 - 25 million pages</li>
+<li>NII Test Collections for IR Systems (NTCIR) - asian languages</li>
+<li>Cross Language Evaluation Forum (CLEF) - European languages for cross-language retrieval</li>
+<li>Reuters</li>
+<li>20 Newsgroups - text classification</li>
+</ol></p>
+<h3>Presentation of search results</h3></p>
+<ul>
+<li>static snippets</li>
+<li>dynamic snippets -> explain why that particular document has been retrieved</li>
+<li>text summarization -> up to date systems combine positional factors (favor first and last paragraphs and the first and last sentences of paragraphs, with content factors, emphasizing sentences with key terms)</li>
+</ul></p>
+<h3>Evaluation</h3>
+Common metrics and visualizations for unranked search results</p>
+<ul>
+<li>Precision, Recall</li>
+<li>Accuracy (tp+tn)/(tp+fp+tn+tn)  - often not appropriate since retrieval data might be extremely skewed (99.9% of the documents are non-relevant => a system optimizing accuracy would perform well, when only returning negative answers)</li>
+<li>F-measure - the harmonic mean between P and R (and therefore always less or equal the arithmetic mean)</li>
+</ul>
+Common metrics and visualizations for ranked search results</p>
+<ul>
+<li>Precision/recall graphs (saw-tooth shape; non-relevant documents => precision drops)</li>
+<li>Interpolated precision (highest precision for a certain recall level r'>=r)</li>
+<li>11-point average precision (precision at a recall of 0.0, 0.1, ... 1.0)</li>
+<li>mean average precision (MAP) - approximates the area under the interpolated precision-recall curve for a single information need</li>
+<li>precision at k (e.g. precision at 10)</li>
+<li>R-precision - precision for  |Rel| document (with |Rel| equals the number of total relevant entries in the collection)</li>
+<li>Receiver Operating Characteristics (ROC Curve) - x = 1-specificity; y=recall
+with specifity = tn/fp+tn</li></p>
+<li>cumulative gain and normalized discounted cumulative gain -  designed for non-binary notions of relevance</li>
+</ul></p>
+<h3>Assessing Relevance</h3></p>
+<ul>
+<li>pooling - only the top-k documents of the collection are evaluated</li>
+<li>kappa measure (inter-rater agreement)
+<ul>
+<li>idea: kappa = [P(same rating, observed) -  P(same rating, random)] /  [1-P(same rating, random) ]</li>
+<li>interpretation:
+<ul>
+<li>above 0.8 -> good agreement</li>
+<li>between 0.67 and 0.8 -> fair agreement</li>
+<li>below 0.67 -> dubious</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></p>
+<h3>Problems</h3></p>
+<ul>
+<li>document relevance is treated as independence from the relevance of other documents</li>
+<li>binary assessments</li>
+<li>relevance is treated as an absolute objective decision -> Kek&Atilde;&curren;l&Atilde;&curren;inen (2005) show that a 4-way relevance judgment and the notion of cumulative gain substantially affect system ranking;</li>
+<li>results are based on one collection (domain-specific)</li>
+</ul></p>
+<h3>Countermeasures</h3></p>
+<ul>
+<li>INEX, some TREC tracks and NTCIR -> three to four relevance classes</li>
+<li><strong>marginal relevance </strong>(usefulness of a document is assessed after the user has looked at certain other documents) - maximizing marginal relevance => diverse documents are returned</li>
+<li>user utility - make users happy
+<ul>
+<li>relevance is a proxy for user happiness</li>
+<li>user studies measure user happiness</li>
+<li>user studies of IR system effectiveness by Saracevic and Kantor (1988, 1996)</li>
+</ul>
+</li></p>
+<li>refine deployed systems:<strong> A/B testing</strong>
+<ul>
+<li>deploy a modified version of the system (B)</li>
+<li>user feedback to evaluate the differences between these systems (non-intrusive by using clickthrough log analysis, clickstream mining, ...)</li>
+</ul>
+</li>
+</ul></p>

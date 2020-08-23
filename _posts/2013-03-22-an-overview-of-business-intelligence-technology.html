@@ -1,0 +1,54 @@
+---
+status: publish
+published: true
+title: An Overview of Business Intelligence Technology
+wordpress_id: 515
+wordpress_url: https://blog.semanticlab.net/?p=515
+date: '2013-03-22 06:14:47 +0100'
+date_gmt: '2013-03-22 05:14:47 +0100'
+categories:
+- Web Intelligence
+tags:
+- business intelligence
+- architecture
+- components
+comments: []
+---
+<p>Chaudhuri, S., Dayal, U. &amp; Narasayya, V., 2011. An overview of business intelligence technology. <em>Communications of the ACM</em>, 54(8), pp.88&mdash;98.</p>
+<p>This article discusses -  based on an overview of a typical business intelligence architecture - selected business intelligence components, their use, research issues, and optimization potentials.</p>
+<h1>Introduction</h1>
+Business Intelligence (BI) software draws upon a company's data assets for providing fact-based decision support that enables knowledge workers to make better and faster decisions.</p>
+<p>Typical application areas of BI are:</p>
+<ol>
+<li>manufacturing (order shipment and customer support)</li>
+<li>retail (user profiling for customizing coupons, and product offers)</li>
+<li>financial services (claim analysis and fraud detection)</li>
+<li>transportation (fleet management, customer care)</li>
+<li>telecommunications (identification of customers likely to switch to another provider)</li>
+<li>utilities (power usage analysis)</li>
+<li>health care (outcomes analysis)</li>
+</ol></p>
+<h1>Business Intelligence Architecture</h1>
+A typical BI Architecture consists of</p>
+<ol>
+<li>data sources such as a company's databases and external sources</li>
+<li>data movement and streaming engines that extract, transform and load (<strong>ETL</strong>) data from external sources into the data warehouse servers. They address the issues of data quality and provide <strong>data profiling</strong> tools for discovering problems such as missing entities and attribute values, violations of constraints,  etc.</li>
+<li>data warehouse servers that store the normalized data</li>
+<li>mid-tier servers, providing functionalities for different BI scenarios and applications based on components such as</li>
+<ul>
+<li>Online Analytic Processing (OLAP) servers</li>
+<li>enterprise search engines</li>
+<li>data mining and extraction engines that currently primarily extract the following structured data: (i) named entities, (ii) concepts and topics, and (iii) text sentiment</li>
+<li>reporting servers</li>
+</ul></p>
+<li>Front-end applications, such as search and query frontends, visual dashboards, and export functions.</li>
+</ol></p>
+<h1>Technologies Used</h1>
+This section contains selected samples of the technology used in business intelligence systems.</p>
+<ol>
+<li>Column-oriented storage for databases.
+Advantages: optimized for "read-mostly" workloads, better data compression, limit read operations to the columns required</li></p>
+<li>Data compression - reduces IO and storage requirements; certain query operations such as de-duplication and equality operations may take place directly on the compressed content.
+Dictionary compression identifies frequently used values and transforms them into a more compact representation (e.g. {active, deleted} --> {0, 1})</li></p>
+<li>Real Time BI - reduces the latency between data generation and analysis. <strong>Complex Event Processing</strong> (CEP) engines that operate directly on data streams rather than on data that needs to be loaded into the data warehouse are often used for such tasks.</li>
+</ol></p>

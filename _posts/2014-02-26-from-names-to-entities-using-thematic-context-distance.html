@@ -1,0 +1,50 @@
+---
+status: publish
+published: true
+title: From Names to Entities using Thematic Context Distance
+wordpress_id: 753
+wordpress_url: http://blog.semanticlab.net/?p=753
+date: '2014-02-26 08:41:42 +0100'
+date_gmt: '2014-02-26 07:41:42 +0100'
+categories:
+- Information Extraction
+tags:
+- wikipedia
+- named entity linking
+- named entity disambiguation
+- latent dirichlet allocation
+- evaluation data
+comments: []
+---
+<div>Pilz, A., &amp; Paa&Atilde;&Yuml;, G. (2011). From Names to Entities Using Thematic Context Distance. In <em>Proceedings of the 20th ACM International Conference on Information and Knowledge Management</em> (CIKM), pp. 857&mdash;866</div></p>
+<div></div></p>
+<h2>Introduction</h2>
+Named entity disambiguation aims to link mentions of named entities to unique entities within a knowledge repository such as DBpedia. Miller and Charles (1991) have shown that words with similar meaning usually appear in similar contexts. Hence, many techniques rely on a mention's context for disambiguation. Nevertheless, approaches which rely on similar words rather than similar topics are not robust if different wordings are used.</p>
+<p>Topic models address this problem, by using topics rather than words to describe the entity context. The research presented in this paper uses LDA to create such a model and applies it to the English, German and French versions of Wikipedia.</p>
+<h2>Method</h2>
+Given is a name mention<em> (m) </em>and surrounding text <em>(T(m)). </em>Named entity disambiguation aims at linking the correct entity <em>e(m)</em> out of the set of candidate entities $$\epsilon(m) = \{e_1, ... e_{|\epsilon|}\}$$ with $$name(e_i) = m$$ to the mention. The method uses the Wikipedia text $$T(e_j)$$ of entity $$e_j$$ to assess whether $$e_j$$ is a good candidate for <em>e(m).</em></p>
+<p>The authors use the complete Wikipedia article as context (<em>T(m)</em>) since it yields better results than a sliding window. The named entity disambiguation is formulated as the following binary classification problem:</p>
+<p>$$y(\vec{\phi}(m, e_j)) = \begin{cases} +1, &amp; \text{if } e(m) = e_j\\ -1, &amp; else.\\\end{cases}$$</p>
+<p>The entity with the highest score $$y(\vec{\phi}(m, e_j))$$ is considered the most likely entity for the mention <em>(m)</em> and the difference between the best and second best scores indicate the confidence of the decision. The paper uses LDA topic probabilities as features to train an SVM which is then used in the evaluation.</p>
+<h3>Background: Latent Dirichlet Allocation (LDA)</h3></p>
+<ol>
+<li>LDA generates a low-dimensional representation of sparse high-dimensional data (i.e. they convert high-dimensional word vectors used in the vector space model into low-dimensional topic vectors).</li>
+<li>they are considered as Bayesian probabilistic models which describe documents <em>d</em> as mixtures of topics $$t_i$$.</li>
+<li>the resulting word distributions $$p(w_n|z_n, \beta)$$ for each topic ($$z_n$$) have high probabilities for co-occurring words. They, therefore, address the problem of polysemy and synonymy.</li>
+</ol></p>
+<h3>Background: Thematic Distance</h3>
+The authors discuss the following options for computing thematic distances:</p>
+<ol>
+<li>use the document topic probabilities as features for a machine learning algorithm such as SVM</li>
+<li>symmetric Kullback-Leibler divergence</li>
+<li>Helliner distance</li>
+</ol>
+&nbsp;</p>
+<h2><em></em>Evaluation</h2></p>
+<ol>
+<li>the authors use links to other Wikipedia articles within Wikipedia as reference data (i.e. a mention linking to Apply_Inc is considered to refer to the corresponding company)</li>
+<li>non-covered entities are simulated by removing a fixed fraction of entities from the test set and assigning them to the "unknown" class.</li>
+<li>the use approaches with apply (i) a cosine similarity measure and (ii) word-category pairs as baseline methods.</li>
+<li>the evaluation shows that the trained disambiguation models obtains good results for all three languages.</li>
+</ol>
+&nbsp;</p>

@@ -1,12 +1,10 @@
 # main links
 main:
-  - title: "Quick-Start Guide"
-    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/
+  - title: "Tags"
+    url: /tags
+  - title: "Categories"
+    url: /categories
+  - title: "Linked Data"
+    url: /_pages/linked-data-resources
+  - title: "Natural Language Processing"
+    url: /_pages/natural-language-processing-resources

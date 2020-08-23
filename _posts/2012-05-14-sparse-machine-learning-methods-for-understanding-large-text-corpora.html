@@ -1,0 +1,44 @@
+---
+status: publish
+published: true
+title: Sparse Machine Learning Methods for Understanding Large Text Corpora
+wordpress_id: 285
+wordpress_url: https://blog.semanticlab.net/?p=285
+date: '2012-05-14 08:52:46 +0200'
+date_gmt: '2012-05-14 07:52:46 +0200'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>by Ghaoui et al.</p>
+<p>Sparse machine learning methods provide models that are easier to interpret by seeking a trade-off between goodness-of-fit and the sparsity of the results. The authors present a number of sparse machine learning methods and apply them to multi-document topic summarization.</p>
+<h2>Dataset</h2>
+All experiments are performed on the Aviation Safety Reporting System (ASRS) dataset (http://asrs.arc.nasa.gov) that contains the following crucial properties:</p>
+<ol>
+<li>large scale (>100,000 documents) and growing rapidly (approx. 6150 reports in 2011)</li>
+<li>noisy data (abbreviations, orthographic and grammatical errors, shortcuts, ...)</li>
+<li>complex information need (it is not known in advance what to look for; no haystack/needle problem)</li>
+</ol></p>
+<h2>Sparse Machine Learning Methods</h2></p>
+<h3>Classification and regression</h3>
+LASSO is a variant of the least square algorithm that considers sparseness:</p>
+<p>\[min_{\beta} ||X^T \cdot\beta - y||^2_2 + \lambda ||\beta||_1\]</p>
+<p>The $$l_1$$ norm penalty encourages the regression coefficient $$\beta$$ to be sparse which yields results that are easier to interpret.</p>
+<h3>Principal component analysis</h3>
+The sparse principal component analysis (Sparse PCA) is a variant of PCA that identifies sparse directions of high variance.</p>
+<h3>Sparse models versus thresholded models</h3></p>
+<ol>
+<li>sparse models are build around the philosophy that sparsity should be part of the model's formulation using typically an $$l_1$$ penalty</li>
+<li>extensive research of the least square case shows that thresholded models (only consider the top results) are actually often sub-optimal</li>
+</ol></p>
+<h2>Method</h2>
+The authors use LASSO regression for topic summarization (provide a summary of a topic rather than an article). They create target and reference corpora and compute terms that are specific for the target corpus.</p>
+<h2>Evaluation</h2></p>
+<ol>
+<li>Per category lists of most predictive features (terms) - compare: co-occurrence analysis</li>
+<li>Visualizations: sparse PCA plots (interesting; each direction contains a number of terms; arrange the categories alongside these artificial axes; the diameter of the point representing a category corresponds to the number of documents found in it).</li>
+</ol></p>
+<h3>Suggestion: Computation of PCA plot axes:</h3>
+Try all possible combinations (brute force) and use the one that maximizes the distance (d^2) between the categories.</p>
+<p>&nbsp;</p>

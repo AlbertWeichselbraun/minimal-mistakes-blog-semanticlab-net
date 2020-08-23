@@ -1,0 +1,28 @@
+---
+status: publish
+published: true
+title: Reinforcement Learning
+wordpress_id: 52
+wordpress_url: https://blog.semanticlab.net/?p=52
+date: '2009-03-30 15:32:06 +0200'
+date_gmt: '2009-03-30 14:32:06 +0200'
+categories:
+- Search Test Stop
+tags: []
+comments: []
+math: true
+---
+<p><strong>A reinforcement learning approach to dynamic resource allocation</strong> **
+by David Vengerov</p>
+<p>Another paper on the application of the concept of 'utility' to computer science. The author states that the <i>central issue</i> of this kind of research is predicting the future utility for a given allocation. Therefore, the paper suggests the use of reinforcement learning to learn utility functions.</p>
+<p><b>Problem</b>
+The paper elaborates on whether a resource should be migrated between projects. That's exactly then the case, if $$du_i/dres_i \gt du_j/dres_j$$. Trading of an infinitely divisible resource stops at $$du_i/dres_i = du_j/dres_j$$ (if all marginal benefits are equal).
+This condition is sufficient for concave increasing utility functions.</p>
+<p><b>Remarks</b></p>
+<ul>
+<li>the autor uses a sum function to summarize utility (with \lambda=1).</li>
+<li>the paper outlines one of the main problems of rule based approaches (an exponential increase of rules as the number of inputs/resources increases)</li>
+<li>a reinforcement learning algorithm is presented (containing states, actions, a reward function, and a state transition function)</li>
+<li>in the experiments the utility-based policy outperformed its contenders by 26%.</li>
+</ul></p>
+<p>[vengerov2007] Vengerov, David (2007). ''<b>A reinforcement learning approach to dynamic resource allocation</b>'', Eng. Appl. Artif. Intell., Pergamon Press, Inc., pages 383--390, 20(3)</p>

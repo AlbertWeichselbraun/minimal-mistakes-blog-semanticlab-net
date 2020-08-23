@@ -1,0 +1,39 @@
+---
+status: publish
+published: true
+title: 'Digital Intuition: Applying Common Sense Using Dimensionality Reduction'
+wordpress_id: 273
+wordpress_url: https://blog.semanticlab.net/?p=273
+date: '2012-04-19 15:12:07 +0200'
+date_gmt: '2012-04-19 14:12:07 +0200'
+categories:
+- Machine Learning
+- Linking Open Data
+tags:
+- latent semantic analysis
+- linking open data
+- common sense knowledge
+- singular value decomposition
+- data integration
+comments: []
+---
+<p>Havasi, C., Pustejovsky, J., Speer, R., &amp; Lieberman, H. (2009). Digital Intuition: Applying Common Sense Using Dimensionality Reduction. Intelligent Systems, IEEE, 24(4), 24 &mdash;35. doi:10.1109/MIS.2009.72</p>
+<p>This article discusses</p>
+<ol>
+<li>the Open Mind Common Sense (OMCS) project - an initiative for collecting common sense data, and</li>
+<li>the use of singular value decomposition (SVD) for
+<ol>
+<li>predicting the value of unspecified entries</li>
+<li>combining these data with other knowledge sources through a process called blending</li>
+</ol>
+</li>
+</ol></p>
+<h2>The Open Mind Common Sense Project</h2>
+The OMCS project collects common sense knowledge such as "cars have wheels", "humans breathe air", ... from free text and templates that users fill in. ConceptNet consists of concepts and a set of 20 standardized relations (e.g. IsA, UsedFor, HasA, CapableOf, ...) between these concepts. In addition it contains information on the relations' frequency and confidence scores.</p>
+<h2>Combining Common Sense Knowledge</h2>
+The techniques presented in this paper work on matrices (concept x instance) that contain concepts and the corresponding instances or features. Therefore, we need to transform relations (concept1, relation, concept2) to features used in a matrix representation. For instance, the relation (wheel, partOf, car) would yield the class "is part of car" and its instance "wheel".</p>
+<p>The authors use<strong> single value decomposition (SVD)</strong> - a technique that is also used in methods such as LSA - to create an approximation of the original matrix that contains its principal components and, therefore, a low-rank approximation of the original data. Visualizing the data on the dimensions yielded from SVD helps suggesting related instances and concepts. It is important to note, that for blending to work, a certain overlap of the data is required.</p>
+<h2>Background: Single Value Decomposition</h2>
+Single Value Decomposition factors a matrix <strong>A</strong> into two orthonormal matrices <strong>U</strong> and <strong>V</strong> that are connected by a diagonal matrix <strong>&Icirc;&pound;</strong>:</p>
+<p><strong>A</strong>=<strong>U&Icirc;&pound;V</strong>^T</p>
+<p>The singular values in <strong>&Icirc;&pound;</strong> correspond to the importance of the corresponding dimension. Ordering these values from largest to smallest and creating a matrix of the first (most important) k components, therefore, yields a smaller matrix <strong>A</strong>_k that is the nearest least-square approximation to <strong>A</strong> of rank k.</p>

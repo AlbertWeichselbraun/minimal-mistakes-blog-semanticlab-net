@@ -1,0 +1,47 @@
+---
+status: publish
+published: true
+title: Targeted disambiguation of ad-hoc, homogeneous sets of named entities
+wordpress_id: 683
+wordpress_url: http://blog.semanticlab.net/?p=683
+date: '2013-10-22 07:35:53 +0200'
+date_gmt: '2013-10-22 06:35:53 +0200'
+categories:
+- Information Extraction
+tags:
+- named entity linking
+- graph-based models
+comments: []
+---
+<p align="LEFT"><span style="font-family: Sans;">Wang, C., Chakrabarti, K., Cheng, T., &amp; Chaudhuri, S. (2012). Targeted disambiguation of ad-hoc, homogeneous sets of named entities. In </span><span style="font-family: Sans;"><em>Proceedings of the 21st international conference on World Wide Web</em></span><span style="font-family: Sans;"> (pp. 719&mdash;728). New York, USA</span></p></p>
+<h2 align="LEFT"> <span style="font-family: Sans;">Introduction</span></h2></p>
+<p align="LEFT"><span style="font-family: Sans;">Most prior work on named entity linking uses techniques that focus on entities present in a knowledge base and therefore (i) </span><span style="font-family: Sans;">require background knowledge on the entity, and (ii) </span><span style="font-family: Sans;">are biased towards pages that are similar to the entity metadata.</span></p></p>
+<p align="LEFT"> <span style="font-family: Sans;">This article introduces MentionRank, a method that targets ad-hoc entities in homogeneous domains.<em></em></span></p></p>
+<ol>
+<li><span style="font-family: Sans;"><em>ad-hoc:</em></span><span style="font-family: Sans;"> no context information is required (compare: according to shoe.com Wikipedia mentions only 82 out of 900 shoe brands)</span></li>
+<li><span style="font-family: Sans;"><em>homogeneous: </em></span><span style="font-family: Sans;">documents to link are in a homogeneous domain (e.g. IT coverage, business news, ...)</span></li>
+</ol></p>
+<h2 align="LEFT"> <span style="font-family: Sans;">Method</span></h2></p>
+<p align="LEFT"><span style="font-family: Sans;">MentionRank leverages the following three properties of homogeneous domains:</span></p></p>
+<ol>
+<li><span style="font-family: Sans;"><em>context similarity: </em></span><span style="font-family: Sans;">the context of true mentions is more similar than between false mentions (although some false mentions may occur in a similar context as well; e.g. the newspaper Sun, ...)</span></li>
+<li><span style="font-family: Sans;"><em>co-mentions:</em></span><span style="font-family: Sans;"> multiple entities names mentioned in one document are more likely to be true mentions</span></li>
+<li><span style="font-family: Sans;"><em>cross-document, cross entity interdependence: </em></span><span style="font-family: Sans;">if a mention has a similar context with many true mentions, it is likely to be a true mention</span></li>
+</ol></p>
+<p align="LEFT"> <span style="font-family: Sans;">The authors model these properties in a graph-based model which has been inspired by other graph-based ranking methods such as PageRank:</span></p></p>
+<ol>
+<li><span style="font-family: Sans;"><strong>nodes</strong></span><span style="font-family: Sans;"> are candidate mentions $$(e_i, d_i)$$ with</span></li>
+<li><span style="font-family: Sans;">an associated </span><span style="font-family: Sans;"><em>estimated prior ranking score </em></span><span style="font-family: Sans;">$$\mu_{ij}$$ which is determined based on the number of co-mentions in the document ($$d_j$$), and</span></li>
+<li><span style="font-family: Sans;">an associated </span><span style="font-family: Sans;"><em>ranking score</em></span><span style="font-family: Sans;"> $$r_{ij}$$ that also considers the score of correlated mentions.</span></li>
+<li><span style="font-family: Sans;"><strong>edges</strong></span><span style="font-family: Sans;"> use the context similarity $$\nu_{ij, i\prime j\prime}$$ as weight to connect the nodes in the model.</span><span style="font-family: Sans;"> The context similarity is computed using a vector space model with normalized vectors and the tf-idf cosine similarity.</span></li>
+</ol></p>
+<p align="LEFT"> <strong><span style="font-family: Sans;">Propagation:</span></strong></p></p>
+<p align="LEFT"><span style="font-family: Sans;">The authors normalize the weights $$\nu$$ and apply the following two restrictions:</span></p></p>
+<ol>
+<li><span style="font-family: Sans;"><em>unlinking</em></span><span style="font-family: Sans;"> - disallow the propagation between candidate mentions of the same entity (to prevent negative effects of context similarities between false mentions), and</span></li>
+<li><span style="font-family: Sans;"><em>normalization - </em></span><span style="font-family: Sans;">limit the total contribution of an individual entity.</span></li>
+</ol></p>
+<p align="LEFT"> <span style="font-family: Sans;">The problem of computing MentionRank can then be rewritten as </span><span style="font-family: Sans;"><strong>r = Mr</strong></span><span style="font-family: Sans;"> with the ranking score vector </span><span style="font-family: Sans;"><strong>r</strong></span><span style="font-family: Sans;"> and the stochastic, irreducible and aperiodic Markov matrix </span><span style="font-family: Sans;"><strong>M</strong></span><span style="font-family: Sans;">.</span></p></p>
+<h2 align="LEFT"> <span style="font-family: Sans;">Evaluation:</span></h2></p>
+<p align="LEFT"><span style="font-family: Sans;">The evaluation uses datasets from the following three domains: programming languages, science fiction books and sloan fellows, only considering documents with candidate mentions. The authors use mean-average-precision (MAP) as a performance metric and achieve a MAP of 0.65 for a low number of co-disambiguated entities, and values that reach as high as 90% for a  high (>=40) number of co-disambiguated entities.
+</span></p></p>

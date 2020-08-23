@@ -1,0 +1,24 @@
+---
+status: publish
+published: true
+title: Tracking Information Epidemics in Blogspace
+wordpress_id: 94
+wordpress_url: https://blog.semanticlab.net/?p=94
+date: '2010-12-28 15:38:36 +0100'
+date_gmt: '2010-12-28 14:38:36 +0100'
+categories:
+- Information Diffusion
+tags: []
+comments: []
+---
+<p>by Eytan Adar and Lada A. Adamic (WI2005; adar2005)</p>
+<p>The authors study the paths along which information spreads in the "blog network". They consider the task of identifying these paths as an infection inference task which is related to both link inference and link classification (adar2005).
+Link inference is used to find links between blogs which are not explicit.</p>
+<p>As the authors show in [3] link inference is also useful to find early sources of information rather than the most popular information sources. Therefore, they can apply this method to determine the original source of a posting.</p>
+<p>One interesting idea of this paper is, that it uses links rather than topics for tracking diffusion.
+The following features are used by a support vector machine (SVM) classifiers and a logistic regression classifier to identify implicit links:</p>
+<ul>
+<li>structural features of the blog network (based on blogrolls): number of blogs linked to by both blogs (potential source and the blog in question)</li>
+<li>properties of the blog: number of non-blog links shared between the blogs, text similarity</li>
+<li>timing information on the infections: order and frequency of repeated infections; in-link and out-link counts for both blogs</li>
+</ul></p>

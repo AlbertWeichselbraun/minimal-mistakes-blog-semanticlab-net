@@ -1,0 +1,30 @@
+---
+status: publish
+published: true
+title: Identifying the Influential Bloggers in a Community
+wordpress_id: 96
+wordpress_url: https://blog.semanticlab.net/?p=96
+date: '2010-12-28 16:47:28 +0100'
+date_gmt: '2010-12-28 15:47:28 +0100'
+categories:
+- Information Diffusion
+tags: []
+comments: []
+---
+<p>by Agarwal et al. (WSDM2008, agarwal2008)</p>
+<p>The goal of this article is to provide a method for identifying influential bloggers.</p>
+<p><strong>Definitions:</strong></p>
+<ul>
+<li>outlinks: resources referred to by a post's author</li>
+<li>inlinks: resources which refer to that particular post -- collected using the technorati API</li>
+</ul>
+The authors define the following four properties of influential bloggers:</p>
+<ul>
+<li> recognitions (=> the post if referred to in many other posts)</li>
+<li>activity generation (the post yields a large number of comments)</li>
+<li>novelty (a large number of outlinks indicates that a post is less likely to be novel)</li>
+<li>eloquence (the length of a post is positively correlated to its influence)</li>
+</ul>
+<strong>Influence graph:</strong>
+Each post is represented by a node which is characterized by the four properties discussed above. the graph is a directed graph in which edges represent the incoming and outgoing influence flows between nodes.</p>
+<p>Finally, the paper also observes and discusses different temporal patterns of influentials (long-term, average-term, transient, and burgeoning).</p>

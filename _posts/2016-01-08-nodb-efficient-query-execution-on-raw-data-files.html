@@ -1,0 +1,46 @@
+---
+status: publish
+published: true
+title: 'NoDB: Efficient Query Execution on Raw Data Files'
+wordpress_id: 893
+wordpress_url: https://blog.semanticlab.net/?p=893
+date: '2016-01-08 09:53:59 +0100'
+date_gmt: '2016-01-08 08:53:59 +0100'
+categories:
+- Algorithms and Optimizations
+tags:
+- optimization
+- postgres
+- data loading
+- performance
+- parsing
+comments: []
+---
+<div>
+<div>Alagiannis, Ioannis, Renata Borovica, Miguel Branco, Stratos Idreos, and Anastasia Ailamaki. NoDB: Efficient Query Execution on Raw Data Files. In <i>Proceedings of the 2012 ACM SIGMOD International Conference on Management of Data</i>, 241&mdash;52. SIGMOD &trade;12. New York, NY, USA: ACM, 2012.</div></p>
+<div></div></p>
+<h2>Summary</h2>
+This article introduces NoDB, a database system which does not require data loading but operates on raw data files. The authors discuss two straight forward approaches to directly query raw data files:</p>
+<ol>
+<li>load the data once the first relevant query arrives</li>
+<li>integrate raw data access with the query execution (i.e. parse the data on-the-fly, if they are required according to the query plan).</li>
+</ol></p>
+<h2>Method</h2>
+NoDB <em>minimizes </em>the <em>cost</em> of querying raw data by (a) applying on-the-fly parsing,  (b) creating data structures that speed-up access to raw data files on demand, and (c) using caching techniques that eliminate the need for raw data access altogether.</p>
+<h3>On-the-fly parsing</h3></p>
+<ol>
+<li>selective tokenizing - i.e. stop tokenizing, once the requested attributes have been found</li>
+<li>selective parsing - delay transformation of attributes until it is clear, that they are part of the result set</li>
+<li>selective tuple formatting - tuples are only created, if they are selected (i.e. a part of the result)</li>
+</ol></p>
+<h3>Indexing</h3>
+NoDB uses an <strong>adaptive positional map</strong> to reduce parsing and tokenization cost.</p>
+<ol>
+<li>the map is populated on the fly and stores relative tuples positions in a table structure</li>
+<li>indexing commences in the order attributes and tuples have been requested</li>
+<li>the information is even exploited for locating close attributed (e.g. if the position of the 7th attribute is known, the map will be used to locate the 5th attribute, by performing backwards tokenization starting from the 7th attribute position, eliminating (a) the need to locate line breaks and (b) cutting the tokenization effort from four (1-5) to two attributes (7-5)).</li>
+</ol></p>
+<h3>Caching and query statistics</h3>
+PostgresRaw caches binary data immediately and prioritizes data that is more difficult to convert (e.g. numerical attributes over ASCII data). The system also creates on-the-fly query statistics for optimizing access to the data.</p>
+<p>&nbsp;</p>
+<p></div></p>

@@ -1,0 +1,66 @@
+---
+status: publish
+published: true
+title: Automatische Ermittlung der Relevanz von Nachrichten
+wordpress_id: 171
+wordpress_url: https://blog.semanticlab.net/?p=171
+date: '2012-01-09 11:23:35 +0100'
+date_gmt: '2012-01-09 10:23:35 +0100'
+categories:
+- Thesis
+tags:
+- domain specificity
+- semi-supervised learning
+- bootstrapping
+- ikt
+comments: []
+---
+<p>Aktuelle Web Intelligence Systeme wie der Media  Watch on Climate  Change (www.ecoresearch.net/climate) analysieren  umfangreiche  Datenbest#nde und reichern diese mit Metadaten wie zum  Beispiel Ort der  Berichterstattung, Sentiment (positiv/negativ),  Schlagwörter, etc. an,  welche in weiterer Folge automatisierte  Auswertungen und  Visualisierungen ermöglichen. Somit erlauben Web  Intelligence  Systeme die Identifikation und in Folge auch die Extraktion  von  entscheidungsrelevanten Daten aus Web Ressourcen, welche Entscheidungsträgern in weiterer Folge eine Optimierung ihrer Strategien ermöglichen.</p>
+<p>Bevor Dokumente diesen Prozess durchlaufen, muss jedoch sichergestellt werden, dass diese für die gewählte Domäne auch relevant sind, um (i) unnötigen Rechenaufwand und (ii) eine Verfälschung von aggregierten Kennzahlen zu vermeiden. Aus diesem Grund nimmt man in der Praxis eine Vorselektion der Dokumente vor, welche relevante Dokumente kennzeichnet und irrelevante Daten verwirft. Dieser als "Domain specificity" bezeichnete Filterschritt wird meist über vordefinierte Regelwerke oder maschinelle Klassifikationsverfahren realisiert. Regelwerke haben jedoch den Nachteil, dass sich diese an Änderungen der Domäne und neue Trends nicht automatisch anpassen - umgekehrt ist für maschinelle Verfahren ein meist (langwieriger) Lernprozess notwendig.</p>
+<p>Basierend auf dieser Problematik sollen im Rahmen dieser Arbeit folgende Ziele erreicht werden:</p>
+<ol>
+<li>Vermittlung  eines Überblicks über aktuelle Methoden und Software zur automatischen Klassifikation und Relevanzbestimmung von Dokumenten anhand von Regeln</li>
+<li>Erstellung eines Web Services, welches die Relevanz von Dokumenten anhand (i) einer Domänendefinition und (ii) hinzugelernter Regeln ermittelt:
+<ul>
+<li>Programmierung einer Komponente zur regelbasierten Ermittlung der Relevanz von Dokumenten</li>
+<li>Auswahl eines Maschinenlernverfahrens für die Problemstellung (SVM, Naive Bayes, ...)</li>
+<li>Kombination der beiden Techniken:
+<ul>
+<li>Start - Training des Maschinenlernverfahrens anhand der Ergebnisse des regelbasierten Klassifiers (bootstrapping)</li>
+<li>Übernahme der Klassifikation durch das Maschinenlernverfahren</li>
+</ul>
+</li></p>
+<li>Integration in ein Web Service</li>
+</ul>
+</li></p>
+<li>Evaluierung des entwickelten Verfahrens (semi-supervised learning) und Vergleich mit einer bestehenden Komponente zur Bestimmung der Domain-specificity.
+<ul>
+<li>Güte der Ergebnisse (Precision, Recall, F1; Vergleich von Dokumenten, die unterschiedlich klassifiziert wurden) und</li>
+<li>Durchsatz (Dokumente/min) des Verfahrens.</li>
+</ul>
+</li>
+</ol></p>
+<h2>Vorschlag für die Struktur der Arbeit</h2></p>
+<ol>
+<li> Einleitung
+<ol>
+<li> Motivation</li>
+<li> Beschreibung der Problemstellung</li>
+</ol>
+</li></p>
+<li>Stand der aktuellen Forschung</li>
+<li>Methode und Implementierung</li>
+<li> Evaluierung</li>
+<li> Zusammenfassung und Ausblick</li>
+</ol></p>
+<h2>Empfohlene Vorkenntnisse</h2></p>
+<ul>
+<li> Eine der folgenden Programmiersprachen: JavaScript, Java, Python</li>
+<li>Vorkenntnisse über die Funktion von Regulären Ausdrücken sind nützlich (aber nicht notwendig)</li>
+</ul></p>
+<h2>Literatur</h2></p>
+<ol>
+<li>Bird, Steven, Klein, Ewan and Loper, Edward (2009). ''Natural Language Processing with Python - Analyzing Text with the Natural Language Toolkit'', O'Reilly Media</li>
+<li>http://docs.python.org/library/re.html - Reguläre Ausdrücke in Python</li>
+<li>www.htwchur.ch/?id=web_intelligence</li>
+</ol></p>

@@ -1,0 +1,54 @@
+---
+status: publish
+published: true
+title: Ensemble Semantics for Large-scale Unsupervised Relation Extraction
+wordpress_id: 625
+wordpress_url: http://blog.semanticlab.net/?p=625
+date: '2013-05-01 10:14:37 +0200'
+date_gmt: '2013-05-01 09:14:37 +0200'
+categories:
+- Information Extraction
+tags:
+- open information extraction
+- relation extraction
+- similarity metrics
+- semantic knowledge
+comments: []
+---
+<div>
+<div>Min, B. et al., 2012. Ensemble semantics for large-scale unsupervised relation extraction. In <em>Proceedings of the 2012 Joint Conference on Empirical Methods in Natural Language Processing and Computational Natural Language Learning</em>. EMNLP-CoNLL 2012. Stroudsburg, PA, USA: Association for Computational Linguistics, pp. 1027&mdash;1037.</div></div></p>
+<p></p>
+<div>This article introduces an unsupervised algorithm for open relation extraction that contains means to treat the <em>polysemy</em> and <em>synonymy</em> problems.</div></p>
+<div></div></p>
+<h1>Method</h1>
+The author map relation instances <em>&lt;ent_1, ctx, ent_2&gt;</em> to the corresponding relations $$P(C_1, C_2)$$.</p>
+<ul>
+<li><strong>Polysemy</strong> occurs if one relational phrase (<em>ctx</em>) is used to express multiple relation types <em>P.</em></li>
+<ul>
+<li>"Graubünden <em>is a part of</em> Switzerland" - isLocatedIn(state, country) <strong>versus</strong> "easybank is a subsidiary of the BAWAG PSK Group" - subUnit(company, company)</li>
+<li>"The Euro is the currency of Germany" - isCurrency(Euro, Germany) <strong>versus</strong> "authorship is the currency of science" - successFactor(authorship, science)</li>
+</ul>
+<li><strong>Synonymy</strong> refers to the fact, that different relations phrases (<em>ctx</em>) refer to the same relation type <em>P:</em></li>
+<ul>
+<li>The Euro is the currency used in Germany. The Australian Dollar is legal tender in Western Australia.</li>
+</ul>
+</ul>
+The authors address the problems of polysemy by clustering the arguments used in relational phrases using the following semantic resources:
+<ol>
+<li><strong>Entity similarity graphs</strong></li>
+<ul>
+<li><strong>Distributional similarity</strong> draws upon the distributional hypothesis (Harris, 1985) that states that similar terms share similar context. The authors use a text windows (size=4) to retrieve context terms and PMI to weight the context features. Then the Jaccard similarity is used to determine the similarity of two concepts.</li>
+<li><strong>Pattern similarity</strong> identifies semantically similar lexical patterns (e.g. "(such as|including)| T,{,T}* (and|, |.)") or HTML tag patterns.</li>
+</ul>
+<li><strong>Hypernym</strong> graphs identify common hypernyms (e.g. Lainach, Flims --> village)</li>
+<li><strong>Relation phrase similarity</strong> generates a pairwise similarity graph for relation phrases that indicates the probability of two phrases expressing the same relation. The authors apply a variant of the DIRT algorithm (Lin and Pantel, 2001) that uses stemmed lexical sequences (relation phrases) instead of dependency paths and ordered pairs of argument features.</li>
+</ol>
+The relation list obtained from the clustering (no polysemy but still synonymy) is then again clustered to merge similar relations (i.e. synonyms) to relations that neither contain polysems nor synonyms.</p>
+<h1>Bibliography</h1>
+<ol>
+<li>
+<div>
+<div>Lin, D. &amp; Pantel, P., 2001. DIRT - discovery of inference rules from text. In <em>Proceedings of the seventh ACM SIGKDD international conference on Knowledge discovery and data mining (KDD 2001)</em>. New York, NY, USA: ACM, pp. 323&mdash;328.</div>
+</div></li></p>
+<li><a href="http://lemurproject.org/clueweb09.php">The ClueWeb09 Dataset</a> (Evaluation Corpus)</li>
+</ol></p>

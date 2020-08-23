@@ -1,0 +1,58 @@
+---
+status: publish
+published: true
+title: Designing a Better Shopbot
+wordpress_id: 40
+wordpress_url: https://blog.semanticlab.net/2008/08/24/designing-a-better-shopbot/
+date: '2008-08-24 12:02:43 +0200'
+date_gmt: '2008-08-24 11:02:43 +0200'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>This paper describes optimizing the design of a shopbot (=shopping robot) which considers,</p>
+<ul>
+<li>the intrinsic value of the product,</li>
+<li>the disutility from waiting, and</li>
+<li>the cognitive cost associated with evaluating the offers retrieved</li>
+</ul></p>
+<p><i>Note:</i>
+The cost of evaluation refers to the cost of going through the list of offers (not of evaluating the offers themselves).</p>
+<p>Considering these criteria the authors determine, whether the consumer maximizes his utility by,</p>
+<ul>
+<li>buying at his favourite store,</li>
+<li>the agent, or</li>
+<li>an optimized version of the agent.</li>
+</ul></p>
+<p><b>Agent design</b>
+Agent variables:</p>
+<ul>
+<li>stores to query, (waiting time)</li>
+<li>response timeouts, and (waiting time)</li>
+<li>which items to report (cognitive costs)</li>
+</ul>
+Reducing waiting and time and cognitive costs reduce the total utility of the returned items (offer set).</p>
+<p>Query times: fat tails (10% of the queries time out after 3 minutes)
+<b>Radom Utility Model</b>
+The utility is composed of three parameters:</p>
+<ul>
+<li>Utility of the product</li>
+<li>Costs of the waiting time (query times) and processing time (time to spawn a thread)</li>
+<li>Cognitive effort of evaluating the answer set</li>
+</ul></p>
+<p><i>Utility</i> is the sum of the utility provided by the attributes of the product and a stochastic component epsilon covering unobservable factors and random revaluation errors. This compensatory utility model allows considering the effect of multiple utility-factors on the total utility (and therefore for example considering trade-offs).
+The authors use an extreme value distribution with a zero location parameter and a scale parameter theta.</p>
+<p><i>Cognitive Costs</i> are estimated using a heuristic introduced by Shugan (1980):</p>
+<p> C=(A-1)(P-1)</p>
+<p><i>Waiting times</i> are modelled as exponentially distributed (page 196). A gamma distribution estimates the response time of requests (provided that the store responses(!)).</p>
+<p>The paper also considers consumer heterogeneity and the resulting different assessment of the utility of a product.
+Afterwards the authors split the decision process into two stages, describe the number of different combinations per stage and provide a solution for choosing an optimal strategy.</p>
+<p><b>Literature</b></p>
+<ul>
+<li><i>Choice with uncertain sets</i> (the decision maker decides which alternatives to consider (for the decision) with imperfect information</li>
+<li><i>Information Overload and Cognitive Costs<i>. Previous research shows, that consumers are willing to trade off cognitive effort for accuracy.</li>
+<li><i>Usability studies</i>. Delay of more than 10 seconds yields a loss of user attention (Nielson 2000, p44); Users place high emphasis on download times (Udo and Marquis 2001).</li>
+<li><i>Cost of waiting time</i>. Konana et al. (2000) show that there is a direct trade-off between waiting time and cost. Experiments by Dellaert and Kahn (1999) show that waiting negatively affects the evaluations of Web sites. </li>
+  The authors assume a value of time of 0.01 $/seconds (based on a yearly wage of $70,000).
+</ul></p>

@@ -1,0 +1,81 @@
+---
+status: publish
+published: true
+title: It Probably Works
+wordpress_id: 870
+wordpress_url: http://blog.semanticlab.net/?p=870
+date: '2015-12-15 19:19:44 +0100'
+date_gmt: '2015-12-15 18:19:44 +0100'
+categories:
+- Web Intelligence
+- Big data
+- Statistics
+tags:
+- statistics
+- algorithms
+- lsh
+- probabily
+- locality sensitive hashing
+math: true
+comments: []
+---
+<p>Mcmullen, T. (2015). It Probably Works. Commun. ACM, 58(11), 50&mdash;54. http://doi.org/10.1145/2814332</p>
+<h2>Introduction</h2>
+This article distinguishes between three types of probabilistic algorithms:</p>
+<ol>
+<li>algorithms which explicitly introduce randomness through a rand call()</li>
+<li>approaches that convert input data to a uniform distribution, and</li>
+<li>algorithms where randomness is intrinsic to the data (e.g. sensor networks that only cover a fraction of the environment, applications where processing power limits the fraction of data to be analyzed, etc.).</li>
+</ol></p>
+<h2>Probabilistic algorithms</h2>
+The following sections introduce probabilistic algorithms to solve different standard tasks.</p>
+<h3>Count-Distinct</h3>
+Count-distinct determines the cardinality of a multiset (i.e. the number of unique items within a stream). <strong>HyperLogLog</strong> is a probabilistic algorithm that addresses this problem by leveraging the following two observations:</p>
+<ol>
+<li>the probability of a certain bit being set in a binary representation is 0.5</li>
+<li>the probability of two independent events $$A$$ and $$B$$ occurring both is $$P(A)*P(B)$$</li>
+<li>the expected number of trials until an event $$A$$ occurs is $$1/P(A)$$</li>
+</ol>
+Since input values are usually not randomly distributed a hash function (such as MurmurHash3) that transforms values into a <em>uniform</em> distribution is required.</p>
+<p><strong>Workflow:</strong></p>
+<ol>
+<li>hash input items</li>
+<li>count the number of leading bits that are set and keep track on the maximum number of leading bits</li>
+<li>the estimated number of distinct items $$n$$ equals to $$2^{n_{\text{max_bits}}}$$</li>
+</ol>
+The estimation can be improved by dividing the input in $$m$$ buckets based on the trailing bits and determining the maximum for each bucket (i.e. each bucket is handled as a sample). The average number of <em>max_bits</em> in these baskets is a good estimate for $$log2(n/m)$$.</p>
+<p><strong>Accuracy: </strong></p>
+<p>For a usage scenario of 1000 servers with 100 million unique items per server the HyperLogLog algorithm is able to provide an estimation with a 2% skew based on only 0.0002% of the total data.</p>
+<h3>Nearest-Neighbor Search</h3>
+This algorithm identifies similar items, i.e. items that are similar according to a distance function such as the cosine-similarity. In text mining relevant features for the nearest-neighbor search are usually high dimensional word vectors that suffer from the <strong>curse of dimensionality</strong>, i.e. they contain many sparse features and computation of vectors with many dimensions is time consuming.
+Locality sensitive hashing (LSH) is an approach that addresses this problem by generating a hash that is similar for similar documents.</p>
+<p><strong>Workflow:</strong>
+For an LSH with <em>n</em> bits and word vectors of size <em>m</em> we</p>
+<ol>
+<li>generate <em>n</em> random <em>m</em>-dimensional vectors</li>
+<li>hash a document by
+<ul>
+<li>multiplying its word vector with each of the <em>n</em> random vectors (each of the <em>n</em> random vectors corresponds to one bit of the LSH)</li>
+<li>if the dot product produces a negative number, set the corresponding bit to 0, otherwise to 1.</li>
+</ul>
+</li>
+</ol>
+Comparing two hash values with each other and computing their Hamming distance approximates the cosine-similarity of the underlying word vectors.</p>
+<h3>Reliable Broadcast</h3>
+This use case aims at broadcasting messages to a large number of peers through a high-latency, lossy network (i.e. it is not guaranteed that all messages are received).</p>
+<p>Bimodal Multicast is an algorithm that addresses this problem based on the following workflow:</p>
+<ol>
+<li>broadcast the message over the network (some of the messages might get lost)</li>
+<li>apply the following gossip protocol:
+<ul>
+<li>each server contacts another randomly selected server and sends it a digest of its current state (i.e. a protocol that allows the receiver to determine whether it has missed any of these messages).</li>
+<li>the receiver responds with a list of messages it has not yet received and the gossip initiator will resend these messages.</li>
+</ul>
+</li>
+</ol></p>
+<h2><strong>Other algorithms</strong></h2></p>
+<ul>
+<li>Consistent hashing which is often used for load balancing minimizes the necessity to remap values if the size of the hash table is changed.</li>
+<li>Bloom filters which determine whether an entity is not part of a set or <em>might be</em> included in that set.</li>
+<li>the Mincut algorithm to address routing problems in networks</li>
+</ul></p>

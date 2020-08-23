@@ -1,0 +1,27 @@
+---
+status: publish
+published: true
+title: Meme-tracking and the Dynamics of the News Cycle
+wordpress_id: 95
+wordpress_url: https://blog.semanticlab.net/?p=95
+date: '2010-12-28 16:20:59 +0100'
+date_gmt: '2010-12-28 15:20:59 +0100'
+categories:
+- Information Diffusion
+tags: []
+comments: []
+---
+<p>by Leskovec et al. (leskovec2009, KDD2009)</p>
+<p>The authors introduce a framework for tracking short, distinctive phrases that travel intact through on-line text (leskovec2009).
+Prior work identified the following two main approaches to tackle this problem:</p>
+<ul>
+<li>using propabilistic term mixtures (long range trends in general topics) [5,7,16,17,30,31]</li>
+<li>extracting hyperlinks and rare named entities  (short information cascades) [3,14,20,23]</li>
+</ul>
+Their paper focuses on short units of texts, phrases and memes which are supposed to act as signatures for a topic or event (and are located between propabilitistic term mixtures and hyperlinks/rare named entities).</p>
+<p><strong>Method:</strong>
+The goal of the presented approach is creating a phrase cluster which collects phrases which are close textual variants of each other.
+For each cluster the authors draw the number of documents matching phrases in the cluster over time to illustrate how the attention a certain topic/meme is getting changes over time.
+(this is done for blogs as well as for news media to determine the time lag between these two outlets)</p>
+<p><strong>Evaluation:</strong>
+The authors tracked 1.6 million mainstream media sites and blogs over a period of three months yielding a total of 90 million articles. They identify a time lag of approximately 2.5 hours between peaks in media sites and the blogsphere and discuss global models for temporal variations and a local analysis of the peak intensity and the news/blog interactions.</p>

@@ -1,0 +1,28 @@
+---
+status: publish
+published: true
+title: Towards a Query Optimizer for Text-Centric Tasks
+wordpress_id: 12
+wordpress_url: https://blog.semanticlab.net/2008/03/07/towards-a-query-optimizer-for-text-centric-tasks/
+date: '2008-03-07 11:59:46 +0100'
+date_gmt: '2008-03-07 10:59:46 +0100'
+categories:
+- Articles
+tags: []
+comments: []
+---
+<p>by Panagiots Ipeirotis et al.</p>
+<p>The idea of the article is to provide strategies for optimal choosing between different crawl-/query strategies (like scan, filter, ...) for text-centric tasks addressing the following trade offs:</p>
+<ul>
+<li>query-based execution might miss relevant documents</li>
+<li>scan based strategies take a lot of time</li>
+</ul></p>
+<p>The authors introduce several use cases, and define each task as deriving tokens from a large databsae.</p>
+<p>The most interesting points in term of our current paper projects are:</p>
+<ul>
+<li>definition of the execution time (including training time into the model) </li>
+<li>description of multiple execution strategies which are applied to the model (scan, filter, iterative set expansion, automated query generation)</li>
+<li>query based strategies outperformed crawling based approaches for a related data classification task</li>
+<li>the methodology of updating statistics at key points for adjusting the plan for the rest of the execution refers to <i>reoptimization methods</i> as described by Kabra and DeWitt [1998]</li>
+</ul></p>
+<p></ul></p>

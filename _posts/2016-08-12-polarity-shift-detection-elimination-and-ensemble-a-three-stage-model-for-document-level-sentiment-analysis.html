@@ -1,0 +1,50 @@
+---
+status: publish
+published: true
+title: 'Polarity Shift Detection, Elimination and Ensemble: A Three-Stage Model for
+  Document-Level Sentiment Analysis'
+wordpress_id: 932
+wordpress_url: https://blog.semanticlab.net/?p=932
+date: '2016-08-12 10:55:28 +0200'
+date_gmt: '2016-08-12 09:55:28 +0200'
+categories:
+- Sentiment Detection
+tags:
+- negation
+- polarity shift
+- word relevance
+comments: []
+math: true
+---
+<div>
+<div>Xia, Rui, Feng Xu, Jianfei Yu, Yong Qi, and Erik Cambria. Polarity Shift Detection, Elimination and Ensemble: A Three-Stage Model for Document-Level Sentiment Analysis. <i>Information Processing &amp; Management</i>, Emotion and Sentiment in Social and Expressive Media, 52, no. 1 (January 2016): 36&mdash;45.</div></p>
+<h2>Introduction</h2>
+This article presents an approach for handling explicit polarity shifts due to (i) negation (I don't like this movie), and (ii) contrast (Fairly good, but not my style) as well as implicit shifts due to sentiment inconsistency that appears frequently if people express different opinions towards different aspects of a product or event.</p>
+<ol>
+<li><strong>Negation</strong> usually shifts the sentiment of the affected parts, <strong></strong></li>
+<li><strong>Contrast</strong> <em>can</em> shift the polarity of neighboring sentences or subsentences. If the polarity shift is not considered, the impact of the shifted part should be decreased relatively to the unshifted part.</li>
+<li><strong>Sentiment inconsistency</strong> can be viewed as a type of implicit contrast - i.e. the impact of the inconsistent parts should be weakened.</li>
+</ol></p>
+<h2>Method</h2></p>
+<div>The authors deploy a three stage model to address polarity shifts:</div></p>
+<div>
+<ol>
+<li>Rules <strong>identify </strong>negation as well as forward and backward contrasts. A statistical method that draws upon the <em>weighted log-likelihood ratio (WLLR)</em> detects statistical inconsistencies in reviews (i.e. cases where one sentence sentiment is inconsistent with the overall document sentiment).</li>
+<li><strong>Negation polarity shift elimination</strong> by replacing negated terms with their antonyms. The antonyms are, again, determined based on the WLLR metric obtained for terms in the training documents. For example, the most positive term would be replaced with the most negative term according to WLLR (these substitutions correspond to the relative sentiment strength rather than to the actual meaning of the term). The relevance of a term for positive/negative sentiment is computed as outlined below.
+$$\text{relevance}(t_i, +) = p(t_i | +) log \frac{p(t_i |+)}{p(t_i | -)}$$
+$$\text{relevance}(t_i, -) = p(t_i | -) log \frac{p(t_i |-)}{p(t_i | +)}$$</li></p>
+<li>The <strong>polarity shift ensemble model</strong> is trained based on three components: (i) sentences for which negations have been eliminated, (ii) sentences containing contrast, and (iii) sentences with sentiment inconsistency as well as a base classifier for sentences without polarity shifts.</li>
+</ol></p>
+<h2>Evaluation</h2>
+The evaluation draws upon the Multi-domain sentiment datasets by Blitzer, Dredze and Pereira (2007) that contains four datasets of 1000 positive and negative Amazon reviews each. The authors use linear SVM (LibSVM), logistic regression (LibLinear) and Naive Bayes (OpenPR-NB) to evaluate their approach against the following four methods:</p>
+<ol>
+<li>Baseline (bag of words without negation detection)</li>
+<li>Das (2001): negated words are marked with the suffix "-NOT" prior to training and classification.</li>
+<li>REV: sentiment words in the scope of negation are reversed to their antonyms.</li>
+<li>Li et al. (2010): text is separated into a polarity-shifted and polarity-unshifted fraction based on which two classifiers are trained.</li>
+<li>the presented approach</li>
+</ol>
+The evaluation demonstrates that the presented approach outperforms all methods used in the experiments.</p>
+<p></div></p>
+<div></div>
+</div></p>

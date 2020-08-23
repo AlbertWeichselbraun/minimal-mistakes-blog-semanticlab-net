@@ -1,0 +1,47 @@
+---
+status: publish
+published: true
+title: A Machine-Learning Approach to Negation and Speculation Detection for Sentiment
+  Analysis
+wordpress_id: 922
+wordpress_url: https://blog.semanticlab.net/?p=922
+date: '2016-08-12 09:18:08 +0200'
+date_gmt: '2016-08-12 08:18:08 +0200'
+categories:
+- Uncategorized
+- Sentiment Detection
+tags:
+- negation
+- feature selection
+- imbalanced data sets
+- classification
+- speculation detection
+comments: []
+math: true
+---
+<div>
+<div>Cruz, Noa P., Maite Taboada, and Ruslan Mitkov. A Machine-Learning Approach to Negation and Speculation Detection for Sentiment Analysis. <i>Journal of the Association for Information Science and Technology</i>, June 1, 2015</div></p>
+<div></div></p>
+<h2>Summary</h2></p>
+<div>This paper presents a two-stage approach for detecting negation and speculation in text documents: (a) a classifier identifies negation and speculation cues, and (b) an independent second classifier determines the scope of these cues. The authors also include a comprehensive literature review on negation and speculation detection and an evaluation of their approach.</div></p>
+<div></div></p>
+<h2>Method</h2>
+Since negation (speculation) appears only in 18% (23%) of the sentences, the system needs to address a classification problem on <em>imbalanced data sets</em> in which the algorithm is biased toward the majority class. Therefore, the authors draw upon a cost-sensitive SVM algorithm that assigns considerably higher cost to missclassifying a minory-class example to control the skew of the SVM optimization. As kernel, a Radial Basic Function (RBF) is used. The classifier's feature set has been determined with a greedy forward procedure.</p>
+<div>
+<ol>
+<li><strong>identification of negation and speculation cues:</strong> a support vector machine is trained to predict whether a term is located at the beginning of a cue (B), inside a cue (I) or outside of it (O). The corresponding BIO model allows detecting multiword cues such as <em>can't</em> or <em>does not</em>. Applying a postprocessing heuristic which sets the tag of the first word of a cue to "B" and ensures that "n't" obtains an "I" tag considerably improves the accuracy of the presented approach. The features set for this task is limited to lexical information on the term and its neighbors.</li>
+<li><strong>determination of the cue's scope:</strong> a second binary SVM classifier determines whether words are inside (IS) or outside (O) the scope of the cue. The classifier uses a much more comprehensive feature set which also includes structural features (i.e. dependency relations) for this task.</li>
+</ol>
+</div></p>
+<div></div></p>
+<h2>Evaluation</h2></p>
+<div>The evaluation has been performed on the Simon Fraser University (SFU) Review Corpus which comprises 17,263 sentences reviewing books, cars, computers, cookware, hotels, movies, music and phones.</div></p>
+<div>
+<ul>
+<li>evaluation metrics: P, R, F1, Geometric Mean $$\text{G-Mean} = \sqrt{\text{sensitivity}\cdot\text{specificity}}$$ with $$\text{specificity} = \frac{\text{true negatives}}{\text{negatives}}$$</li>
+<li>definition of correctly classified scopes: (a) scope is correct if all tokens have been correctly classified as inside or outside of the scope (PCS), and (b) the percentage of correct relaxed scopes, i.e. $$\text{PCRS} = \frac{\text{correct spans}}{\text{total spans}}$$</li>
+</ul>
+The introduced methods obtains an F measure of  88% (92%) for detecting negation (speculation) cues and a PCS of 23% (14%) for detecting scopes. The corresponding PCRS measure amounts to 58% (45%) for negation (speculation).</p>
+<p>A case study that incorporates the improved negation and speculation detection into the SO-CAL system (speculative statements are treated as neutral) shows considerably improved results, especially for negative statements.</p>
+<p></div>
+</div></p>

@@ -1,0 +1,39 @@
+---
+status: publish
+published: true
+title: 'Discovering company revenue relations from news: A network approach'
+wordpress_id: 496
+wordpress_url: https://blog.semanticlab.net/?p=496
+date: '2013-03-14 06:49:03 +0100'
+date_gmt: '2013-03-14 05:49:03 +0100'
+categories:
+- Web Intelligence
+tags:
+- networks
+- business metrics
+- revenue
+comments: []
+---
+<p>Ma, Z., Sheng, O.R.L. &amp; Pant, G., 2009. Discovering company revenue relations from news: A network approach. <em>Decission Support Systems</em>, 47(4), pp.408&mdash;414.</p>
+<p>This article also draws upon network metrics to solve a binary classification problem (see my <a title="Mining Competitor Relationships from Online News" href="http://blog.semanticlab.net/2013/03/08/mining-competitor-relationships-from-online-news-a-network-based-approach/">previous post</a>), but applies the binary classifier to company revenue relations (higher revenue true/false) rather than to competitor relations (is a competitor true/false). The authors are able to achieve a precision close to 80% for predicting a company's relative revenue (i.e., revenue rank).</p>
+<h1>Introduction and Related Work</h1></p>
+<ol>
+<li>the company revenue relation (CRR) is defined as a simple value that indicates whether the target company is "more powerful" (has a higher review) than the source company.</li>
+<li>Graph-based attributes often reflect certain properties of nodes.</li>
+<ul>
+<li>outdegree - centralitiy</li>
+<li>indegree - prestige, authority (which suggests that a company with a higher indegree (i.e. higher media coverage) <em>within a business sector </em>might be more powerful than a company with a lower one).</li>
+</ul></p>
+<li>In contrast to forecast models, this approach does not rely on any prior information on the company's revenues.</li>
+<li>The relation between news and and stock ratings as well as exchange-rate movements have been thoroughly studied by research such as the one performed by Engel and Ng (1993), Conrad et al. (2002), and Domiguez and Panthaki (2006).</li>
+</ol></p>
+<h1>Method</h1>
+The authors compare the following revenue relations between companies using their CRR measure:</p>
+<ol>
+<li>Sectoral revenue rank</li>
+<li>Normalized revenue rank
+\[ \text{rank}(n_i) = \frac{\text{revenue rank}(n_i)}{ |\text{sector}(n_i)| } \]</li></p>
+<li>Revenue share
+\[ \text{revenue share}(n_j) = \frac{\text{revenue}(n_i)} {\sum_{n_j \in\text{sector}(n_i)} \text{revenue}(n_j)} \]</li>
+</ol>
+where $$sector(n_i)$$ refers to all companies in the sector to which company $$n_i$$ belongs. All three measures delivered approximately the same performance.</p>

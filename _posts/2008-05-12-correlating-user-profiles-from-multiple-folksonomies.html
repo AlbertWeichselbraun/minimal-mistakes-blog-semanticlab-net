@@ -1,0 +1,22 @@
+---
+status: publish
+published: true
+title: Correlating User Profiles from Multiple Folksonomies
+wordpress_id: 25
+wordpress_url: https://blog.semanticlab.net/2008/05/12/correlating-user-profiles-from-multiple-folksonomies/
+date: '2008-05-12 20:22:04 +0200'
+date_gmt: '2008-05-12 19:22:04 +0200'
+categories:
+- Social Networks
+tags: []
+comments: []
+---
+<p>by Martin Szomszor, Ivan Cantador, Harith Alani (+)</p>
+<p>The article focuses on comparing <i>tag-clouds</i> from multiple folksonomies (namely del.icio.us and flickr). At first the authors present tag-classification schemes currently used in literature (topic, type, quality, notion of self reference, task organization).
+Afterwards the paper presents a filtering architecture for merging similar tags by:
+ a) syntactic filtering (remove umlaute, ...)
+ b) identification of misspelled words (google <i>did you mean</i>) function.
+ c) wikipedia correlation to merge similar tags (ny -> New York City, ...)
+ d) morphological similarity (stemming and singularization -> <a href="http://snowball.tartarus.org">snowball library</a>)
+ e) identification of synonyms using wordnet</p>
+<p>The authors identify matching user profiles and use them for evaluating the approach based on metrics introduced in the paper (assignment intersection ratio and tag intersection ratio). </p>

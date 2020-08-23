@@ -1,0 +1,41 @@
+---
+status: publish
+published: true
+title: Aspect-Based Sentiment Analysis of Movie Reviews on Discussion Boards
+wordpress_id: 911
+wordpress_url: https://blog.semanticlab.net/?p=911
+date: '2016-08-05 14:33:26 +0200'
+date_gmt: '2016-08-05 13:33:26 +0200'
+categories:
+- Sentiment Detection
+tags:
+- grammar rules
+- aspect-based sentiment analysis
+- dependency parsing
+- sentiment calculation rules
+- heuristics
+comments: []
+---
+<p>Thet, Tun Thura, Jin-Cheon Na, and Christopher S. G. Khoo. Aspect-Based Sentiment Analysis of Movie Reviews on Discussion Boards. Journal of Information Science 36, no. 6 (December 1, 2010): 823&mdash;48.</p>
+<p>This paper presents an interesting approach for computing the sentiment of movie aspects. The authors use dependency parsing to split sentences into independent clauses and then apply an extensive set of manually drafted sentiment calculation rules that leverage the sentence's part of speech tags to compute the per clause sentiment.</p>
+<h2>Method</h2>
+<ol>
+<li>movie aspects: domain experts manually collected words indicating movie aspects such as <em>overall, cast, director, story, scene, music</em> from a corpus of 520 movie reviews.</li>
+<li>sentiment lexicons:
+<ul>
+<li>generic sentiment lexicon: SentiWordNet</li>
+<li>domain specific sentiment lexicon: (i) use the information gain measure to obtain opinion words that are strongly associated with positive or negative reviews; (ii) manual examination of the candidate sentiment terms and creation of the domain specific lexicon which comprises approximately 100 terms.</li>
+</ul>
+</li>
+<li>sentences are dependency parsed and then divided into independent clauses (i.e. sub-trees containing single statements).</li>
+<li>computation of the clause sentiment based on calculation rules that consider the words' part of speech tags and negation.</li>
+<li>aspect sentiment: the sentiment score for each review aspect is calculated by computing the average sentiment of all clauses in which terms referencing to that particular aspect are mentioned.</li>
+</ol>
+<h2>Evaluation</h2>
+Experiments conducted on 1000 manually annotated sentences (and the corresponding movie aspects) indicate that the presented method yields very good results and clearly outperforms the baseline approaches. The authors also provide an error analysis which identifies the following error classes:</p>
+<ul>
+<li>51% of all errors - limitations of the sentiment calculation rules</li>
+<li>26% - indirect expressions containing misleading phrases (e.g. "well deserved 1/10")</li>
+<li>18% - incorrect prior sentiment scores (e.g. satisfied is a negative word in SentiWordNet but considered positive in movie reviews) or incorrect prior scores due to ambiguities (e.g. miss).</li>
+<li>5% - spelling errors</li>
+</ul></p>

@@ -1,0 +1,34 @@
+---
+status: publish
+published: true
+title: Sentiment Analysis of Blogs by Combining Lexical Knowledge with Text Classification
+wordpress_id: 85
+wordpress_url: https://blog.semanticlab.net/?p=85
+date: '2010-09-29 11:26:48 +0200'
+date_gmt: '2010-09-29 10:26:48 +0200'
+categories:
+- Uncategorized
+tags:
+- Sentiment Detection
+- pooling multinomial classifier
+- background knowledge
+- domain specifity
+comments: []
+math: true
+---
+<p>by Melvile et al (IBM Watson Research Centre) *****</p>
+<p>Analyzing blog posts raises a number of interesting questions:</p>
+<ol>
+<li>how to identify the subset of blogs discussing not products but <strong>high level concepts</strong> (properties?) relevant to these products.</li>
+<li>the identification of the mot <strong>authoritative/influential sources.</strong></li>
+<li>detecting the <strong>sentiment</strong> expressed about an entity (product, properties, etc.)</li>
+</ol>
+This article describes the use of background lexical information for sentiment detection. The authors <strong>refine</strong> a given <strong>sentiment dictionary with training examples</strong>.</p>
+<p>The described approach draws upon pooling multinomial classifiers for providing a composite Naive Bayes class that incorporates background knowledge with training examples. This is achieved by combining the probability distributions of two experts: (i) an expert trained on labelled training data and (ii) an expert representing a generative model explaining the sentiment lexicon.</p>
+<p>There is substantial literature on combining such distributions available. The authors performed their experiments with the following approaches:</p>
+<ol>
+<li>the linear opinion pool which performed best in the evaluation: ($$P=\sum_i^K \alpha_i P_i$$)
+the pooled probability is the sum of the expert's probabilities weighted by a factor $$\alpha_i$$ ($$\sum \alpha_i = 1$$)</li></p>
+<li>logarithmic opinion pool: ($$P=\prod_i^K P_i^{\alpha_i}$$); $$\sum \alpha_i = 1$$; $$Z$$ is a normalizing constant; if $$\alpha_i = 1/K$$ this approach equals to the geometric mean of all expert opinions</li>
+</ol>
+The authors compute the weights ($$\alpha_i$$) based on the experts' errors in explaining the training data.</p>

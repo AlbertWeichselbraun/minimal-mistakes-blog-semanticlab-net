@@ -1,0 +1,96 @@
+---
+status: publish
+published: true
+title: Social Network Analysis and Mining for Business Applications
+wordpress_id: 586
+wordpress_url: http://blog.semanticlab.net/?p=586
+date: '2013-04-14 20:16:22 +0200'
+date_gmt: '2013-04-14 19:16:22 +0200'
+categories:
+- Social Networks
+- Web Intelligence
+tags:
+- applications
+- categorization
+- implicit network connections
+comments: []
+---
+<p>Bonchi, F., Castillo, C., Gionis, A., &amp; Jaimes, A. (2011). Social Network Analysis and Mining for Business Applications. ACM Transactions on Intelligent Systems and Technology, 2(3), 22:1&mdash;22:37. doi:10.1145/1961189.1961194</p>
+<p>This article classifies business processes based on the APQC Process Classification Framework that serves as a high-level, industry-neutral enterprise process model, and discusses social network analysis and mining techniques relevant to these processes.</p>
+<h1>Business Processes and Applications</h1>
+The following list outlines business processes and the corresponding applications. The processes 1-5 are considered operating processes, while 6-12 denote to management and support processes.</p>
+<ol>
+<li>Vision &amp; Strategy - Social Networking</li>
+<li>Products &amp; Services - Product recommendations, social search</li>
+<li>Marketing &amp; selling - Social CRM, Trend spotting, Social marketing, Loyalty programs, Advertising, Business intelligence, Churn prediction, Reputation monitoring</li>
+<li>Delivery - Production scheduling, customer data mining</li>
+<li>Customer Service: Customer support</li>
+<li>Human Capital - Internal social networking, recruiting, expert routing</li>
+<li>Information Technology - Resource allocation, Information sources, Content Management</li>
+<li>Financial Resources - Customer &amp; product strategies, Customer-product mix</li>
+<li>Property Management - N.A.</li>
+<li>Environmental issues - N.A.</li>
+<li>External Relationships - Public relations programs, Social networking, Media monitoring</li>
+<li>Knowledge Management - Knowledge sharing, Internal social networks</li>
+</ol></p>
+<h1>Social Network Data</h1>
+Social network data is represented as a graph <em>G=(V,E)</em> with either explicit or implicit connections. Implicit connections can be discovered due to</p>
+<ol>
+<li>follower, voting, or content (e.g. similar tags, comments, ... ) relations in <em>social networks</em></li>
+<li>communication activities (e.g. calls, SMS, mails) in <em>telecommunication networks</em>,</li>
+<li><em>proximity</em> obtained from GPS location logs or RFID tags, or</li>
+<li><em>user similarity</em>.</li>
+</ol>
+Social networks often contain sensitive information that might require anonymization steps before analysis.</p>
+<h1>Reputation and Trust</h1>
+Ziegler and Lausen (2005) distinguish between</p>
+<ol>
+<li><strong>global trust</strong> (reputation), computed from the perspective of the whole network and yielding a single trust value, and</li>
+<li><strong>local trust</strong>, denoting to the trust from the perspective of another agent allowing for multiple trust values</li>
+</ol>
+Many trust metrics are computed from social ties. Pretty good privacy (PGP) uses explicit trust relations to compute local trust values, the Katz index and other <strong>spectral ranking methods</strong> for ranking individuals in a social network consider votes that are passed transitively with a certain attenuation factor.<strong> </strong></p>
+<p><strong>PageRank</strong> is the most popular method of this family. PageRank can also be interpreted as a <em>random surfer</em> who follows links at random. The score of a node corresponds to the fraction of time spend at that node by the surfer in the limit.</p>
+<p><strong>HITS</strong> distinguishes between a<em> hub</em> and an<em> authority score.</em> Nodes that receive many incoming links from important hubs obtain a high authority score. Hubs with many incoming links from authoritative nodes get a high hub score. As all the other spectral ranking methods, the HITS value is determined by an eigenvector computation.</p>
+<p><strong>Incorporation of negative feedback.</strong></p>
+<p>The semantics of distrust propagation ("the enemy of my enemy is my friend") are in practice less effective than the semantics of trust propagation ("the friend of my friend is my friend").</p>
+<p>Guha et al. (2004) show that a good heuristic for computing trust propagates</p>
+<ol>
+<li>trust on a global and</li>
+<li>distrust only on a local (single-step) level.</li>
+</ol></p>
+<h1>Network Dynamics</h1>
+Research on the properties of social networks shows that new nodes connecting to social networks will <em>preferential attach</em> themselves to existing nodes with a high number of connections. This is regarded as an instance of the multiplicative process, also known as the Yule process or <em>richer-get-richer</em> process.</p>
+<p>Research on <strong>mining evolving graphs</strong> identifies typical evolution patterns to obtain information on the underlying evolution mechanisms.</p>
+<h2><strong>Business Applications</strong></h2>
+Social Network analysis allows partitioning customers according to their social network community. Applications of this kind of partitioning are</p>
+<ol>
+<li>social recommendations (Amazon, Last.fm, etc.)</li>
+<li>social search, that exploits context from a person's connections (e.g. Linux fans $$\rightarrow$$ a search for totem returns a media player)</li>
+<li>marketing in offline settings (reward programs)</li>
+<li>security (fraud and terrorism detection)</li>
+</ol></p>
+<h1>Propagation and Virality</h1>
+The idea of <em>word-of-mouth</em> or <em>viral marketing</em> is targeting the most influential users within a network to start a chain-reaction that propagates the marketing message through the network. Research on information propagation has shown that finding optimal propagation strategies in social networks is NP-hard.</p>
+<p>One research problem in this area is distinguishing between <strong>influence</strong> and <strong>similarity</strong>, i.e. do determine whether people follow a course of action because they have interests similar to the "influential person" or because they have been influenced by that person.</p>
+<p>Some authors have measured the effects of adding <em>viral features</em> such as (a) personal referrals, and (b) automatic broadcasting into products.</p>
+<p><strong>Churn </strong>is the business term for the fraction of individuals that leave a customer base. Churn analysis targets on</p>
+<ol>
+<li>determining the reasons for customers churn, and</li>
+<li>predicting individual churn so that appropriate counter measures may be taken.</li>
+</ol></p>
+<h1>Social Networking Applications</h1>
+A white paper published by AT&amp;T outlines the following business applications for social networks:</p>
+<ol>
+<li>promotion of products and services</li>
+<li>trend monitoring</li>
+<li>as a customer relation instrument</li>
+<li>research of new product ideas</li>
+<li>creation of customer user-groups</li>
+<li>advertising</li>
+<li>sponsoring of interactive content</li>
+<li>creation and monitoring of online focus groups</li>
+</ol></p>
+<h1>Bibliography</h1>
+Guha, R., Kumar, R., Raghavan, P. and Tomkins, A. (2004). Propagation and trust and distrust. In proceedings of the 13<sup>th</sup> International Conference on World Wide Web (WWW'04). ACM Press, New York, 403-412</p>
+<p>Ziegler, C.-N.and Lausen, G. (2005): Propagation models for trust and distrust in social networks. Information Systems Frontiers 7, 4-5, 337-358</p>
+<p>&nbsp;</p>

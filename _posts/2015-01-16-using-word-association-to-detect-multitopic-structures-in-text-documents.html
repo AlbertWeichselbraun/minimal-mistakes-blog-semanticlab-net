@@ -1,0 +1,38 @@
+---
+status: publish
+published: true
+title: Using Word Association to Detect Multitopic Structures in Text Documents
+wordpress_id: 834
+wordpress_url: http://blog.semanticlab.net/?p=834
+date: '2015-01-16 13:37:12 +0100'
+date_gmt: '2015-01-16 12:37:12 +0100'
+categories:
+- Uncategorized
+tags:
+- clustering
+- topic detection
+- multitopic detection
+- mtp
+- keyword extraction
+- CIMAWA
+comments: []
+math: true
+---
+<div>
+<div>Klahold, A. et al., 2014. Using Word Association to Detect Multitopic Structures in Text Documents. <i>IEEE Intelligent Systems</i>, 29(5), pp.40&mdash;46.</div></p>
+<div></div></p>
+<div>This paper presents a method for detecting multitopic structures in text documents that combines (i) traditional keyword extraction methods and (ii) the association between keywords (CIMAWA = Context for the Imitation of the Mental Ability of Word Association) into an Associative Gravity metric which is used for clustering topics.</div></p>
+<div></div></p>
+<h2>Method</h2>
+Associative gravity focuses on the content structures <em>within</em> a single document and combines the following three steps:</p>
+<ol>
+<li><strong>keyword detection</strong> - computes a keyword rating <em>kw</em> which determines the most important terms <em>w</em> based on the number of times they occur in the text <em>n(w</em>), the total number of documents <em>|D|</em> and the number of documents in which they occur <em>I(w)</em>:
+$$!kw(w) = n(w) \cdot\frac{|D|}{I(w)}$$</li></p>
+<li><strong>CIMAWA</strong> - to determine the relations between those keywords. CIMAWA(x(y)) measures the association between word x and y based on a certain windows size (ws) and the reverse association multiplied with the damping factor k. For the used experiments a window size of 10 has been chosen.
+$$!CIMAWA(x(y)) = \frac{Cooc_{ws}(x,y)}{n(y)^\alpha} + k \frac{Cooc_{ws}(x,y)}{n(x)^\alpha}$$</li></p>
+<li><strong>clustering</strong> - to determine semantic topic clusters CIMAWA is used to compute the associative gravity force (AGF), i.e. the distance metric for the clustering
+$$!AGF(x, y) = \frac{CIMAWA(x(y)) \cdot kr(x)}{y}$$</li>
+</ol>
+The article also includes suggestions for building the clusters and evaluating them using cluster entropy .</p>
+<div></div>
+</div></p>

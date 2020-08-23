@@ -1,0 +1,28 @@
+---
+status: publish
+published: true
+title: Data Warehousing and Analytics Infrastructure at Facebook
+wordpress_id: 528
+wordpress_url: https://blog.semanticlab.net/?p=528
+date: '2013-03-27 06:05:12 +0100'
+date_gmt: '2013-03-27 05:05:12 +0100'
+categories:
+- Web Intelligence
+tags:
+- hive
+- technologies
+- facebook
+comments: []
+---
+<p>Thusoo, A. et al., 2010. Data warehousing and analytics infrastructure at facebook. In <em>Proceedings of the 2010 ACM SIGMOD International Conference on Management of data</em>. SIGMOD  &trade;10. New York, NY, USA: ACM, pp. 1013&mdash;1020. Available at: http://doi.acm.org/10.1145/1807167.1807278.</p>
+<p>This article describes some of the technologies and design decisions that help Facebook handle data loads of 60 TB of new data per day and a total data volume of 15 PB using the following technologies:</p>
+<ol>
+<li><a href="http://hive.apache.org">Apache Hive</a>, a hadoop-based data warehousing system facilitating easy data summarization, ad-hoc queries, and the analysis of large datasets stored in Hadoop compatible file systems.</li>
+<li><a href="https://github.com/facebook/scribe">Scribe</a> for collecting and aggregating log file in real time.</li>
+<li>Microstrategy, a commercial business intelligence platform for dimensional analysis.</li>
+<li>Different data clusters for</li>
+<ul>
+<li>regular, in-production jobs that usually hold a month's worth of data</li>
+<li>ad-hock jobs, holding historical data for verifying models and hypothesis.</li>
+</ul>
+</ol></p>

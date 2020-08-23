@@ -1,0 +1,40 @@
+---
+status: publish
+published: true
+title: Collective Cross-Document Relation Extraction Without Labelled Data
+wordpress_id: 592
+wordpress_url: http://blog.semanticlab.net/?p=592
+date: '2013-04-16 08:37:23 +0200'
+date_gmt: '2013-04-16 07:37:23 +0200'
+categories:
+- Information Extraction
+tags:
+- relation extraction
+- distant supervision
+- self training
+- weak supervision
+comments: []
+---
+<div>
+<div>Yao, L., Riedel, S. &amp; McCallum, A., 2010. Collective cross-document relation extraction without labelled data. In <em>Proceedings of the 2010 Conference on Empirical Methods in Natural Language Processing</em>. EMNLP  &trade;10. Stroudsburg, PA, USA: Association for Computational Linguistics, pp. 1013&mdash;1023.</div></p>
+<h1>Introduction</h1>
+</div></p>
+<div>This article introduces an approach for the extraction of relations from document collections that does not rely on pre-labelled data but uses an existing knowledge base instead.</div></p>
+<h1>Method</h1>
+The presented method</p>
+<ol>
+<li>uses existing knowledge from Freebase for automatically creating training examples. Such an approach is known as <em>distant supervision, self training </em>or <em>weak supervision</em>. Distant supervision often leads to noisy and incorrect patterns which can partially be countered by enforcing constraints (such as entity types).</li>
+<li>obtains and pools data from the whole document collection rather than from single sentences and use constraints to further improve its accuracy.</li>
+<li>uses an undirected graphical model (Conditional Random Field (CRF)) in which variables correspond to facts and factors between them measure compatibility (i.e. whether the given data violates any constraints) using the following kinds of factor templates:</li>
+<ol>
+<li><strong>Bias templates</strong> - prefer certain relations over others (e.g. based on their a priori probability).</li>
+<li><strong>Mention templates</strong> - connect mentions (i.e. entities) with relations considering features such as <em>lexical content</em>, and the <em>syntactic path</em> between the mentions.</li>
+<li><strong>Selectional preferences templates</strong> - ensure the correlations between entity types and relations (i.e. the entity type constraints)</li>
+</ol></p>
+<li>relies on a Gibbs-Sampler (SampleRank) at inference time which leads to a linear runtime behavior. SampleRank performs parameter updates <em>within</em> Markov chain Monte Carlo (MCMC) inference.</li>
+</ol></p>
+<h1>Evaluation</h1></p>
+<ol>
+<li>in-domain setting (Freebase is partially derived from Wikipedia): discover relations from Wikipedia</li>
+<li>out-of-domain setting: extract relations on a New York Times corpus. The evaluation is performed on the top 50 extracted relation instances. Each relation is verified by three annotators and a majority vote is used upon disagreement. The authors observed <strong>precision@50</strong> values between <strong>0.42</strong> and <strong>0.98</strong> depending on the relation type.</li>
+</ol></p>

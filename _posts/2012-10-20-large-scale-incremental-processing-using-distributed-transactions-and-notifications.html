@@ -1,0 +1,44 @@
+---
+status: publish
+published: true
+title: Large-scale Incremental Processing Using Distributed Transactions and Notifications
+wordpress_id: 321
+wordpress_url: https://blog.semanticlab.net/?p=321
+date: '2012-10-20 16:15:10 +0200'
+date_gmt: '2012-10-20 15:15:10 +0200'
+categories:
+- Articles
+tags:
+- google
+- scalability
+- map reduce
+- incremental processing
+comments: []
+---
+<p>by Peng and Dabek</p>
+<p>This paper introduces Percolator and the corresponding processing pipeline called Caffeine, which are systems for incrementally processing updates to large data sets.</p>
+<h2>Motivation</h2>
+Google maintains a Web index containing sets of invariants on the  index</p>
+<ul>
+<li>content available under multiple URLs is assigned to the URL with the highest page rank</li>
+<li>anchor text from incoming links is attached to the page</li>
+<li>MapReduce limits the parallelism of computations: all documents finish one processing step before entering the next one, which makes small incremental updates of indexes inefficient</li>
+<li>Databases use transactions to maintain invariants but do not provide the scalability required</li>
+</ul></p>
+<h2>Method</h2></p>
+<ul>
+<li>Percolator works on top of share-nothing parallel databases by introducing an additional layer to the BigTable database that (i) achieves high throughput due to the use of a massive amount of threads for performing update, and (ii) provides ACID compliant transactions.</li>
+<li>The system attaches observers (triggers) to database columns that are invoked once a column change. These observers process the changed data, update columns and may trigger other observers. Cascades of such small update operations incrementally update the index to reflect the changes introduced by the new documents.</li>
+<li>Message collapsing ensures that multiple changes concerning one column are pooled and, therefore, only trigger one observer.</li>
+<li>Multiple versions of data items are stored using BigTable's timestamp dimension. This approach is also used for implementing a locking mechanism.</li>
+</ul></p>
+<h2>Costs and benefits</h2></p>
+<ul>
+<li>Percolator reduced the average document processing latency by a factor of 100 at the cost of the number of database calls required per document (MapReduce: 1 call for 100s of Web pages versus 50 calls for one page using Percolator) and a higher resource consumption (about twice as many as MapReduce).</li>
+<li>Only applicable where computations can be broken down into small updates (otherwise MapReduce is more efficient)</li>
+<li>Percolator is essentially immune to stragglers which are a serious problem in batch processing.</li>
+</ul></p>
+<h2>Misc</h2></p>
+<ul>
+<li>Implementation of databases: "get close to the iron" - use hardware as directly as possible since operation system structures like disk caches and schedulers make it hard to implement efficient databases.</li>
+</ul></p>

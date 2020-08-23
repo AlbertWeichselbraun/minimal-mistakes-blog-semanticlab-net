@@ -1,0 +1,50 @@
+---
+status: publish
+published: true
+title: 'HYENA-live: Fine-Grained Online Entity Type Classification from Natural-language
+  Text'
+wordpress_id: 789
+wordpress_url: http://blog.semanticlab.net/?p=789
+date: '2014-10-03 18:27:10 +0200'
+date_gmt: '2014-10-03 17:27:10 +0200'
+categories:
+- Information Extraction
+tags:
+- named entity recogniton
+- named entity linking
+- features
+comments: []
+---
+<div>
+<div>Yosef, M. A., Bauer, S., Hoffart, J., Spaniol, M., &amp; Weikum, G. (2013). HYENA-live: Fine-Grained Online Entity Type Classification from Natural-language Text. In <i>51st Annual Meeting of the Association for Computational Linguistics, ACL 2013, Proceedings of the Conference System Demonstrations, 4-9 August 2013, Sofia, Bulgaria</i> (pp. 133&mdash;138). The Association for Computer Linguistics.</div></p>
+<div></div></p>
+<h2>Introduction</h2>
+This article introduces HYENA-live a named entity recognition (NER) system which supports a fine-grained hierarchy and multi-labeling (e.g. a single named entity may be a manager,  a researcher and a person). Most state-of-the art tools only consider a small set of entity types such as Persons, Locations and Organizations.</p>
+<p>The most common workaround for performing fine-grained NER is to deploy named entity linking (NEL) first and afterwards derive the entity's type from the knowledge base. Nevertheless, this approach has the following drawbacks:</p>
+<ol>
+<li>NEL is an inherently hard problem, especially with ambiguous mentions.</li>
+<li>NEL only works with mentions which are mentioned in the knowledge base and, therefore, heavily depends on the quality of the underlying knowledge base.</li>
+</ol></p>
+<h2>Method</h2>
+HYENA creates its classification taxonomy from YAGO by organizing 100 descendant classes under the following five top level classes: <em>Person, Organization, Location, Event </em>and <em>Artifact. </em>The 100 descendant classes are picked based on the number of YAGO entities tagged with the class (i.e. the 100 most frequently used classes are selected).</p>
+<p>HYENA then uses LIBLINEAR to train an SVM with the following features set:</p>
+<ol>
+<li>the <strong>mention</strong> string and uni-, bi- and trigrams overlapping with the mention string (i.e. "short name" variants)</li>
+<li><strong>sentence level context</strong> information including information on whether an n-gram occurs <em>before</em> or <em>after</em> the mention (compare: prefixes and suffixes in Recognyze)</li>
+<li><strong>paragraph level context</strong> which are features within a window size of 2000 characters before and after the mention to obtain <em>topical clues </em>(compare Recognyze context terms).</li>
+<li><strong>grammatical features</strong> such as (i) <em>part-of-speech</em> tags,  (ii) the first occurrence of a <em>pronoun</em> (he/she) in the same sentence and in the subsequent sentence following the mention, and (iii) the closest <em>verb-preposition</em> pair preceding the mention.</li>
+<li><strong>gazetteer features</strong> extracted from the YAGO knowledge base which contain type specific mentions (e.g. Alice for person, location, song and movie; Lainach for location, ...)</li>
+</ol></p>
+<h2>Resources and related work</h2></p>
+<ol>
+<li>HYENA online demo: http://d5gate.ag5.mpi-sb.mpg.de/webhyena/</li>
+<li>
+<div>
+<div>Hoffart, J., Suchanek, F. M., Berberich, K., &amp; Weikum, G. (2013). YAGO2: A spatially and temporally enhanced knowledge base from Wikipedia. <i>Artificial Intelligence</i>, <i>194</i>, 28&mdash;61. doi:10.1016/j.artint.2012.06.001</div>
+</div></li></p>
+<li>
+<div>
+<div>Weichselbraun, A., Streiff, D., &amp; Scharl, A. (2014). Linked Enterprise Data for Fine Grained Named Entity Linking and Web Intelligence. In <i>4th International Conference on Web Intelligence, Mining and Semantics (WIMS 2014)</i>. Thessaloniki, Greece</div>
+</div></li>
+</ol>
+</div></p>

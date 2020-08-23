@@ -1,0 +1,62 @@
+---
+status: publish
+published: true
+title: Evaluation Without Ground Truth in Social Media Research
+wordpress_id: 891
+wordpress_url: https://blog.semanticlab.net/?p=891
+date: '2016-01-05 15:07:12 +0100'
+date_gmt: '2016-01-05 14:07:12 +0100'
+categories:
+- Evaluation Metrics
+tags:
+- evaluation
+- social sciences
+- experiment design
+comments: []
+---
+<div>
+<div>Zafarani, Reza, and Huan Liu. Evaluation Without Ground Truth in Social Media Research. <i>Communcations of the ACM</i> 58, no. 6 (May 2015): 54&mdash;60. doi:10.1145/2666680.</div></p>
+<h3>Summary</h3>
+This paper discusses strategies for evaluating research findings in settings where no ground truth (or gold standard) is available, covering the following three types of evaluations:</p>
+<ol>
+<li>Spatiotemporal - predict when and/or where things are going to happen</li>
+<li>Causality - why events are happening, and</li>
+<li>Outcome - predicting a certain outcome</li>
+</ol></p>
+<h4>Spatiotemporal evaluation</h4></p>
+<ol>
+<li>draw upon the periodicity of individual behavior (i.e. use behavior observed in the first <em>n</em> days as training to evaluate the next <em>m</em> days).</li>
+<li>crowdsourcing</li>
+<li>ensemble methods (combine statistically independent methods)</li>
+</ol></p>
+<h4>Causality evaluation</h4></p>
+<ol>
+<li>controlled experiments (two groups: control and treatment)</li>
+<li>natural experiments
+<ul>
+<li>use a <em>naturally</em> occurring event to measure the influence of an independent variable</li>
+<li>temporal shuffling (i.e. use control groups from the time before an influencing independent variable became active)</li>
+</ul>
+</li></p>
+<li>nonequivalent control - select the control group to be considered similar to a randomized group</li>
+<li>Granger (pseudo) causality - i.e. consider a variable <em>X</em> causal, if <em>X</em> improved the prediction of values <em>Y</em> compared to <em>Y</em> alone</li>
+</ol></p>
+<h4>Outcome evaluation</h4>
+Outcome evaluations consider three different aspects:</p>
+<ol>
+<li>estimating the magnitude, i.e. the size of the population which has observed the contagion
+<ul>
+<li>network scale-up methods - estimate the number of affected people based on (i) the ratio of <em>people known to be affected</em> to<em> people known,</em> and (ii) the population size.</li>
+<li>mark and recapture - estimate the size of a population based on the number of marked and re-captured marked individuals</li>
+</ul>
+</li></p>
+<li>estimating sample accuracy</li>
+<li>estimate outcome
+<ul>
+<li>obtain feedback from other (correlated) indicators (i.g. alexa page rank rather than page hits).</li>
+<li>modularity for community-detection problems</li>
+<li>perform controlled experiments (e.g. A/B testing - i.e. a fraction of the population uses the new user interface while the other fraction acts as control group)</li>
+</ul>
+</li>
+</ol>
+</div></p>

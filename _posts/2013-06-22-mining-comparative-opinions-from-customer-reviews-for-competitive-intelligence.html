@@ -1,0 +1,49 @@
+---
+status: publish
+published: true
+title: Mining comparative opinions from customer reviews for Competitive Intelligence
+wordpress_id: 637
+wordpress_url: http://blog.semanticlab.net/?p=637
+date: '2013-06-22 19:35:36 +0200'
+date_gmt: '2013-06-22 18:35:36 +0200'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<div>
+<div>Xu, K., Liao, S. S., Li, J., &amp; Song, Y. (2011). Mining comparative opinions from customer reviews for Competitive Intelligence. <em>Decision Support Systems</em>, <em>50</em>(4), 743&mdash;754.</div>
+</div></p>
+<div></div></p>
+<div>
+<h2>Key Concepts</h2></p>
+<ol>
+<li>companies apply CI methods that</li>
+<ul>
+<li>monitor the reception of their own products and services</li>
+<li>analyze information on their competitors activities</li>
+</ul></p>
+<li>comparative opinions are valuable information sources for identifying the relative weaknesses and strengths of products.</li>
+<li>the authors  distinguish between rule-based relation extraction methods with automatically and manually defined rules. The first group is further separated into (i) feature-based methods, that rely on features such as POS tags and entity types for relation extraction, and (ii) kernel-based methods that represent examples and define kernels to compute similarities in a high-dimensional space.</li>
+<li>comparative relation extraction obtains <strong>directed relation</strong> with the following <strong>four arguments</strong>:<em>
+$$Relation Type and Direction(Product_1, Product_1, Attribute, Sentimental Phrase)$$</em></li></p>
+<li>Examples relations:</li>
+<ul>
+<li>>(Nokia N95, iPhone, camera, better)</li>
+<li>~(Pearl, Curve, camera, high resolution)</li>
+<li> >(iPhone, Curve, screen, bigger</li>
+</ul>
+</ol></p>
+<h2>Method</h2>
+The authors use conditional random fields to model (a) the relation between relations and entities, and (b) between relations and words.</p>
+<p><strong>Linguistic Features
+</strong></p>
+<ol>
+<li>Capitalization information (identify product names), Word type, POS tags</li>
+<li>Prefixes and suffixes: recognize sentiment phrases (bett-er, quick-er, fast-est, ...)</li>
+<li>Indicator phrases for comparisons (in contrast to, unlike, compare with, ...)</li>
+<li>Syntactic paths (identify comparisons)</li>
+<li>Grammatical roles (products are often subjects, attributes entities are objects, ...)</li>
+</ol>
+</div></p>
+<div></div></p>

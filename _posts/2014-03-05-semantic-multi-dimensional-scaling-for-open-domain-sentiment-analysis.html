@@ -1,0 +1,61 @@
+---
+status: publish
+published: true
+title: Semantic Multi-Dimensional Scaling for Open-Domain Sentiment Analysis
+wordpress_id: 763
+wordpress_url: http://blog.semanticlab.net/?p=763
+date: '2014-03-05 16:18:23 +0100'
+date_gmt: '2014-03-05 15:18:23 +0100'
+categories:
+- Sentiment Detection
+tags:
+- sentiment analysis
+- common sense knowledge
+- latent dirichlet allocation
+- ProBase
+- ConceptNet
+- multi-dimensional scaling
+- common knowledge
+- singular value decomposition
+- linear discriminant analysis
+- senticnet categories
+comments: []
+math: true
+---
+<div>
+<div>Cambria, E., Song, Y., Wang, H., &amp; Howard, N. (2013). Semantic Multi-Dimensional Scaling for Open-Domain Sentiment Analysis. <em>IEEE Intelligent Systems</em>, <em>99</em>(1), 1.</div></p>
+<h2>Introduction</h2>
+This work presents an approach for blending ProBase, an existing taxonomy of common knowledge, with ConceptNet, a common-sense knowledge base. Afterwards, multi-dimensional scaling (MDS) is applied to perform sentiment analysis with the created knowledge base.</p>
+<ul>
+<li>ProBase contains a probabilistic taxonomy with about 12 million concepts which have been learned based on 1.68 billion Web pages in the Bing repository.</li>
+<li>ConceptNet is a common-sense semantic network which contains 173,398 nodes and has been created out of facts collected by the Open Mind Common Sense (OMCS) project.</li>
+</ul></p>
+<h2>Method</h2></p>
+<ol>
+<li>Create the Isanette knowledge source which (a) is build from ProBase <strong>isA</strong> links, (b) deduplicates concepts with a high similarity according to MDS <em>and</em> a high word similarity, (c) removes hapax legomena (nodes with singular out-/in-degrees) and nodes with a connectivity of less than 10, (d) use MDS to infer negative evidence such as 'carbonara' is no food and 'alitalia' is not country.</li>
+<li>Blend Isanette with ConceptNet using the blending technique introduced by Havasi et al. (2009) to create IsaCore, a strongly-connected core of common and common-sense knowledge.</li>
+<li>Reasoning on the knowledge base:</li>
+<ul>
+<li>apply singular value decomposition (SVD) to build a lower-dimensional (500 dimensions) vector space representation of the instance-concept relationship matrix obtained from IsaCore. The obtained concept matrix $$\tilde{C}_U$$ <strong>does not</strong> yield meaningful affective results, since it only considers semantic relatedness of instances according to isA relations.</li>
+<li>use semi-supervised linear discriminant analysis (LDA) with affective instances $$e_i \in \mathcal{R}^d$$ and label $$y_i \in \{1, ...q\}$$ to find a projection matrix <em>W</em> which projects the semantic space $$\tilde{C}_U$$ to a lower-dimensional space which is more affectively discriminative.</li>
+<li>employ the sentic medoids approach to semantically cluster $$\tilde{C}_U$$ into <em>k</em> distinct categories which represent Isanette's hub concepts, i.e. the 5000 concepts with the highest in-degree.</li>
+</ul></p>
+<li>The authors use the created knowledge base in a four step sentiment analysis approach</li>
+<ul>
+<li>pre-processing (negation, degree adverbs, emoticons, lemmatization...)</li>
+<li>semantic parsing to extract concepts from opinionated text (extracts small bags of concepts from the text; normalization - i.e. 'buy christmas present'~ 'I bought a lot of very nice Christmas presents')</li>
+<li>target spotting to identify potential targets</li>
+<li>affect interpretation for emotion recognition and polarity detection (project the extracted concepts into $$\tilde{C}_U$$ clustered according to the Hourglass labels and compute the polarity based on
+$$ p = \sum_{i=1}^N \frac{Plsnt(c_i) + |Attnt(c_i)| - |Snst(c_i)| + Aptit(c_i)}{3N}$$
+where <em>N</em> is the size of the bag of concepts and 3 the normalization factor.</li>
+</ul>
+</ol></p>
+<h2>Evaluation</h2>
+The evaluation draws upon the following three corpora:</p>
+<ol>
+<li>Twitter hashtag repository</li>
+<li>LiveJournal database which allows bloggers to label their posts with mood tags</li>
+<li>a manually annotated dataset of 2000 patient opinions</li>
+</ol>
+It then evaluates (i) the spotting precision of topics (electronics, companies, etc.) on the Twitter repository, (ii) the recognition of affective pairs from the Hourglas model (Pleasantness: joy-sadness; Attention: anticipation-surprise; Sensitivity: anger-fear; Aptitude: trust-disgust), and (iii) the classification of patient opinions.</p>
+<p></div></p>

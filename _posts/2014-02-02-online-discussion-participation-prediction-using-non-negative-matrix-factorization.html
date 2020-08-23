@@ -1,0 +1,40 @@
+---
+status: publish
+published: true
+title: Online Discussion Participation Prediction Using Non-Negative Matrix Factorization
+wordpress_id: 719
+wordpress_url: http://blog.semanticlab.net/?p=719
+date: '2014-02-02 20:20:38 +0100'
+date_gmt: '2014-02-02 19:20:38 +0100'
+categories:
+- Articles
+tags:
+- flameware detection
+- user preferences
+- user participation
+comments: []
+---
+<div>
+<div>Fung, Y.-H., Li, C.-H., &amp; Cheung, W. K. (2007). Online Discussion Participation Prediction Using Non-negative Matrix Factorization. In <em>Proceedings of the 2007 IEEE/WIC/ACM International Conferences on Web Intelligence and Intelligent Agent Technology - Workshops</em> (pp. 284&mdash;287). Washington, DC, USA: IEEE Computer Society.</div>
+</div></p>
+<div></div></p>
+<h2>Introduction</h2></p>
+<div>This paper presents an approach for estimating the user participation in discussions taking place in Internet forums, i.e. to estimate whether a particular user will participate in a certain discussion.</div></p>
+<div></div></p>
+<h2>User participation follows Zipf's law:</h2></p>
+<div>The authors note that the user participation frequency obeys the Zipf's law, i.e. the posting frequency of a user is inversely proportional to his rank in the "user activity" table. Therefore, active users post significantly more than inactive ones.</div></p>
+<div></div></p>
+<h2>Method</h2></p>
+<div>The used method encodes discussions and users in the $$n \times m$$ matrix $$F$$ where $$f_{ij} \in F$$ represents the number of posts posted by the user $$j$$ in the discussion$$i$$. To account for the Zipf's law frequency the following normalization which has been inspired by pf/idf is used:</div></p>
+<div></div></p>
+<div>$$x_{ij} = (pf_{ij}) \times (idf_j) = f_{ij} \times log\frac{n}{n_j}$$</div></p>
+<div></div></p>
+<div>where $$n_j$$ represents the number of discussions in which a user $$j$$ has participated. Furthermore the discussion $$i$$ is normalized to unit Euclidean length by dividing the $$L_2$$ norm corresponding to the pf/idf vector.</div></p>
+<div>Afterwards, Weighted Non-negative Matrix Factorization (WNMF) rather than Singular Value Decomposition (SVD) is used to find the latent factors based on the observed participation frequency, i.e. to estimate the model.</div></p>
+<h2>Evaluation</h2>
+The evaluation experiments observe user interaction in three different discussion boards and use the mean absolute error (MAE) to describe the method's performance:</p>
+<p>$$MAE = \frac{1}{N} \sum_{i,j \in S_{test}} |x_{ij} - y_{iy} | $$</p>
+<p>&nbsp;</p>
+<div></div></p>
+<div></div>
+&nbsp;</p>

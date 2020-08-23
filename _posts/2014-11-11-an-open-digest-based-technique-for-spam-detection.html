@@ -1,0 +1,50 @@
+---
+status: publish
+published: true
+title: An Open Digest-based Technique for Spam Detection
+wordpress_id: 810
+wordpress_url: http://blog.semanticlab.net/?p=810
+date: '2014-11-11 10:43:17 +0100'
+date_gmt: '2014-11-11 09:43:17 +0100'
+categories:
+- Information Diffusion
+tags:
+- lsh
+- nilsimsa
+- locality sensitve hashing
+comments: []
+---
+<div>
+<div>
+<div>
+<div>Damiani, E. et al., 2004. An Open Digest-based Technique for Spam Detection. In <i>in Proceedings of the 2004 International Workshop on Security in Parallel and Distributed Systems</i>. pp. 15&mdash;17.</div>
+</div>
+</div></p>
+<h2>Summary</h2>
+This paper discusses the Nilsimsa open digest hash algorithm which is frequently used for Spam detection. The authors describe the computation of the 32-byte code, discuss different attack scenarios and measures to counter them.</p>
+<h2>Digest computation</h2></p>
+<ol>
+<li>slide a five character window through the input text and compute all eight possible tri-grams for each window (e.g. "igram" yields "igr", "gra", "ram", "ira", "iam", "grm",  ...)</li>
+<li>hash these trigrams using a hash function <em>h() </em>which maps every tri-gram to one of 256 accumulators and increment the corresponding accumulator. Nilsimsa uses the Trans53 hash function for hashing.</li>
+<li>at the end of the process described below, compute the <em>expected value</em> of the accumulators and set the bits which correspond to each accumulator either to (1) if it exceeds this threshold or (o) otherwise.</li>
+</ol></p>
+<h2>Similarity computation</h2>
+The Nilsimsa similarity is computed based on the bitwise difference between two Nilsimsa hashes. Documents are considered similar if they exceed a pre-defined similarity value.</p>
+<ol>
+<li>>24 similar bits - conflict probability: 1.35E-4 (suggestions by Nilsimsa's original designer)</li>
+<li>>54 similar bits - conflict probability: 7.39E-12 (suggested by the article's authors)</li>
+</ol></p>
+<h2>Attacks</h2>
+Spammers can apply multiple techniques to prevent Nilsimsa from detecting duplicates:</p>
+<p></div></p>
+<div>
+<ol>
+<li>Random addition: requires >300% of additional text to prevent detection.</li>
+<li>Thesaurus substitutions: require >20% of replaced text</li>
+<li>Perceptive substitution (security > s3cur1ty): requires >15% of the text to be altered</li>
+<li>Aimed attacks (i.e. attacks which specifically target Nilsimsa): ~10% of the text needs to be altered</li>
+</ol>
+Aimed attacks manipulate Nilsimsa's accumulators by adding words which introduce new tri-grams that specifically alter the hash value. Although these attacks are relatively effective, they can be easily circumvented by computing the Nilsimsa hash twice with different hash functions.</p>
+<h2>Software</h2>
+Java implementation of the <a title="Nilsimsa - Java Implementation" href="https://github.com/weblyzard/nilsimsa">Nilsimsa algorithm</a></p>
+<p></div></p>

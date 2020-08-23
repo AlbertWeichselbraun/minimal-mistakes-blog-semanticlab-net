@@ -1,0 +1,28 @@
+---
+status: publish
+published: true
+title: Domain relevance of terminology
+wordpress_id: 69
+wordpress_url: https://blog.semanticlab.net/?p=69
+date: '2009-11-18 14:02:48 +0100'
+date_gmt: '2009-11-18 13:02:48 +0100'
+categories:
+- Information Retrieval
+- Information Extraction
+- Ontology Building
+tags:
+- domain relevance
+- domain consensurs
+- structural semantic interconnection
+comments: []
+math: true
+---
+<p>based on Navigli, R. and Velardi, P. (2004). ''Learning Domain Ontologies from Document Warehouses and Dedicated Web Sites'', Computational Linguistics, pages 151--179, 30(2)</p>
+The authors define two measures to judge the relevance of a terms:
+<ul>
+<li>domain relevance ($$DR$$) - the conditional probability of a term to appear in one domain $$(P(t|D_k)$$ divided by the maximum of this probability
+$$DR_{t,k} = P(t|D_k) / max P(t|D_j)$$</li></p>
+<li>domain consensus ($$DC$$) - which measures the distributed use of the term in a domain $$D_k$$:
+$$DC_{t,k} = \sum_{d \in D_k}( P_t(d) log( 1/P_t(d))$$</li>
+</ul>
+They also apply a word sense disambiguation (WSD) algorithm called <strong>structural semantic interconnection (SSI)</strong>, based on WordNet's concept sense definitions.</p>

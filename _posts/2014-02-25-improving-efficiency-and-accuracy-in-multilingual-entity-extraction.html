@@ -1,0 +1,44 @@
+---
+status: publish
+published: true
+title: Improving Efficiency and Accuracy in Multilingual Entity Extraction
+wordpress_id: 749
+wordpress_url: http://blog.semanticlab.net/?p=749
+date: '2014-02-25 11:36:58 +0100'
+date_gmt: '2014-02-25 10:36:58 +0100'
+categories:
+- Information Extraction
+tags:
+- named entity resolution
+- named entity linking
+- dbpedia
+comments: []
+---
+<div>
+<div>Daiber, J. et al., 2013. Improving Efficiency and Accuracy in Multilingual Entity Extraction. In <em>Proceedings of the 9th International Conference on Semantic Systems</em> (I-SEMANTICS &trade;13). pp. 121&mdash;124</div>
+</div></p>
+<h2>Introduction</h2></p>
+<div>This paper focuses on the implementation and data processing challenges encountered while developing a faster and more accurate version of DBpedia Spotlight.</div></p>
+<div>
+<h2>Method</h2>
+Spotlight uses a two step approach towards extracting entities: (i) phrase spotting (i.e. recognition of phrases to be annotated) and (ii) disambiguation (i.e. entity linking against DBpedia).</p>
+<h3>Phrase Spotting</h3></p>
+<ol>
+<li>identify candidate phrases using one of the following two approaches:</li>
+<ul>
+<li>language-independent (lexical): substring-matching (Aho-Corasick algorithm)</li>
+<li>language-dependent: extract (i) capitalized tokens, (ii) noun phrases, prepositional phrases and multi word units (MWU), and (iii) name entities</li>
+</ul></p>
+<li>candidate selection: resolve overlaps based on a preference-based choice (NE > ORG > LOC > MISC > NP > MWU > PP > lexical lookup > Capitalized Sequence)</li>
+</ol></p>
+<h3>Disambiguation</h3>
+Based on a probabilistic model from Han and Sun (2011) which uses raw counts of phrases (s), contexts (c) and the entities (e) from Wikipedia for computing the probabilities P(e), P(s|e), P(c|e). Phrases with a lower probability than an artificial NIL entry are removed.</p>
+<h2>Technologies Used</h2></p>
+<ol>
+<li>fast serialization: <a title="kryo" href="https://github.com/EsotericSoftware/kryo" target="_blank">kryo</a></li>
+<li>substring search: LingPipe's Aho-Corasick implementation</li>
+<li>tokenization and named entity recognition: Apache OpenNLP</li>
+</ol>
+&nbsp;</p>
+<p>&nbsp;</p>
+<p></div></p>

@@ -1,0 +1,53 @@
+---
+status: publish
+published: true
+title: Generating High-Coverage Semantic Orientation Lexicons from Overtly Marked
+  Words and a Thesaurus
+wordpress_id: 127
+wordpress_url: https://blog.semanticlab.net/?p=127
+date: '2011-09-05 13:21:20 +0200'
+date_gmt: '2011-09-05 12:21:20 +0200'
+categories:
+- Sentiment Detection
+tags:
+- sentiment detection
+- sentiment terms
+- sentiment lexicon
+comments: []
+---
+<p>by Saif et al.</p>
+<p><strong>1. General</strong></p>
+<ul>
+<li>confirms the Polyanna Hypothesis which states that people have a preference for using positive words and expressions suggesting that we should be able to find more positive than negative sentiment terms.</li>
+<li>Turney and Littman - obtained the sentiment of a word by determining if it co-occurs more often with a set of positive words than with a set of negative words.</li>
+</ul>
+<strong>2. Method</strong></p>
+<p>The method consists of two steps:</p>
+<ol>
+<li>identify a seed set of positive and negative words by using affix patterns (dis-, im-, in-, mal-, mis-, non-, un-, -less, ill-, ir-, -ful -- e.g. honest - dishonest; happy - unhappy, ...)</li>
+<li>use a thesaurus to mark the words synonymous with the positive set "positive" and the words synonymous with the negative set "negative"</li>
+</ol>
+<strong>2.1. Seed words</strong></p>
+<p>Based on the general inquirer or on affix patterns as described below:</p>
+<ol>
+<li>marked words such as dishonest, unhappy, inpure, ... -> negative</li>
+<li>unmarked words such as happy, honest, ... -> positive (there are some exceptions but they are clearly in the minority)</li>
+</ol>
+<strong>2.2. Generalization</strong></p>
+<p>Mark the thesaurus's paragraphs and terms positive or negative, depending on which group of words occurs more often.</p>
+<p><strong>3. Evaluation:</strong></p>
+<p>The method is evaluated by</p>
+<ol>
+<li>computing the overlap with a manually generated lexicon (general inquirer)</li>
+<li>comparing the performance of the lexicon in evaluating the MPQA corpus (http://www.cs.pitt.edu/mpqa)</li>
+</ol>
+<strong>4. Visualization</strong></p>
+<ol>
+<li>based on a force-directed graph layout which shows the original sentiment lexicon and its extensions.</li>
+<li>the authors use the NodeXL (http://www.codeplex.com/NodeXL) tool to create visualizations which
+<ul>
+<li>contain a smaller subset of the lexicon</li>
+<li>and have been cleaned up using graph-theoretic metrics.</li>
+</ul>
+</li>
+</ol></p>

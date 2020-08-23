@@ -1,0 +1,27 @@
+---
+status: publish
+published: true
+title: 'Dremel: Interactive Analysis of Web-Scale Datasets'
+wordpress_id: 317
+wordpress_url: https://blog.semanticlab.net/?p=317
+date: '2012-10-14 15:39:53 +0200'
+date_gmt: '2012-10-14 14:39:53 +0200'
+categories:
+- Articles
+tags:
+- google
+- scalability
+- dremel
+- map reduce
+comments: []
+---
+<p>by Melnik et al. in Proceedings of the 36th International Conference on Very Large Data Bases 2010</p>
+<p>This paper covers Dremel, a scalable, interactive ad-hoc query system for the analysis of read-only nested data.</p>
+<p><strong>Design characteristics:</strong></p>
+<ol>
+<li>Demel operates <em>in situ</em> which refers to its ability to access and process data directly on the node by using a storage layer such as the Google File System or BigTable.</li>
+<li>Analogous to distributed DBMS, Demel executes queries by means of a serving tree that (i) recursively rewrites queries and pushes them down to lower nodes, and (ii) aggregates the nodes' answers to the query result.</li>
+<li>Provides an SQL like query interface.</li>
+<li>Uses a column-striped storage representation by translating structured (or nested) data such as XML to this representation.</li>
+</ol>
+The article also discusses algorithms for converting XML data into this storage format, Demel's query language and the way queries are executed, and experiments concerning its scalability and execution time.</p>

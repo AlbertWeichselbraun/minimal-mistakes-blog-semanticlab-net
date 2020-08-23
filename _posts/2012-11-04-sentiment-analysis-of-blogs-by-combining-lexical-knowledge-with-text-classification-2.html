@@ -1,0 +1,50 @@
+---
+status: publish
+published: true
+title: Sentiment Analysis of Blogs by Combining Lexical Knowledge with Text Classification
+wordpress_id: 335
+wordpress_url: https://blog.semanticlab.net/?p=335
+date: '2012-11-04 08:06:05 +0100'
+date_gmt: '2012-11-04 07:06:05 +0100'
+categories:
+- Uncategorized
+- Sentiment Detection
+tags:
+- sentiment analysis
+- statistics
+- naive bayes
+- probabilities
+- lidstone smoothing
+comments: []
+---
+<p>by Melville et al. (KDD 2009)</p>
+<p>&nbsp;</p>
+<h3>Motivation:</h3></p>
+<ul>
+<li>before the rise of the Web 2.0 companies published product information and reviews on Web sites that were under their direct sphere of influence.</li>
+<li>nowadays, the focus of such discussions has shifted away from the company controlled Web sites into the blogosphere and social media where essentially anyone can comment on products and, therefore, influence purchase decisions.</li>
+<li>to cope with such distributed discussions we need to address the following three challenging data mining tasks:</li>
+<ul>
+<li>detect relevant discussion on products and relevant higher level concepts</li>
+<li>identify the most authoritative and influential contributors</li>
+<li>determine the sentiment of the discussion</li>
+</ul>
+</ul></p>
+<h3>Method</h3></p>
+<h4>General Remarks</h4></p>
+<ul>
+<li>Pang et al. have shown that the use of lexicons is not as effective as learning models from training examples.</li>
+<li>Pooling information is a general approach from the field of Risk Analysis that combines information from multiple "experts", where each expert is usually represented by a probability distribution.</li>
+<li>typical pooling approaches are linear and logarithmic pooling which compute, depending on the used weights, the mean or the geometric mean of the involved distributions.</li>
+<li>Melville et al. adapt the expert's weights with a sigmoid weighting scheme, that considers the expert's past error rate:
+\[\alpha_k = log \frac{1-err_k}{err_k}\]</li>
+</ul></p>
+<h4>Naive Bayes</h4></p>
+<ul>
+<li>The authors present an approach for deriving $$P(w_i|+)$$ and $$P(w_i|-)$$ from the entries of a sentiment lexicon, and</li>
+<li>use Lidstone smoothing with $$\epsilon = 10^{-6}$$  which tends to yield better probabilities than the standard Laplace smoothing:
+\[ P(w_i|c_j) = \frac{t_{ij}+\epsilon}{\sum_i t_{ij} + \epsilon|\mathcal{V}|} \]
+where $$\mathcal{V}$$ is the size of the vocabulary of the domain.</li>
+</ul>
+In the evaluation the author show that the combined approach up-weights and down-weights the sentiment values of lexicon entries. For instance, terms such as <em>dark, social, complex, anger, alien </em>and <em>capture</em> are up-weighted for the Movie domain, while <em>talent, reason, promise, save, fair </em>and <em>redeem</em> are down-weighted for this domain.</p>
+<p>&nbsp;</p>

@@ -1,0 +1,51 @@
+---
+status: publish
+published: true
+title: Taking Refuge in Your Personal Sentic Corner
+wordpress_id: 405
+wordpress_url: https://blog.semanticlab.net/?p=405
+date: '2012-12-30 09:49:41 +0100'
+date_gmt: '2012-12-30 08:49:41 +0100'
+categories:
+- Sentiment Detection
+tags:
+- sentiment analysis
+- method
+- spectral association
+- spreading activation
+- sentic computing
+- term weighting
+comments: []
+---
+<p>Cambria, E., Hussain, A. &amp; Eckl, C., 2011. Taking Refuge in Your Personal Sentic Corner. In <em>Proceedings of the Workshop on Sentiment Analysis where AI meets Psychology (SAAIP), IJNLP 2011</em>. Chiang Mai, Thailand, pp. 35&mdash;43.</p>
+<p>This paper introduces the technology behind <em>Sentic Corner</em> - an intelligent user interface that dynamically suggests audio, video, images and text related to the user's current mood.</p>
+<h2>Introduction</h2>
+Sentic computing is a multi-disciplinary approach to opinion mining and sentiment analysis that combines computer and social sciences. It analyzes text based on common sense reasoning and affective computing, and focuses on text understanding rather than statistics. Therefore, sentic computing works as well with small text snippets as with large corpora.</p>
+<h2>Method</h2>
+The <strong>hourglas of emotions </strong>is a sentiment categorization model that distinguishes</p>
+<ul>
+<li>four emotional dimensions (Pleasantness, Attention, Sensitivity, and Aptitude), and</li>
+<li>six corresponding levels of activations (=sentic levels, measuring the strength of an emotion) in an intervall [-3,3]</li>
+</ul>
+and, therefore, yields 24 basic emotions such as rage, vigilance, ecstasy, admiration, ...</p>
+<p><strong>Blending</strong> is used for inference over multiple data sources, talking advantage of the overlap between them. The authors use single value decomposition for combining different knowledge sources.</p>
+<p><strong>CF-IOF Weighting</strong> is a term weighting technique similar to TF-IDF that identifies the importance of a concept for a particular domain.</p>
+<p><strong>Spectral Association</strong> (Havasi et al., 2010) is used for approximating multiple spreading activation steps by using the following technique:</p>
+<ol>
+<li>a matrix <em>C</em> stores the relations between concepts in the spreading activation network</li>
+<li>Applying <em>C</em> to an initial activation energy vector yields the result for the first round of spreading activation, applying $$C^2$$, yields the second round, etc.</li>
+</ol>
+\[ 1+C+\frac{C^2}{2!}+\frac{C^3}{3!}+ ... = e^C \]</p>
+<p>The operator $$e^C$$ is computed by spectral decomposition:</p>
+<p>\[ C = V\Lambda V^T \]</p>
+<p>\[ e^C = Ve^{\Lambda}V^T \]</p>
+<h2>Resources</h2></p>
+<ol>
+<li><strong>AffectiveSpace</strong> (Cambria et al., 2009) is a multidimensional vector space build from ConceptNet and WordNetAffect (Strapparava and Valitutti, 2004) by means of <em>truncated singular value decomposition </em>to obtain a matrix containing hierarchical affective knowledge and common sense.</li>
+<li><strong>Human Emotion Ontology (HEO)</strong> (Grassi, 2009) is a high level ontology for human emotions</li>
+<li>Stereomood, is an emotional on-line radio providing music that fits to the user's mood.</li>
+<li>Jinni is a video site, that uses an ontology for classifying videos and provides mood-tags for videos.</li>
+<li>Emotional text passages have been retrieved from a database that has been build according to "1001 Books for Every Mood: A Bibliophile's Guide to Unwinding, Misbehaving, Forgiving, Celebrating, Commiserating" (Ephron, 2008).</li>
+<li>LiveJournal is a community of more than 23 million users that provide mood-tagged blog, journal, and diary entries.</li>
+<li>Havasi, Catherine, Speer, Robert, and Holmgren, Justin: Automated Color Selection Using Semantic Knowledge", In Proceedings of AAAI CSK, Arlington, USA</li>
+</ol></p>

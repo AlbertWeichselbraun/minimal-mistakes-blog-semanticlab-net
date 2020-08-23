@@ -1,0 +1,32 @@
+---
+status: publish
+published: true
+title: A Utility Theoretic Approach to Determining Optimal Wait Times in Distributed
+  Information Retrieval
+wordpress_id: 41
+wordpress_url: https://blog.semanticlab.net/2008/08/24/a-utility-theoretic-approach-to-determining-optimal-wait-times-in-distributed-information-retrieval/
+date: '2008-08-24 12:03:27 +0200'
+date_gmt: '2008-08-24 11:03:27 +0200'
+categories:
+- Uncategorized
+tags: []
+comments: []
+---
+<p>This paper presents an approach for providing optimal access to multiple resources combined to a <i>virtual</i> resource through an information retrieval agent.
+The key design decisions of this agent are:</p>
+<ul>
+<li>source to use</li>
+<li>how long to wait for responses</li>
+<li>how to merge the results (ranking)</li>
+</ul></p>
+<p>The main goal of this research is to determine the optimal termination time for the search (T).</p>
+<p><b>Utility</b>
+The authors use a similar utility model as Montgomery et. al but model the error term epsilon (representing all uncertainties associated with predicting utility) using a <i>normal distribution</i> with mean of 0 and a standard deviation 1.</p>
+<p><b>Literature</b></p>
+<ul>
+<li>Kehoe et al. [10] show that consumers have significant costs associated with waiting.</li>
+</ul>
+<b>Interesting Aspects</b>
+The authors consider the potential decrease in utility due to overlapping results.
+The decision problem is formulated as finding the maximum of the <i>expected value</i> of the utility minus search cost.
+In the last section the authors present an adaptive heuristic, which decides even during the retrieval process based on the available data. They provide an ex-post analysis (with full knowledge of prices) and show that using the adaptive approach with this level of information yields better results than the static solution.</p>

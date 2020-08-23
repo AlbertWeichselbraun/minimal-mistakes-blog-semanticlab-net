@@ -1,0 +1,77 @@
+---
+status: publish
+published: true
+title: 'Isanette: A Common and Common Sense Knowledge Base for Opinion Mining'
+wordpress_id: 269
+wordpress_url: https://blog.semanticlab.net/?p=269
+date: '2012-04-19 09:26:17 +0200'
+date_gmt: '2012-04-19 08:26:17 +0200'
+categories:
+- Information Extraction
+- Ontology Building
+- Sentiment Detection
+- Machine Learning
+tags:
+- linking open data
+- sentiment analysis
+- concept-based sentiment analysis
+comments: []
+---
+<p>Cambria, E. et al., 2011. Isanette: A Common and Common Sense Knowledge Base for Opinion Mining. In Data Mining Workshops (ICDMW), 2011 IEEE 11th International Conference on. pp. 315 &mdash;322.</p>
+<p>This paper demonstrates how different knowledge sources can be combined for considering common sense and common knowledge in opinion mining by propagating sentiment from affect words such as "happy" or "sad" to general concepts (e.g. "birthday gift", "school graduation", ...)</p>
+<p>The authors build upon two knowledg sources:</p>
+<ol>
+<li>ConceptNet - a natural language-based semantic network of common sense knowledge and</li>
+<li>Probase - the largest existing taxonomy of common knowledge that was created by Microsoft through Open Information Extraction.</li>
+</ol></p>
+<h2>Methods and Concepts</h2></p>
+<ul>
+<li>Building the knowledge base: the authors create a 2,715,218 x 1,331,231 matrix of concepts (e.g. artists) and their instances (e.g. picaso, mozart, ...) based on Probase's hyponym-hypernym relations.</li>
+<li>afterwards they <strong>reduce the matrix' sparseness </strong>by performing the following steps:
+<ol>
+<li>apply NLP to merge multiple word forms into one concept/instance</li>
+<li>discard nodes with a low connectivity (hapax legomena and nodes with a connectivity <=10)</li>
+<li>exploit dimensionality reduction techniques to infer negative evidence (e.g. "alitalia" is not a "country, ...)</li>
+<li>integrate common sense knowledge from ConceptNet using blending (compare: "Digital Intuition - Applying Common Sense Using Dimensionality Reduction")</li>
+</ol>
+</li></p>
+<li><strong>Creation of the Knowledge Base:</strong>
+<ol>
+<li>build a Vector Space Representation of the Knowledge Base
+<ol>
+<li>apply truncated singular value decomposition (SVD)</li>
+<li>represent common and common sense instances by vectors of "d=500" coordinates that can be seen as describing instances in terms of 'eigenconcepts' for the instances.</li>
+</ol>
+</li></p>
+<li>semantic clusting - cluster the space into 5000 different categories that are represented by Isanette's hub concepts (=top 5,000 concepts with the highest in-degree in Isanette).</li>
+</ol>
+</li></p>
+<li><strong>Opinion Mining</strong>
+<ol>
+<li>Interpretation of affective valence indicators (special punctuation, complete uper-case words, onomatopoeic repetitons (e.g. "grrr", "arg", ...), exclamation words, negations, degree adverbs and emoticons)</li>
+<li>Semantic parsing deconstructs the text into concepts
+e.g. "I bought a lot of very nice Christmas presents" -> "buy christmas present"</li></p>
+<li>Calculate the polarity according to the Hourglass dimensions that are based on Pleasantness, Attention, Sensitivity and Aptitude
+p = \sum ( [Pleasantness(concept)) + |Attention(concept)| - |Sensitivity(concept)| + Aptitude(concept)] / 9N
+(9 is a normalization factor, since the Hourglass dimensions are defined as [-3, +3])</li>
+</ol>
+</li>
+</ul></p>
+<h3>Sentiment Analysis</h3></p>
+<ul>
+<li>early work: classify entire documents</li>
+<li>later: paragraph level opinion analysis</li>
+<li>recent work:
+<ul>
+<li>sentence level sentiment analysis</li>
+<li>detection of subjective sentences</li>
+<li>use of semantic frames</li>
+<li>identification sentiment topics (targets)</li>
+</ul>
+</li>
+</ul></p>
+<h2>Interesting Resources</h2></p>
+<ul>
+<li><a title="Open Mind Common Sense" href="http://openmind.media.mit.edu/">Open Mind Common Sense (OMCS) </a>- a collection of common sense statements over a number of concepts</li>
+<li><strong>Hourglass of Emotions: </strong>Cambria, E. et al., 2010. SenticSpace: Visualizing Opinions and Sentiments in a Multi-dimensional Vector Space. In R. Setchi et al., eds. Knowledge-Based and Intelligent Information and Engineering Systems. Lecture Notes in Computer Science. Springer Berlin / Heidelberg, pp. 385&mdash;393. .</li>
+</ul></p>

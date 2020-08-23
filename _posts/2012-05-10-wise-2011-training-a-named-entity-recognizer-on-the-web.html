@@ -1,0 +1,63 @@
+---
+status: publish
+published: true
+title: WISE 2011 - Training a Named Entity Recognizer on the Web
+wordpress_id: 282
+wordpress_url: https://blog.semanticlab.net/?p=282
+date: '2012-05-10 14:54:17 +0200'
+date_gmt: '2012-05-10 13:54:17 +0200'
+categories:
+- Conferences
+tags:
+- named entity recognition
+- conference
+comments: []
+---
+<p>by Urbansky et al.</p>
+<p>The authors distinguish between three approaches towards NER:</p>
+<ol>
+<li>use of hand-crafted rules (lexicons, rules)</li>
+<li>supervised machine learning, and</li>
+<li>unsupervised machine learning (e.g., clustering)</li>
+</ol></p>
+<h2>Creating Training Data</h2>
+Collins and Singer show that at least seven seed terms are required for creating well performing extraction rules. A higher number of seeds increases recall at the cost of the component's precision. The authors apply the following process for creating the training data:</p>
+<ol>
+<li>create a number of seed entities</li>
+<li>query a search engine to retrieve documents containing these seeds</li>
+<li>boilerplate removal</li>
+<li>annotate the seeds and remove all lines that either
+<ol>
+<li>do not contain any annotated seed</li>
+<li>are shorter than 80 characters, or</li>
+<li>do not contain any context around the seed</li>
+</ol>
+</li></p>
+<li>build the knowledge base:
+<ol>
+<li>create a dictionary of n-grams and their probability of refering to a certain type (e.g. "r. John" -> Person (0.9), Location (0.05), Product (0.05), ...)</li>
+<li>complete context information per type</li>
+<li>context information within a sliding window of (+3/-3 words).</li>
+<li>case signatures for all tokens in the training data (A => completely uppercase, Aa => capitalized, a => lowercase)</li>
+</ol>
+</li>
+</ol>
+When analyzing contexts, numbers are always replaced by the placeholder "NUM".</p>
+<h2>Named Entity Recognition</h2></p>
+<ol>
+<li>Entity Detection: use regular expressions (capitalization for English documents) to identify potential entities.</li>
+<li>Classify the entities based on the knowledge base by creating n-grams (3<=n<=7) and comparing them to the data stored in the dictionaries.</li>
+<li>Post processing
+<ol>
+<li>remove date fragments (since dates are not considered named entities) - e.g. July John Hiat => John Hiat</li>
+<li>apply information from the context dictionary to refine the estimation (e.g. "Paris" -> Person; "born in Paris" -> City)</li>
+<li>use context information to change the boundaries of n-grams (e.g. "President Obama" -> "Obama" since president has been used multiple times in the text without Obama which suggests that it is some kind of title or job description).</li>
+</ol>
+</li>
+</ol></p>
+<h2>Resources:</h2></p>
+<ul>
+<li><a href="http://areca.co">Areca </a>- a repository for test data sets</li>
+<li><a href="http://palladian.ws">Palladian </a>- an NLP framework that is free for research purposes</li>
+<li><a href="http://www.cnts.ua.ac.be/CoNLL2003/ner/">CoNLL dataset</a></li>
+</ul></p>

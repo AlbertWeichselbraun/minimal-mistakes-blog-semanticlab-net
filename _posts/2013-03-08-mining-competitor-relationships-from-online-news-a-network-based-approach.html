@@ -1,0 +1,60 @@
+---
+status: publish
+published: true
+title: 'Mining competitor relationships from online news: A network based approach'
+wordpress_id: 485
+wordpress_url: https://blog.semanticlab.net/?p=485
+date: '2013-03-08 06:19:50 +0100'
+date_gmt: '2013-03-08 05:19:50 +0100'
+categories:
+- Social Networks
+- Information Extraction
+tags:
+- information extraction
+- imbalanced data sets
+- networks
+- classification
+- business metrics
+- undersampling
+comments:
+- id: 3
+    Semanticlab Weblog'
+  author_email: ''
+  date: '2013-03-31 14:10:09 +0200'
+  date_gmt: '2013-03-31 13:10:09 +0200'
+  content: "[...] article also draws upon network metrics to solve a binary classification
+    problem (see my previous post), but applies the binary classifier to company revenue
+    relations (higher revenue true/false) rather [...]"
+---
+<p>Ma, Z., Pant, G. &amp; Sheng, O.R.L., 2011. Mining competitor relationships from online news: A network-based approach. Electronic Commerce Research and Applications, 10(4), pp.418&mdash;427.</p>
+<p>This article introduces a method for mining competitor relationships from a network of business relations that has been retrieved from categorized Yahoo finance news. News assigned to a company yield outgoing links to other companies mentioned in the same article. The authors compute four different types of network metrics for every aggregated link between two companies which are then used as features for a classifier that determines whether two companies share an "isCompetitor" relation.</p>
+<h1>Method</h1>
+The method draws upon an observation by Bae et al. (2008) which states that a company is more likely to co-occur with its competitors in Web pages. Therefore, Ma et al. (2011) perform the following steps for identifying competitor relations:</p>
+<ol>
+<li>They analyse news from Yahoo finance where news items have been pre-assigned to companies (and their corresponding ticker symbols). Every mention of another company $$B_i$$ in a news article assigned to company A yields an outgoing link from A to the corresponding company ($$B_i$$).</li>
+<li>Aggregating these links yields a weighted inter-company network. The authors then compute four different type of network metrics for every link. These metrics are used as features for a subsequent classification step.</li>
+<li>The classifier is first trained with 40  randomly selected pairs that have been labeled according to a gold standard. Afterwards, the labels of unknown relations (competitor/no competitor) are computed.
+The authors also address the issues of imbalanced data sets by using techniques such as decision threshold adjustment (DTA) and undersampling-ensemble (UE).</li>
+</ol></p>
+<h2>Link and Network Metrics</h2>
+The approach bases the link classification on the following four types of metrics:</p>
+<ol>
+<li><em>Links between nodes</em>: degree based attributes (incoming (weigth of dyad in-degree), outgoing links (weight of dyad out-degree), net weight, dyad in/out-degree)</li>
+<li><em>Links between nodes and their neighbors</em>: weight of node in-degree (considers incoming links from all neighbors), node out-degree, node in/out-degree</li>
+<li><em>Centrality-based attributes</em>: PageRank (popularity score), HITS (authority score), betweenness centrality. Both, PageRank and HITS, compute principal eigenvectors of matrices derived from graph representations of the Web.</li>
+<li><em>Structural equivalence (SE)-based attributes</em>: identify two nodes as structurally equivalent if they have the same links to and from other nodes; the authors use a similarity metric to measure the degree of structural equivalence that is based on the nodes in-/out- and in/out-degree.
+A high overlap between neighbors of two nodes might correspond to a high overlap in their business and, therefore, to a competitor relationship.</li>
+</ol></p>
+<h2>Data Set Imbalance</h2></p>
+<ol>
+<li>Imbalanced data sets, i.e. data set where most instances occur in one class are hard to classify, since classifiers optimize accuracy (which makes returning the majority class as classification result very attractive)</li>
+<li>The following approaches may be used to compensate for the imbalance:</li>
+<ul>
+<li>data-oriented methods: undersampling majority, oversampling minority, oversampling minority by creating a synthetic minority, segmentation of the set in disjoint regions</li>
+<li>algorithmic methods: decision threshold adjustment, cost-sensitive learning, recognition-based learning (=> transfer the problem to a one-class recognition problem where only the rules for classifying the minority are learned)</li>
+</ul>
+</ol></p>
+<h2>Machine Learning</h2>
+The authors evaluate their approach with the neural network, Naive Bayes, C4.5 decision tree and logistic regression models from the WEKA toolkit using a 10-fold cross evaluation.</p>
+<h2>Estimate Gold Standard Coverage</h2>
+Finally, the article describes a method for estimating the gold standard coverage based on two different "gold standard" and techniques originally developed by Le Cren (1965) for estimating the wildlife population and Lawrence and Giles for estimating the coverage of search engines.</p>

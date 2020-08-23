@@ -1,0 +1,44 @@
+---
+status: publish
+published: true
+title: A Survey of Types of Text Noise and Techniques to Handle Noisy Text
+wordpress_id: 305
+wordpress_url: https://blog.semanticlab.net/?p=305
+date: '2012-10-01 07:14:40 +0200'
+date_gmt: '2012-10-01 06:14:40 +0200'
+categories:
+- Information Retrieval
+- Information Extraction
+tags:
+- named entity recognition
+- noise
+- text classification
+comments: []
+---
+<p>by Subramaniam, L. V., Roy, S., Faruquie, T. A., &amp; Negi, S. (2009). A survey of types of text noise and techniques to handle noisy text. <em>Proceedings of The Third Workshop on Analytics for Noisy Unstructured Text Data</em>, AND  &trade;09 (pp. 115&mdash;122). New York, NY, USA: ACM. doi:10.1145/1568296.1568315</p>
+<h3>Definition</h3>
+Noise in text can be defined as any kind of difference between electronic text and the intended, correct or original text. The authors of this paper identify the following two noise sources:</p>
+<ol>
+<li>Automatic processing of signals intended for human consumption (e.g. optical character recognition (OCR), automatic speech recognition (ASR), machine translation). This kind of noise may produce text that only contains valid vocabulary words, but still is very noisy for human consumption.</li>
+<li>Text generated in informal settings (e.g. chat messages, short messaging service (SMS) messages, emails, message boards, web pages) due to (i) spelling errors, (ii) special characters, (iii) non standard word forms, (iv) grammar mistakes, (v) use of multilingual words, etc.</li>
+</ol></p>
+<h3>Methods and Metrics</h3></p>
+<ol>
+<li>Levenshtein distance (spelling errors)</li>
+<li>Word Error Rate and Sentence Error rate</li>
+<li>Perplexity (an indication of the number of "strange" n-grams in the text)</li>
+<li>Character accuracy (for OCR texts)</li>
+</ol></p>
+<h3>Impact of Noise</h3></p>
+<ol>
+<li><strong>Information Retrieval</strong> - Noise is definitely a serious problem for information retrieval because (i) it is often based on string matching, (ii) search queries frequently contain spelling errors (10-15%) [Cucerzan and Brill 2004), (iii) contain a high share of out of vocabulary words, and (iii) are typically short (average query length of 2.3).</li>
+<li><strong>Text Classification</strong> -  Agarwal et al. (2007) performed a comprehensive study on the impact of noise on text classification using synthetic and real life data. They concluded that even high noise levels (70%) do not  impact classification performance considerably.</li>
+<li><strong>Information Extraction</strong> - Packer et al. (2010) applied three typical named entity recognition techniques (dictionary based extractor, regular expression-based extractor, Maximum Entropy Markov Model-based extractor) to an OCR corpus. They observed F-Measures between 28-89% depending on the word error rate of the scanned documents.</li>
+</ol></p>
+<h3>Literature</h3>
+Agarwal, S., Godbole, S., Punjani, D., &amp; Roy, S. (2007). How Much Noise Is Too Much: A Study in Automatic Text Classification. <em>Proceedings of the 2007 Seventh IEEE International Conference on Data Mining</em>, ICDM  &trade;07 (pp. 3&mdash;12). Washington, DC, USA: IEEE Computer Society. doi:10.1109/ICDM.2007.21</p>
+<p>Cucerzan, S., &amp; Brill, E. (2004). Spelling Correction as an Iterative Process that Exploits the Collective Knowledge of Web Users (pp. 293&mdash;300). Presented at the EMNLP. Retrieved from http://dblp.uni-trier.de/rec/bibtex/conf/emnlp/CucerzanB04</p>
+<p>Packer, T. L., Lutes, J. F., Stewart, A. P., Embley, D. W., Ringger, E. K., Seppi, K. D., &amp; Jensen, L. S. (2010). Extracting person names from diverse and noisy OCR text. <em>Proceedings of the fourth workshop on Analytics for noisy unstructured text data</em>, AND  &trade;10 (pp. 19&mdash;26). New York, NY, USA: ACM. doi:10.1145/1871840.1871845</p>
+<div class="csl-bib-body" style="line-height: 2; padding-left: 2em; text-indent: -2em;"></div></p>
+<div class="csl-bib-body" style="line-height: 2; padding-left: 2em; text-indent: -2em;"></div>
+&nbsp;</p>

@@ -1,0 +1,44 @@
+---
+status: publish
+published: true
+title: Opinion Holder and Target Extraction for Verb-based Opinion Predicates - The
+  Problem is Not Solved
+wordpress_id: 867
+wordpress_url: http://blog.semanticlab.net/?p=867
+date: '2015-12-15 09:20:39 +0100'
+date_gmt: '2015-12-15 08:20:39 +0100'
+categories:
+- Sentiment Detection
+tags:
+- lexicons
+- sentiment analysis
+- opinion target
+- opinion holder
+- shortcomings
+comments: []
+---
+<div>
+<div>Michael Wiegand, Marc Schulder, &amp; Josef Ruppenhofer. (n.d.). Opinion Holder and Target Extraction for Verb-based Opinion Predicates -- The Problem is Not Solved. In <i>Proceedings of the 6th Workshop in Computational Approaches to Subjectivity and Sentiment Analysis</i>. Lisbon, Portugal.</div></p>
+<h2>Problem description</h2>
+This article focuses on the extraction of opinion roles for verb-based opinion predicates, noting that automatic discrimination of these roles is a challenging task, since the position of opinion holder (OH) and opinion target (OT) depend on the verb  and even may vary depending on the point of view, as demonstrated in the examples below:</p>
+<ol>
+<li>Peter/OH <strong>dislikes</strong> Marry/OT.</li>
+<li>Peter/OT <strong>disappoints</strong> Marry/OH.</li>
+<li>Peter/OH <strong>consoles</strong> Marry/OT.</li>
+<li>Peter/OT <strong>consoles</strong> Marry/OH.</li>
+<li>These people/OT are <strong>gossiping</strong> a lot.</li>
+</ol>
+The authors conclude, that lexical resources would need to include information on the argument positions of a verb's opinion roles - a requirement which neither FrameNet nor  WordNet meet at this stage. Another problem is, that the <strong>review domain </strong>which is often used for sentiment analysis tasks does <strong>not</strong> seem to be <strong>suitable</strong> for opinion holder extraction, since</p>
+<ol>
+<li>product reviews typically focus on the <strong>author's view</strong> on a particular product, and</li>
+<li><strong>adjectives</strong> are much<strong> more frequently</strong> used than verbs in this domain.</li>
+</ol>
+The authors conclude that other domains (such as News media) might be much more relevant to the problem of opinion holder and target extraction.</p>
+<h2>Automatic extraction of opinion roles</h2>
+The paper also includes approaches to automatically extract opinion roles that are not very successful at this stage:</p>
+<ol>
+<li><strong>Similarity based:</strong> Opinion roles do not correspond to the similarity of opinion verbs, as experiments performed with the WordNet::Similarity metric demonstrate (for instance: rage, temper, fate and fear are similar to outrage, but have a reverse selectional preference).</li>
+<li><strong>Machine learning:</strong> experiments which learn selectional preferences from MPQA using (a) the sequence labeler <strong>MultiRel</strong> and (b) <strong>convolution kernels</strong> show that the obtained F-measure amounts to ~72% in-domain and only ~45% across-domains.</li>
+</ol>
+&nbsp;</p>
+<p></div></p>

@@ -1,0 +1,38 @@
+---
+status: publish
+published: true
+title: The DARPA Twitter Bot Challenge
+wordpress_id: 904
+wordpress_url: https://blog.semanticlab.net/?p=904
+date: '2016-06-20 15:05:28 +0200'
+date_gmt: '2016-06-20 14:05:28 +0200'
+categories:
+- Social Networks
+- Big data
+tags:
+- features
+- bots
+- bot detection
+- influence bots
+comments: []
+---
+<p>Subrahmanian, V. S., A. Azaria, S. Durst, V. Kagan, A. Galstyan, K. Lerman, L. Zhu, E. Ferrara, A. Flammini, and F. Menczer. The DARPA Twitter Bot Challenge. Computer 49, no. 6 (June 2016): 38&mdash;46. doi:10.1109/MC.2016.183.</p>
+<h2>Introduction</h2>
+According to Twitter's SEC filing approximately 8.5% of all Twitter users are bots such as (i) <em>spambots</em>, (ii) <em>paybots</em> (i.e. bots that copy content from respected sources and paste it into micro URLs that pay the bot's creator for redirecting traffic to their sites), and (iii) <em>influence bots</em> (i.e. bots that try to shape discussions in accordance to a certain agenda).</p>
+<p>Research has shown that such bots have a surprisingly large influence, triggering a competition by <em>DARPA's Social Media in Strategic Communication program</em>  for identifying<em> influence bots</em> that promote <em>pro-vaccination</em> on Twitter discussions based on a synthetic data set comprising over 7000 Twitter profiles, > 4 million tweets and weekly snapshots of the Twitter network that capture changes to profiles and a user's followers.</p>
+<h2>Approach</h2>
+The teams considered different features for identifying bots including</p>
+<ol>
+<li>Tweet syntax (i.e. syntax that indicates the use of natural language generation programs, etc.)</li>
+<li>Tweet semantics (number of posts related to that topic, sentiment, consistency, etc.)</li>
+<li>Temporal behavior features (variance in sentiment, durance of sessions, average number of Tweets)</li>
+<li>Network features (deviation of user sentiment scores from followers and followees, centrality, etc.)</li>
+</ol>
+The overall procedure for detecting bots contained the following steps:</p>
+<ol>
+<li>identify an initial set of bots based on the features mentioned above</li>
+<li>use cluster, outliers and network analysis to locate further bots</li>
+<li>once a large enough number of bots has been found, apply standard machine learning methods to identify the remaining bots.</li>
+</ol>
+Machine learning couldn't be applied at an earlier stage since not enough training data has been available. In addition, all teams used semi-supervised approaches - i.e. machines would identify potential bots that are than confirmed (or rejected) by human experts.</p>
+<p>&nbsp;</p>

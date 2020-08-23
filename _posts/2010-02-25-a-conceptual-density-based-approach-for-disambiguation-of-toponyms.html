@@ -1,0 +1,25 @@
+---
+status: publish
+published: true
+title: A conceptual density-based approach for disambiguation of toponyms
+wordpress_id: 75
+wordpress_url: https://blog.semanticlab.net/?p=75
+date: '2010-02-25 04:03:18 +0100'
+date_gmt: '2010-02-25 03:03:18 +0100'
+categories:
+- Articles
+- Ontology Evaluation
+tags:
+- word sense disambiguation
+comments: []
+math: true
+---
+<p>by Buscaldi and Rosso<br><br>This article explores the use of word-sense-disambiguation (WSD) techniques for toponym resolution. The authors explain two algorithms which are used for WSD:</p>
+<ul>
+<li><b>Lesk's semantic similarity</b>, which computes the similarity between a sense of the word and the context by calculating the overlap. Patwardhan et al (2003) have shown that this measures is among the best for computing the semantic relatedness of two concepts.</li>
+<li><b>Conceptual density (CD) based WSD</b>, which has been developed by the authors and computes the CD measures for every sense, selecting the sense with the highest CD value: $$CD(m, f, n) = m^{\alpha} (m/n)^{log f}$$</li>
+<ul>
+<li>m ... number of relevant subsets in the (wordnet) subhierarchy of the given sense</li>
+<li>n ... number of total synsets in the subhierarchy of the given sense</li>
+<li>f ... frequency rank of the sense (1, 2, ...)</li></ul>
+<li>Using CD-WSD with a disambiguation windows of only two nouns, yielded a precision of over 81.5% on nouns in the SemCor corpus.</li></ul></p>

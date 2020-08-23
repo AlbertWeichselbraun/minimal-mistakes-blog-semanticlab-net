@@ -1,0 +1,43 @@
+---
+status: publish
+published: true
+title: Using Ontological Contexts to Assess the Relevance of Statements in Ontology
+  Evolution
+wordpress_id: 81
+wordpress_url: https://blog.semanticlab.net/?p=81
+date: '2010-07-23 09:42:18 +0200'
+date_gmt: '2010-07-23 08:42:18 +0200'
+categories:
+- Conferences
+- Ontology Building
+- Ontology Evaluation
+tags:
+- Ontology Evaluation
+- ontology evolution
+- Ontology Building
+comments: []
+math: true
+---
+<p>by Fouad Zablith, Mathieu d'Aquin, Marta Sabou, and Enrico Motta</p>
+<p>This work describes a method for judging the <em>relevance</em> statements suggested by ontology evolution tools for an existing ontology.</p>
+<p>The relevance assessment process consists of the following steps:</p>
+<ol>
+<li>locate possible online ontologies for contextualization based on the statements subject and object (=involved concepts).</li>
+<li>identify the context C of the new statement based on online ontologies using the Jaro-Winkler string similarity metric (extract all nodes contained both ontologies).</li>
+<li>estimate the relevance of the statement using (a) overlap analysis, or (b) a pattern-based relevance assessment.</li>
+</ol>
+<strong>Overlap Analysis</strong></p>
+<p>The overlap analysis computes the relevance based on the overlap between the context and the evolving ontology.</p>
+
+\[conf_{overlap} (c, C, O) = \frac{ |e(C) \hut e(O_t)|}{e(O_t)} \]
+
+<p>A drawback of this method is, that it considers all statements equally important.</p>
+<p><strong>Pattern-Based Relevance Assessment</strong></p>
+<p>This method considers the structure in which the concepts appear. The authors have identified five patterns and determined the patterns' relative importance for detecting relevant statements.</p>
+<p>The evaluation has been performed based on three different domains by</p>
+<ul>
+<li>automatically determining statements for a given base ontology</li>
+<li>having domain experts evaluate these statements and computing a per statement relevance score.</li>
+<li>comparing this score to the suggestion by the metrics introduced above.</li>
+</ul>
+The method is highly relevant, but still only deals with <em>quite similar ontologies</em>, which are extended based on a <em>common conceptualization.</em></p>

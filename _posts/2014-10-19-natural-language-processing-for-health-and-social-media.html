@@ -1,0 +1,58 @@
+---
+status: publish
+published: true
+title: Natural Language Processing for Health and Social Media
+wordpress_id: 800
+wordpress_url: http://blog.semanticlab.net/?p=800
+date: '2014-10-19 07:35:33 +0200'
+date_gmt: '2014-10-19 06:35:33 +0200'
+categories:
+- Uncategorized
+- Big data
+tags:
+- evaluation
+- twitter
+- text classification
+- health
+- nlp
+comments: []
+---
+<div>
+<div>Abbasi, A. et al., 2014. Social Media Analytics for Smart Health. <i>IEEE Intelligent Systems</i>, 29(2), pp.60&mdash;80.</div></p>
+<div></div></p>
+<h2>Summary</h2>
+In this article Mark Dredze and Michael J. Paul discuss the use of Twitter for collecting population data at a much <strong>lower cost</strong> <strong>than</strong> through traditional data sources such as <strong>surveys</strong>. One key challenge of mining health information from social media is extracting structured data from short and noisy unstructured text.</p>
+<ol>
+<li>the massive amounts of available data make it difficult to survey and explore the data.</li>
+<li>keyword searches are problematic since users may miss important health topics</li>
+<li>disambiguating tweets is challenging (for example, not all tweets containing flue-related keywords present actual infections).</li>
+</ol></p>
+<h2>Method</h2></p>
+<ol>
+<li>the authors use <em>topic models</em>, which represent documents as distributions of topics which in turn are formed by word distributions.</li>
+<li><strong>evaluation: </strong>by measuring the ability of the models to capture real-world trends as measured by the US Behavioral Risk Factor Surveillance System (BRFSS).
+<ul>
+<li>tweets about cancer and serious illnesses per state are positively correlated with the rate of smokers in the corresponding state.</li>
+<li>tweets on obesity are negatively correlated with the rate of exercise per US state.</li>
+<li><em>control:</em> tweets on bacterial infections are unrelated to the rate of asthma in the US states.</li>
+</ul>
+</li></p>
+<li>a supervised classifier was trained with more than 10,000 labeled tweets to identify tweets which reported influence infections using the following features
+<ul>
+<li>n-grams (phrases)</li>
+<li>manually specified keyword groups (e.g. worried, scared, ...)</li>
+<li>Twitter related features (URLs, hashtags, user mentions, emoticons)</li>
+<li>linguistic features using part-of-speech tags (e.g. flu as a subject indicates <em>awareness</em> - "the flue is going around"; flue as an object indicates <em>infection</em> - "i finally got the flue")</li>
+</ul>
+<strong>evaluation: </strong>comparison with the infection rate measured by the US Centers for Disease Control and Prevention (CDC).</li>
+</ol></p>
+<h2>Other Corpora</h2></p>
+<ol>
+<li><strong>RateMDs</strong>  - 50,000 doctor reviews;</li>
+<li><strong>Drugs-Forum.com</strong> - discussions of illicit drugs; use of text summarization to reveal information on drug use.</li>
+</ol>
+</div></p>
+<ol>
+<li><strong>RateMDs</strong>  - 50,000 doctor reviews;</li>
+<li><strong>Drugs-Forum.com</strong> - discussions of illicit drugs; use of text summarization to reveal information on drug use.</li>
+</ol></p>

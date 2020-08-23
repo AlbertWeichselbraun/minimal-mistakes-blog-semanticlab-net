@@ -1,0 +1,61 @@
+---
+status: publish
+published: true
+title: 'IdentityRank: Named entity disambiguation in the news domain'
+wordpress_id: 472
+wordpress_url: https://blog.semanticlab.net/?p=472
+date: '2013-03-05 10:38:33 +0100'
+date_gmt: '2013-03-05 09:38:33 +0100'
+categories:
+- Information Extraction
+tags:
+- named entity linking
+- corpora
+- matrix
+comments: []
+---
+<p>Fern&Atilde;&iexcl;ndez, N. et al., 2012. IdentityRank: Named entity disambiguation in the news domain. <em>Expert Systems with Applications</em>, 39(10), pp.9207&mdash;9221.</p>
+<h1>Introduction</h1>
+This article introduces a <strong>supervised algorithm</strong> for disambiguating named entities in the news domain and is able to <strong>process streams</strong> of news items <strong>taking advantage of metadata</strong> such as time stamps as context information.</p>
+<h1>Design Principles</h1></p>
+<ul>
+<li><strong>Semantic coherence:</strong> related instances typically occur together. A mention of a company increases the probability of its CEO to occur in the same article. Entities also frequently have a higher probability to occur in a certain topic (e.g. politics, sports, etc.).</li>
+<li><strong>Temporal coherence</strong>: relevant events (e.g. Olympics, summits, etc.) are likely to generate  several news items describing them (and therefore sharing the same context).</li>
+</ul></p>
+<h1>Method</h1>
+Definition:</p>
+<ul>
+<li>Page rank: "a page has a high page rank if the sum of the ranks of the pages that link to it is high".</li>
+<li>IdRank: "an entity has a high rank if the sum of the ranks in the news items of the entities that typically co-occur with it is high"</li>
+</ul>
+The introduced IdRank algorithm processes the following information sources for disambiguation:</p>
+<ol>
+<li>co-occurrence of entities in the same message (semantic coherence)</li>
+<li>historical information on the probability of entities to occur in certain topics (semantic coherence)</li>
+<li>temporal information (temporal coherence)</li>
+</ol>
+$$C_m$$ represents the set of candidate instances for a certain name $$m \in M$$. $$C$$ represents the set of candidate instances for the entire document:</p>
+<p>\[ C = \bigcup_{\forall m\in M} C_m\]</p>
+<p>The probability that two instances (=entities $$I_i, I_j$$) co-occur together is defined as</p>
+<p>\[P(I_i|I_j) = \frac{ndocs(I_i, I_j)}{ndocs(I_j)} \]</p>
+<p>$$ndocs(I_i, I_j)$$ refers to the number of previously processed news items that have been annotated with both instances ($$I_i, I_j$$). Combining these two definitions yields the following relevance indicator $$R(I_i)$$.</p>
+<p>\[R(I_i) = \sum_{j=1}^N a_{ij} R(I_j)\]</p>
+<p>with</p>
+<p>\[ a_{ij} = \begin{cases}P(I_i|I_j) &amp; \text{if } i \neq j \text{ and } ndocs(I_j) \neq 0\\ 0 &amp; \text{otherwise}\end{cases}\]</p>
+<p>The  corresponding matrix representation is</p>
+<p>\[R = AR\]</p>
+<h2>Extensions</h2>
+The authors extend the equation above with terms considering categorical information and temporal information yielding</p>
+<p>\[ R=\alpha E_n + (1-\alpha)[k_{\alpha}AR + k_{kat}E_{kat} + k_{tim}E_{tim}] \]</p>
+<h1>Evaluation</h1></p>
+<h2>Corpora:</h2></p>
+<ul>
+<li>WePS (http://nlp.uned.es/weps) from the Knowledge Base Population track of Text Analysis Conference.</li>
+<li>NYT (New York Times) corpus available for purchase at the Linguistic Data Consortium (LDC)</li>
+</ul></p>
+<h2>Metrics</h2></p>
+<ul>
+<li>the use <strong>accuracy</strong> defined as the proportion of decisions which are correct with respect to the overall number of decisions</li>
+<li>a <strong>correct decision is defined as</strong> a decision where the correct entity has been chosen for an ambiguous name (neglecting potentially irrelevant entities that have been detected as well).</li>
+</ul>
+&nbsp;</p>

@@ -1,0 +1,34 @@
+---
+status: publish
+published: true
+title: An empirical study of the effects of NLP components on Geographic IR performance
+wordpress_id: 68
+wordpress_url: https://blog.semanticlab.net/?p=68
+date: '2009-10-23 10:48:27 +0200'
+date_gmt: '2009-10-23 09:48:27 +0200'
+categories:
+- Articles
+- Geo
+tags:
+- geo-tagger-evaluation
+comments: []
+---
+<p><a href="http://www.bibsonomy.org/bibtex/20c23fe0e734eda59267cc8f1e464581c/albert.weichselbraun">by Stokes et al.</a></p>
+<p>This article focuses on the impact of NLP components on </p>
+<ul>
+<li>the task of toponym resolution (TR) and</li>
+<li>geographic information retrieval (GIR)</li>
+</ul></p>
+<p>TR consists of two steps: (a) named entity recognition and classification (NERC) and (b) toponym resolution (TR) grounding the geographic entries to unique location entities.
+Stokes et al. perform their evaluation on the GeoCLEF collection (based on the <i>Los Angeles Times</i> and the <i>Glasgow Herald</i>) which tends to be more challenging to handle due to its high number of less well-known local place names.</p>
+<p><strong>Evaluation</strong></p>
+<ul>
+<li>they manually identified metonymic references (e.g. "Washington defends its invasion of Iraq" => Washington = political entity != location).</li>
+<li>they note that NERC systems report F-scores of around 90% on newswire data, which is <i>much</i> lower if they deal with non-standard sources</li>
+<li>they emphasize the usefulness of predominant sense information (e.g. the location with the highest population is expected to be the one named most frequently) for the word sense disambiguation (WSD) step</li>
+<li>they note a comparison of toponym resolution heuristics done by Leidner 2006a</li>
+</ul></p>
+<p><strong>Bibiography</strong></p>
+<ul>
+<li><a href="http://www.bibsonomy.org/bibtex/2b4c05cff958decbe40f675b465e58e6b/albert.weichselbraun">Leidner2006a</a>: Toponym resolution: A first large-scale comparative evaluation</li>
+</ul></p>

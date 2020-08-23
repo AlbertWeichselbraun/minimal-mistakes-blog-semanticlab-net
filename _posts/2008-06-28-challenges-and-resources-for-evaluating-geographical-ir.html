@@ -1,0 +1,27 @@
+---
+status: publish
+published: true
+title: Challenges and Resources for Evaluating Geographical IR
+wordpress_id: 36
+wordpress_url: https://blog.semanticlab.net/2008/06/28/challenges-and-resources-for-evaluating-geographical-ir/
+date: '2008-06-28 06:55:08 +0200'
+date_gmt: '2008-06-28 05:55:08 +0200'
+categories:
+- Geo
+tags: []
+comments: []
+---
+<p>Martins, Bruno and Silva, Mário J. and Chaves, Marcirio Silveira (2005). ''Challenges and resources for evaluating geographical IR'', GIR '05: Proceedings of the 2005 workshop on Geographic information retrieval, ISBN: 1-59593-165-1, ACM, pages 65--69</p>
+<p>The paper elaborates on the challenges required to develop accurate methods for evaluating geographic tags like</p>
+<ul>
+<li>building geographic ontologies (the authors use this term for hierarchical gazetteers)</li>
+<li>handling geographic references in text</li>
+<li>assigning scopes (country, city, ...)</li>
+<li>ranking documents according to geographic relevance (the article provides a number of suggestions and references for possible ranking criteria like (i) overlap, (ii) euclidean distance, (iii) topological distance (connectivity), (iv) semantic structures, (v) hybrid methods	</li>
+<li>building user interfaces for geo-ir</li>
+<p></ul></p>
+<p>In the next section the authors review common IR measures like precision, recall, accuracy (a=(tp+tn)/(tp+fp+fn+tn) and error, suggest pairwise testing and the Wilcoxon signed rank test to rank geo-tags.</p>
+<p>They suggest precision and recall with a fixed rank cutoffs (top five documents) or fixed recall points (e.g. precision at 20% recall) for ranked retrieval. </p>
+<p>The paper also cites experiments showing that laboratory experiments and IR metrics do not measure user satisfaction accurately. Previous work has shown that already five users detect approximately 80% of usability problems (31% per user).</p>
+<p><strong>Reasoning on Gazetteers and Geo-Ontologies</strong>
+The article provides some ideas how to reason using gazetteers by facilitating hierarchical/semantic relations, use the Euclidean distance and extending spatial reasoning e.g. through Voronoi polygons or through spatial indexes based on uniform grids.</p>
